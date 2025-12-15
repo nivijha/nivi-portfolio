@@ -31,10 +31,14 @@
 
                 <!-- RIGHT IMAGE CARD -->
                 <div class="col-lg-6 text-center">
-                    <div class="image-card">
-                        <img src="/images/hero.png" alt="developer illustration" />
+                    <div class="image-3d-wrapper">
+                        <div class="image-card image-3d">
+                            <img src="/2.webp" alt="Nivi Jha portrait" class="hero-img" />
+                        </div>
                     </div>
                 </div>
+
+
 
             </div>
         </div>
@@ -42,85 +46,185 @@
         <div class="scroll-down">Scroll to discover ↓</div>
     </section>
 
-
-    <!-- About -->
     <!-- ABOUT SECTION -->
-    <section id="about" class="about-section py-5">
+    <section id="about" class="about-editorial">
         <div class="container">
-            <div class="row align-items-center g-5">
 
-                <!-- LEFT: TEXT -->
-                <div class="col-lg-7 text-white">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-text">
-                        I’m a software engineering student passionate about building
-                        scalable web applications and AI-powered products.
-                        I enjoy solving real-world problems using clean code,
-                        modern frameworks, and data-driven approaches.
-                    </p>
+            <!-- TOP TEXT -->
+            <div class="about-text">
+                <h2 class="about-heading">
+                    I’m a software engineer focused on building scalable,
+                    thoughtful digital products.
+                </h2>
 
-                    <p class="section-text">
-                        Currently focused on full-stack development, machine learning,
-                        and system design while preparing for software engineering roles.
-                    </p>
-                </div>
+                <p>
+                    I enjoy working across the full stack — from designing clean user
+                    interfaces to building reliable backend systems. My interests lie
+                    in modern web technologies, problem solving, and creating products
+                    that are both functional and intuitive.
+                </p>
 
-                <!-- RIGHT: INFO CARD -->
-                <div class="col-lg-5">
-                    <div class="about-card">
-                        <h5>Quick Info</h5>
-                        <ul>
-                            <li>🎓 Computer Science Student</li>
-                            <li>💻 Full Stack Developer</li>
-                            <li>🤖 AI / ML Enthusiast</li>
-                            <li>🚀 Open to Internships</li>
-                        </ul>
-                    </div>
-                </div>
-
+                <p>
+                    I’m currently sharpening my skills in full-stack development,
+                    system design, and applied AI while preparing for software
+                    engineering roles and internships.
+                </p>
             </div>
+
+            <!-- STATS -->
+            <div class="about-stats">
+                <div class="stat">
+                    <h3>3+</h3>
+                    <span>Years of learning</span>
+                </div>
+
+                <div class="stat">
+                    <h3>10+</h3>
+                    <span>Projects built</span>
+                </div>
+
+                <div class="stat">
+                    <h3>15+</h3>
+                    <span>Technologies used</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
+
     <!-- SKILLS SECTION -->
-    <section id="skills" class="skills-section py-5 bg-dark">
+    <section id="skills" class="skills-categorized">
         <div class="container">
-            <h2 class="section-title text-white mb-4">Skills</h2>
 
-            <div class="row g-4">
+            <div class="skills-header text-center">
+                <h2 class="section-title">My Skills</h2>
+                <p class="section-subtitle">
+                    Tools and technologies I use across the full development stack.
+                </p>
+            </div>
 
-                <div class="col-md-4">
-                    <h6 class="skill-heading">Languages</h6>
-                    <div class="skill-badges">
-                        <span>Java</span>
-                        <span>Python</span>
-                        <span>JavaScript</span>
-                    </div>
+            <!-- FRONTEND -->
+            <div class="skill-category">
+                <h4 class="category-title">Frontend</h4>
+                <div class="skill-row">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>React</span>
                 </div>
+            </div>
 
-                <div class="col-md-4">
-                    <h6 class="skill-heading">Frontend</h6>
-                    <div class="skill-badges">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>Bootstrap</span>
-                        <span>React</span>
-                    </div>
+            <!-- BACKEND -->
+            <div class="skill-category">
+                <h4 class="category-title">Backend</h4>
+                <div class="skill-row">
+                    <span>Node.js</span>
+                    <span>Express.js</span>
+                    <span>REST APIs</span>
                 </div>
+            </div>
 
-                <div class="col-md-4">
-                    <h6 class="skill-heading">Backend & Tools</h6>
-                    <div class="skill-badges">
+            <!-- DATABASE -->
+            <div class="skill-category">
+                <h4 class="category-title">Databases & BaaS</h4>
+                <div class="skill-row">
+                    <span>MongoDB</span>
+                </div>
+            </div>
+
+            <!-- TOOLS -->
+            <div class="skill-category">
+                <h4 class="category-title">Tools & Design</h4>
+                <div class="skill-row">
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>Figma</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECT SECTION -->
+    <section id="projects" class="projects-editorial">
+        <div class="container">
+
+            <!-- HEADER -->
+            <div class="projects-header">
+                <span class="section-eyebrow">Projects</span>
+                <h2 class="project-section-title">Selected Work</h2>
+                <p class="section-subtitle">
+                    A selection of projects where I applied problem-solving,
+                    system design, and modern web technologies.
+                </p>
+            </div>
+
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <h3>Ecosense</h3>
+                    <p>
+                        A sustainability-focused platform aimed at spreading awareness
+                        about pollution and eco-friendly alternatives using data-driven insights.
+                    </p>
+
+                    <div class="project-tech">
                         <span>Node.js</span>
                         <span>Express</span>
                         <span>MongoDB</span>
-                        <span>Git</span>
+                        <span>ML</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="#">GitHub →</a>
+                        <a href="#">Live →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>MedTracker</h3>
+                    <p>
+                        A medical record management system that allows hospitals and
+                        patients to securely manage and access health records.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                        <span>Bootstrap</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="#">GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>AI Coding Assistant</h3>
+                    <p>
+                        An AI-powered assistant designed to help competitive programmers
+                        analyze problems and generate solution hints efficiently.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>NLP</span>
+                        <span>FastAPI</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="#">GitHub →</a>
                     </div>
                 </div>
 
             </div>
+
+
         </div>
     </section>
+
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="contact-section py-5">
@@ -137,7 +241,7 @@
                     <!-- CONTACT INFO -->
                     <div class="contact-info mt-4">
                         <p>
-                            📧 <a href="mailto:nivijha@email.com">nivijha@email.com</a>
+                            📧 <a href="mailto:nivijha@email.com">nivijha@gmail.com</a>
                         </p>
                     </div>
 
@@ -149,7 +253,8 @@
                         <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-btn">
                             LinkedIn
                         </a>
-                        <a href="/resume.pdf" target="_blank" class="contact-btn primary">
+                        <a href="https://drive.google.com/file/d/153A-wZwXpX5_he8Hr9va6zCeN5ZWFqix/view?usp=sharing"
+                            target="_blank" class="contact-btn primary">
                             Resume
                         </a>
                     </div>
