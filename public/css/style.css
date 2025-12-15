@@ -1,0 +1,283 @@
+/* HERO BACKGROUND */
+.hero-section {
+  background: radial-gradient(
+      circle at top left,
+      #1f2937,
+      #020617 60%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* TEXT */
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #818cf8, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  max-width: 480px;
+}
+
+/* TECH BADGES */
+.tech-badges span {
+  display: inline-block;
+  padding: 6px 14px;
+  margin-right: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #c7d2fe;
+  font-size: 0.85rem;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: linear-gradient(90deg, #6366f1, #38bdf8);
+  border: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* IMAGE CARD */
+.image-card {
+  background: #020617;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 30px 80px rgba(99, 102, 241, 0.2);
+}
+
+.image-card img {
+  max-width: 100%;
+  border-radius: 16px;
+}
+
+/* SCROLL TEXT */
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* About Section */
+/* SECTION TITLES */
+.about-section {
+    background: purple;
+  position: relative;
+  overflow: hidden;
+}
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* TEXT */
+.section-text {
+  color: #9ca3af;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ABOUT CARD */
+.about-card {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-radius: 16px;
+  padding: 25px;
+  color: white;
+  box-shadow: 0 20px 50px rgba(99, 102, 241, 0.15) !important;
+}
+
+.about-card h5 {
+  margin-bottom: 15px;
+}
+
+.about-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-card li {
+  margin-bottom: 10px;
+  color: #c7d2fe;
+}
+
+/* SKILLS */
+.skill-heading {
+  color: #e5e7eb;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.skill-badges span {
+  display: inline-block;
+  margin: 6px 6px 0 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.15);
+  color: #c7d2fe;
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.skill-badges span:hover {
+  transform: translateY(-3px);
+}
+
+/* Project Section */
+.projects-section {
+  background: radial-gradient(circle at bottom right, #020617, #020617);
+}
+
+/* Subtitle */
+.section-subtitle {
+  color: #9ca3af;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+/* CARD */
+.project-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
+  padding: 25px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(99, 102, 241, 0.25);
+}
+
+/* HEADER */
+.project-header h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.project-header p {
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+/* TECH STACK */
+.project-tech {
+  margin-top: 15px;
+}
+
+.project-tech span {
+  display: inline-block;
+  margin: 5px 6px 0 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.15);
+  color: #c7d2fe;
+  font-size: 0.75rem;
+}
+
+/* ACTIONS */
+.project-actions a {
+  margin-right: 10px;
+}
+
+
+/* CONTACT SECTION */
+.contact-section {
+  background: radial-gradient(circle at top, #020617, #020617);
+  color: white;
+}
+
+/* SUBTITLE */
+.contact-subtitle {
+  color: #9ca3af;
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* EMAIL */
+.contact-info a {
+  color: #c7d2fe;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* BUTTONS */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.contact-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-3px);
+}
+
+/* PRIMARY CTA */
+.contact-btn.primary {
+  background: linear-gradient(90deg, #6366f1, #38bdf8);
+  border: none;
+}
+
+
+/* Footer */
+/* FOOTER */
+.footer-section {
+  background: #020617;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* TEXT */
+.footer-text {
+  color: #9ca3af;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* LINKS */
+.footer-link {
+  color: #c7d2fe;
+  margin-left: 15px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #818cf8;
+}
