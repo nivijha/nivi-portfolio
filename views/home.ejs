@@ -7,12 +7,6 @@
 
                 <!-- LEFT CONTENT -->
                 <div class="col-lg-6 text-white">
-                    <!-- <div class="tech-badges mb-4">
-                        <span>Next.js</span>
-                        <span>TailwindCSS</span>
-                        <span>TypeScript</span>
-                    </div> -->
-
                     <h1 class="hero-title">
                         Hello, I'm <br />
                         <span class="gradient-text">Nivi Jha</span>
@@ -43,61 +37,71 @@
             </div>
         </div>
 
-        <div class="scroll-down">Scroll to discover ↓</div>
+        <div class="scroll-down" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
+                class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
+            </svg>
+        </div>
     </section>
 
     <!-- ABOUT SECTION -->
-    <section id="about" class="about-editorial">
-        <div class="container">
+    <section id="about" class="about-section">
+        <div class="about-grid">
 
-            <!-- TOP TEXT -->
-            <div class="about-text">
-                <h2 class="about-heading">
-                    I’m a software engineer focused on building scalable,
-                    thoughtful digital products.
+            <!-- LEFT: TEXT -->
+            <div class="about-content reveal-stagger">
+                <h2 class="section-title">About Me</h2>
+                <h2 class="about-title">
+                    I build <span>scalable</span>, thoughtful digital products.
                 </h2>
 
-                <p>
-                    I enjoy working across the full stack — from designing clean user
-                    interfaces to building reliable backend systems. My interests lie
-                    in modern web technologies, problem solving, and creating products
-                    that are both functional and intuitive.
+                <p class="about-text">
+                    I’m a software engineering student passionate about building reliable,
+                    user-focused web applications that solve real-world problems.
                 </p>
 
-                <p>
-                    I’m currently sharpening my skills in full-stack development,
+                <p class="about-text">
+                    I enjoy working across the full stack — from crafting clean, intuitive
+                    interfaces to designing scalable backend systems.
+                </p>
+
+                <p class="about-text">
+                    Currently, I’m strengthening my skills in full-stack development,
                     system design, and applied AI while preparing for software
                     engineering roles and internships.
                 </p>
+
+
             </div>
 
-            <!-- STATS -->
-            <div class="about-stats">
+            <!-- RIGHT: INFO CARD -->
+            <div class="about-card reveal-stagger">
                 <div class="stat">
                     <h3>3+</h3>
-                    <span>Years of learning</span>
+                    <p>Years of learning</p>
                 </div>
-
                 <div class="stat">
                     <h3>10+</h3>
-                    <span>Projects built</span>
+                    <p>Projects built</p>
                 </div>
-
                 <div class="stat">
                     <h3>15+</h3>
-                    <span>Technologies used</span>
+                    <p>Technologies used</p>
                 </div>
             </div>
 
         </div>
     </section>
 
+    <div class="section-divider"></div>
 
     <!-- SKILLS SECTION -->
     <section id="skills" class="skills-categorized">
         <div class="container">
 
-            <div class="skills-header text-center">
+            <div class="skills-header text-center reveal-stagger">
                 <h2 class="section-title">My Skills</h2>
                 <p class="section-subtitle">
                     Tools and technologies I use across the full development stack.
@@ -105,7 +109,7 @@
             </div>
 
             <!-- FRONTEND -->
-            <div class="skill-category">
+            <div class="skill-category reveal-stagger">
                 <h4 class="category-title">Frontend</h4>
                 <div class="skill-row">
                     <span>HTML</span>
@@ -116,7 +120,7 @@
             </div>
 
             <!-- BACKEND -->
-            <div class="skill-category">
+            <div class="skill-category reveal-stagger">
                 <h4 class="category-title">Backend</h4>
                 <div class="skill-row">
                     <span>Node.js</span>
@@ -126,7 +130,7 @@
             </div>
 
             <!-- DATABASE -->
-            <div class="skill-category">
+            <div class="skill-category reveal-stagger">
                 <h4 class="category-title">Databases & BaaS</h4>
                 <div class="skill-row">
                     <span>MongoDB</span>
@@ -134,7 +138,7 @@
             </div>
 
             <!-- TOOLS -->
-            <div class="skill-category">
+            <div class="skill-category reveal-stagger">
                 <h4 class="category-title">Tools & Design</h4>
                 <div class="skill-row">
                     <span>Git</span>
@@ -145,6 +149,8 @@
 
         </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <!-- PROJECT SECTION -->
     <section id="projects" class="projects-editorial">
@@ -161,7 +167,7 @@
             </div>
 
 
-            <div class="projects-grid">
+            <div class="projects-grid reveal-stagger">
 
                 <div class="project-card">
                     <h3>Ecosense</h3>
@@ -225,6 +231,7 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="contact-section py-5">

@@ -16,8 +16,8 @@ app.get("/", (req, res)=>{
     res.render("home", { projects });
 })
 
-module.exports = app;
+// module.exports = app;
 
-// const PORT = 3000;
-// app.listen(PORT);
+const PORT = 3000;
+app.listen(PORT);
 

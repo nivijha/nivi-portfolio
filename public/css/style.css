@@ -1,8 +1,68 @@
+html, body {
+  overflow-x: hidden;
+  background: #020617;
+}
+
+
+/* Base reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Visible */
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-stagger.show > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay each child automatically */
+.reveal-stagger.show > *:nth-child(1) { transition-delay: 0.1s; }
+.reveal-stagger.show > *:nth-child(2) { transition-delay: 0.2s; }
+.reveal-stagger.show > *:nth-child(3) { transition-delay: 0.3s; }
+.reveal-stagger.show > *:nth-child(4) { transition-delay: 0.4s; }
+.reveal-stagger.show > *:nth-child(5) { transition-delay: 0.5s; }
+
+/* SCROLL PROGRESS BAR */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  z-index: 9999;
+
+  background: linear-gradient(
+    90deg,
+    #818cf8,
+    #38bdf8
+  );
+
+  box-shadow: 0 0 12px rgba(129, 140, 248, 0.6);
+  transition: width 0.1s linear;
+}
+
+
 /* NAVBAR */
 .navbar {
   backdrop-filter: blur(10px);
   /* background: rgba(2, 6, 23, 0.85); */
   height: 70px;
+  position: fixed;
+  z-index: 10;
 }
 
 .nav-link {
@@ -38,7 +98,6 @@ section {
 .nav-item{
     font-weight: 600;
     font-size: large;
-    color: 0 30px 80px rgba(99, 102, 241, 0.25);
 }
 
 .navbar-brand {
@@ -46,7 +105,7 @@ section {
     font-size: 25px;
 }
 
-/* HERO BACKGROUND */
+/* HERO SECTION */
 .hero-section {
   background: radial-gradient(
       circle at top left,
@@ -156,76 +215,204 @@ section {
 /* SCROLL TEXT */
 .scroll-down {
   position: absolute;
-  bottom: 30px;
-  width: 100%;
-  text-align: center;
-  color: #9ca3af;
-  font-size: 0.9rem;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  color: #e5e7eb;
+  opacity: 0.8;
+  animation: bounce 1.8s infinite;
+}
+
+.scroll-down:hover {
+  transform: translateX(-50%);
+  color: #5963DE;
+  opacity: 0.8;
+  animation: none;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
 }
 
 /* About Section */
-/* ABOUT — EDITORIAL STYLE */
-.about-editorial {
-  background: #020617;
-  padding: 90px 0;
+.about-section {
+  padding: 120px 0;
+  position: relative;
+  background: radial-gradient(circle at top left, #0f172a, #020617 70%);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-content {
+  position: relative;
+  padding-left: 24px;
+}
+
+.about-content::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  height: 60%;
+  width: 2px;
+  background: linear-gradient(#818cf8, transparent);
+}
+
+.about-title {
+  font-size: 3.2rem;
+  line-height: 1.15;
+  margin-bottom: 28px;
+  color: #e5e7eb;
+}
+
+.about-title span {
+  color: #818cf8;
 }
 
 .about-text {
-  max-width: 900px;
-}
-
-.about-heading {
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  font-weight: 600;
-  line-height: 1.3;
-  color: #e5e7eb;
-  margin-bottom: 28px;
-}
-
-.about-text p {
-  color: #9ca3af;
   font-size: 1.05rem;
+  color: #9ca3af;
   line-height: 1.8;
-  max-width: 780px;
-  margin-bottom: 22px;
+  max-width: 600px;
+  margin-bottom: 18px;
 }
 
-/* STATS ROW */
-.about-stats {
+.about-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
-  margin-top: 80px;
+  gap: 24px;
+  box-shadow: 0 30px 80px rgba(99, 102, 241, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin-right: 40px;
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(circle, rgba(129,140,248,0.18), transparent 70%);
+  z-index: -1;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
 }
 
 .stat h3 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #818cf8; /* accent */
-  margin-bottom: 6px;
+  font-size: 2.8rem;
+  color: #818cf8;
 }
 
-.stat span {
+.stat p {
+  font-size: 0.85rem;
   color: #9ca3af;
-  font-size: 0.95rem;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .about-stats {
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-content.fade-in.show {
+  transition-delay: 0.1s;
+}
+
+.about-card.fade-in.show {
+  transition-delay: 0.25s;
+}
+
+
+@media (max-width: 900px) {
+  .about-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
-
-  .about-editorial {
-    padding: 100px 0;
+  .about-card {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 }
+
+.section-divider {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  margin: 0px 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(129, 140, 248, 0.5),
+    transparent
+  );
+  overflow: hidden;
+}
+
+/* glowing pulse */
+.section-divider::after {
+  content: "";
+  position: absolute;
+  left: -30%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30%;
+  height: 120px;
+  background: radial-gradient(
+    circle,
+    rgba(129, 140, 248, 0.25),
+    transparent 70%
+  );
+  animation: divider-glow 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes divider-glow {
+  0% {
+    left: -30%;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    left: 50%;
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    left: 130%;
+    opacity: 0;
+  }
+}
+
+
 
 /* SKILLS */
 /* SKILLS — CATEGORIZED */
-.skills-categorized {
-  background: #020617;
+.skills-categorized  {
+  background: rgba(2, 6, 23, 0.92);
   padding: 90px 0;
 }
 
@@ -300,7 +487,7 @@ section {
 /* Project Section */
 /* PROJECTS — EDITORIAL */
 .projects-editorial {
-  background: #020617;
+  background: rgba(2, 6, 23, 0.92);
   padding: 90px 0;
 }
 
@@ -397,7 +584,7 @@ section {
 
 /* CONTACT SECTION */
 .contact-section {
-  background: radial-gradient(circle at top, #020617, #020617);
+  background: rgba(2, 6, 23, 0.92);
   color: white;
 }
 
