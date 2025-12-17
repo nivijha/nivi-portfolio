@@ -1,34 +1,65 @@
 <% layout('layouts/boilerplate') %>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="container">
             <div class="row align-items-center min-vh-100">
-
                 <!-- LEFT CONTENT -->
-                <div class="col-lg-6 text-white">
+                <div class="col-lg-6 text-white hero-left"">
+                    <span class=" hero-eyebrow">FULL-STACK DEVELOPER</span>
                     <h1 class="hero-title">
-                        Hello, I'm <br />
-                        <span class="gradient-text">Nivi Jha</span>
+                        Hi, I'm <br />
+                        <span class="gradient-text">Nivi Jha</span> <br />
                     </h1>
 
+                    <span class="status-badge">Open to Internships</span>
+
+                    <h2 class="hero-typing">
+                        I build <span id="typing-text"></span>
+                    </h2>
                     <p class="hero-subtitle">
-                        A passionate full-stack software engineer crafting scalable
-                        web applications and intelligent digital experiences.
+                        Full-stack developer building scalable web applications with modern tech.
+                        Actively seeking internships and software engineering opportunities.
                     </p>
 
-                    <div class="hero-buttons mt-3">
-                        <a href="#contact" class="btn btn-primary btn-lg me-3">Get in touch</a>
-                        <a href="#projects" class="btn btn-outline-light btn-lg">Learn more</a>
+                    <div class="hero-buttons mt-4">
+                        <a href="#contact" class="btn btn-primary btn-lg me-3">
+                            Get in Touch
+                        </a>
+                        <a href="#projects" class="btn btn-outline-light btn-lg">
+                            See My Work
+                        </a>
+
                     </div>
+
                 </div>
 
                 <!-- RIGHT IMAGE CARD -->
-                <div class="col-lg-6 text-center">
-                    <div class="image-3d-wrapper">
-                        <div class="image-card image-3d">
-                            <img src="/2.webp" alt="Nivi Jha portrait" class="hero-img" />
+                <div class="col-lg-6 d-flex justify-content-center mt-5 mt-lg-0">
+                    <div class="code-card">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
                         </div>
+
+                        <pre><code>
+<span class="kw">const</span> <span class="var">coder</span> = {
+  <span class="prop">name</span>: <span class="str">'Nivi Jha'</span>,
+  <span class="prop">skills</span>: [
+    <span class="str">'HTML'</span>, <span class="str">'CSS'</span>, <span class="str">'JavaScript'</span>,
+    <span class="str">'React'</span>, <span class="str">'Node.js'</span>, <span class="str">'MongoDB'</span>
+  ],
+  <span class="prop">problemSolver</span>: <span class="bool">true</span>,
+  <span class="prop">quickLearner</span>: <span class="bool">true</span>,
+  <span class="func">hireable</span>() {
+    <span class="kw">return</span> (
+      <span class="kw">this</span>.problemSolver &&
+      <span class="kw">this</span>.skills.length >= <span class="num">5</span>
+    );
+  }
+};                        
+                    </code></pre>
                     </div>
                 </div>
 
@@ -48,132 +79,193 @@
 
     <!-- ABOUT SECTION -->
     <section id="about" class="about-section">
-        <div class="about-grid">
+        <div class="container">
+            <div class="about-grid">
 
-            <!-- LEFT: TEXT -->
-            <div class="about-content reveal-stagger">
-                <h2 class="section-title">About Me</h2>
-                <h2 class="about-title">
-                    I build <span>scalable</span>, thoughtful digital products.
-                </h2>
+                <!-- LEFT: TEXT -->
+                <div class="about-content reveal-stagger">
+                    <h2 class="section-title">About Me</h2>
+                    <h2 class="about-title">
+                        Building products with <span>clarity</span> and purpose.
+                    </h2>
 
-                <p class="about-text">
-                    I’m a software engineering student passionate about building reliable,
-                    user-focused web applications that solve real-world problems.
-                </p>
+                    <p class="about-text">
+                        I’m a third-year Computer Science student who enjoys building
+                        full-stack applications that solve practical problems.
+                    </p>
 
-                <p class="about-text">
-                    I enjoy working across the full stack — from crafting clean, intuitive
-                    interfaces to designing scalable backend systems.
-                </p>
+                    <p class="about-text">
+                        I’ve worked on projects like Ecosense and MedTracker, where I learned
+                        how to design scalable systems, write cleaner backend logic,
+                        and build interfaces that feel simple to use.
+                    </p>
 
-                <p class="about-text">
-                    Currently, I’m strengthening my skills in full-stack development,
-                    system design, and applied AI while preparing for software
-                    engineering roles and internships.
-                </p>
+                    <p class="about-text">
+                        I spend a lot of time debugging, refactoring, and improving code —
+                        because I believe good software is built through iteration, not shortcuts.
+                    </p>
 
 
-            </div>
 
-            <!-- RIGHT: INFO CARD -->
-            <div class="about-card reveal-stagger">
-                <div class="stat">
-                    <h3>3+</h3>
-                    <p>Years of learning</p>
                 </div>
-                <div class="stat">
-                    <h3>10+</h3>
-                    <p>Projects built</p>
-                </div>
-                <div class="stat">
-                    <h3>15+</h3>
-                    <p>Technologies used</p>
+
+                <!-- RIGHT: Avataar CARD -->
+                <div class="about-card reveal-stagger">
+                    <img src="/3.png" alt="Nivi Jha Avatar" />
                 </div>
             </div>
-
         </div>
     </section>
 
     <div class="section-divider"></div>
 
     <!-- SKILLS SECTION -->
-    <section id="skills" class="skills-categorized">
+    <section id="skills" class="skills-carousel-section">
         <div class="container">
 
-            <div class="skills-header text-center reveal-stagger">
+            <div class="skills-header">
                 <h2 class="section-title">My Skills</h2>
                 <p class="section-subtitle">
-                    Tools and technologies I use across the full development stack.
-                </p>
+                    Used across internships, academic projects, and real-world systems —
+                    from APIs and automation to scalable web apps.
             </div>
 
-            <!-- FRONTEND -->
-            <div class="skill-category reveal-stagger">
-                <h4 class="category-title">Frontend</h4>
-                <div class="skill-row">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>React</span>
+            <div class="skills-row-label">Frontend</div>
+            <div class="skills-carousel">
+                <div class="skills-track">
+
+                    <!-- Skill Item -->
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg">
+                        <span>C++</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
+                        <span>Java</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+                        <span>Python</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="skills-row-label">Backend</div>
+            <div class="skills-carousel reverse">
+                <div class="skills-track">
+                    <!-- Skill Item -->
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg">
+                        <span>C++</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
+                        <span>Java</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+                        <span>Python</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+                        <span>JavaScript</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- BACKEND -->
-            <div class="skill-category reveal-stagger">
-                <h4 class="category-title">Backend</h4>
-                <div class="skill-row">
-                    <span>Node.js</span>
-                    <span>Express.js</span>
-                    <span>REST APIs</span>
+            <br>
+            <div class="skills-row-label">DevOps & Tools</div>
+            <div class="skills-carousel">
+                <div class="skills-track">
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+                        <span>React</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+                        <span>Node.js</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg">
+                        <span>Express</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg">
+                        <span>MongoDB</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+                        <span>MySQL</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg">
+                        <span>Docker</span>
+                    </div>
+
+                    <div class="skill-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">
+                        <span>Linux</span>
+                    </div>
+
+                    <div class="skill-item">
+
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" />
+
+                        <span>AWS</span>
+                    </div>
                 </div>
             </div>
-
-            <!-- DATABASE -->
-            <div class="skill-category reveal-stagger">
-                <h4 class="category-title">Databases & BaaS</h4>
-                <div class="skill-row">
-                    <span>MongoDB</span>
-                </div>
-            </div>
-
-            <!-- TOOLS -->
-            <div class="skill-category reveal-stagger">
-                <h4 class="category-title">Tools & Design</h4>
-                <div class="skill-row">
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>Figma</span>
-                </div>
-            </div>
-
         </div>
     </section>
+
+
 
     <div class="section-divider"></div>
 
     <!-- PROJECT SECTION -->
-    <section id="projects" class="projects-editorial">
+    <section id="projects" class="projects-section">
         <div class="container">
 
-            <!-- HEADER -->
             <div class="projects-header">
-                <span class="section-eyebrow">Projects</span>
-                <h2 class="project-section-title">Selected Work</h2>
+                <h2 class="section-title">Projects</h2>
                 <p class="section-subtitle">
-                    A selection of projects where I applied problem-solving,
-                    system design, and modern web technologies.
+                    Selected work showcasing problem-solving, system design,
+                    and scalable development.
                 </p>
             </div>
 
+            <div class="projects-grid">
 
-            <div class="projects-grid reveal-stagger">
+                <!-- PROJECT CARD -->
+                <article class="project-card">
+                    <div class="project-meta">
+                        <span class="project-tag">Full Stack</span>
+                        <span class="project-year">2025</span>
+                    </div>
 
-                <div class="project-card">
-                    <h3>Ecosense</h3>
-                    <p>
-                        A sustainability-focused platform aimed at spreading awareness
-                        about pollution and eco-friendly alternatives using data-driven insights.
+                    <h3 class="project-title">Ecosense</h3>
+
+                    <p class="project-desc">
+                        A sustainability-focused platform that analyzes pollution data
+                        and promotes eco-friendly alternatives through actionable insights.
                     </p>
 
                     <div class="project-tech">
@@ -184,89 +276,161 @@
                     </div>
 
                     <div class="project-links">
-                        <a href="#">GitHub →</a>
-                        <a href="#">Live →</a>
+                        <a href="#" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">Live</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <h3>MedTracker</h3>
-                    <p>
-                        A medical record management system that allows hospitals and
-                        patients to securely manage and access health records.
+                <!-- Duplicate for other projects -->
+                <article class="project-card">
+                    <div class="project-meta">
+                        <span class="project-tag">Full Stack</span>
+                        <span class="project-year">2025</span>
+                    </div>
+
+                    <h3 class="project-title">Ecosense</h3>
+
+                    <p class="project-desc">
+                        A sustainability-focused platform that analyzes pollution data
+                        and promotes eco-friendly alternatives through actionable insights.
                     </p>
 
                     <div class="project-tech">
                         <span>Node.js</span>
+                        <span>Express</span>
                         <span>MongoDB</span>
-                        <span>Bootstrap</span>
+                        <span>ML</span>
                     </div>
 
                     <div class="project-links">
-                        <a href="#">GitHub →</a>
+                        <a href="#" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">Live</a>
                     </div>
-                </div>
+                </article>
 
-                <div class="project-card">
-                    <h3>AI Coding Assistant</h3>
-                    <p>
-                        An AI-powered assistant designed to help competitive programmers
-                        analyze problems and generate solution hints efficiently.
+                <article class="project-card">
+                    <div class="project-meta">
+                        <span class="project-tag">Full Stack</span>
+                        <span class="project-year">2025</span>
+                    </div>
+
+                    <h3 class="project-title">Ecosense</h3>
+
+                    <p class="project-desc">
+                        A sustainability-focused platform that analyzes pollution data
+                        and promotes eco-friendly alternatives through actionable insights.
                     </p>
 
                     <div class="project-tech">
-                        <span>Python</span>
-                        <span>NLP</span>
-                        <span>FastAPI</span>
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                        <span>ML</span>
                     </div>
 
                     <div class="project-links">
-                        <a href="#">GitHub →</a>
+                        <a href="#" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">Live</a>
                     </div>
-                </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-meta">
+                        <span class="project-tag">Full Stack</span>
+                        <span class="project-year">2025</span>
+                    </div>
+
+                    <h3 class="project-title">Ecosense</h3>
+
+                    <p class="project-desc">
+                        A sustainability-focused platform that analyzes pollution data
+                        and promotes eco-friendly alternatives through actionable insights.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                        <span>ML</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="#" target="_blank">GitHub</a>
+                        <a href="#" target="_blank">Live</a>
+                    </div>
+                </article>
 
             </div>
-
-
         </div>
     </section>
+
 
     <div class="section-divider"></div>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="contact-section py-5">
+    <section id="contact" class="contact-section">
         <div class="container">
-            <div class="row justify-content-center text-center">
 
-                <div class="col-lg-8">
-                    <h2 class="section-title">Get In Touch</h2>
-                    <p class="contact-subtitle">
-                        I’m open to internships, collaborations, and new opportunities.
-                        Feel free to reach out.
+            <div class="contact-header">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-subtitle">
+                    Open to internships, collaborations, and meaningful conversations.
+                    Let’s build something impactful.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+
+                <!-- LEFT INFO -->
+                <div class="contact-info">
+                    <h3>Let’s work together</h3>
+
+                    <p>
+                        I’m currently open to software engineering internships,
+                        collaborative projects, and learning-driven opportunities.
                     </p>
 
-                    <!-- CONTACT INFO -->
-                    <div class="contact-info mt-4">
-                        <p>
-                            📧 <a href="mailto:nivijha@email.com">nivijha@gmail.com</a>
-                        </p>
-                    </div>
+                    <ul class="contact-list">
+                        <li>
+                            <span>Email</span>
+                            <a href="mailto:nivijha@example.com">nivijha@example.com</a>
+                        </li>
 
-                    <!-- SOCIAL LINKS -->
-                    <div class="contact-links mt-4">
-                        <a href="https://github.com/yourusername" target="_blank" class="contact-btn">
-                            GitHub
-                        </a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-btn">
-                            LinkedIn
-                        </a>
-                        <a href="https://drive.google.com/file/d/153A-wZwXpX5_he8Hr9va6zCeN5ZWFqix/view?usp=sharing"
-                            target="_blank" class="contact-btn primary">
-                            Resume
-                        </a>
-                    </div>
+                        <li>
+                            <span>GitHub</span>
+                            <a href="https://github.com/nivijha" target="_blank">github.com/nivijha</a>
+                        </li>
 
+                        <li>
+                            <span>LinkedIn</span>
+                            <a href="https://linkedin.com/in/nivijha" target="_blank">
+                                linkedin.com/in/nivijha
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+
+                <!-- RIGHT FORM -->
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Your name" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="you@example.com" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="Tell me about your idea..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="contact-btn">
+                        Send Message →
+                    </button>
+                </form>
 
             </div>
         </div>
