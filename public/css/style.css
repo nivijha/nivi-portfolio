@@ -1148,34 +1148,22 @@ body.light {
 
 .contact-list {
   list-style: none;
+  display: flex;
+  gap: 22px;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  margin: 0;
 }
 
-.contact-list li {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.contact-list span {
-  font-size: 0.75rem;
-  color: #9ca3af;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-}
-
-.contact-list a {
-  color: var(--primary-soft);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.2s ease;
-}
-
-.contact-list a:hover {
+.contact-list li a {
+  font-size: 22px;
   color: #818cf8;
+  transition: all 0.25s ease;
+}
+
+.contact-list li a:hover {
+  color: #38bdf8;
+  transform: translateY(-3px) scale(1.12);
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
 }
 
 .contact-form {
