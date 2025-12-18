@@ -330,16 +330,6 @@ body.light {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@media (max-width: 1366px) and (min-width: 992px) {
-  .hero-section .container {
-    max-width: 1140px;
-  }
-
-  .code-card {
-    max-width: 420px;
-  }
-}
-
 .code-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 24px 70px rgba(99, 102, 241, 0.32);
@@ -494,6 +484,18 @@ body.light {
 
   .hero-buttons a {
     flex: 1 1 48%;
+  }
+}
+
+@media (max-width: 1366px) and (min-width: 992px) {
+  .hero-section .col-lg-6:last-child {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .code-card {
+    width: 420px;
+    max-width: 420px;
   }
 }
 
