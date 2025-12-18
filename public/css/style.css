@@ -4,6 +4,22 @@ body {
   background: #020617;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
 :root {
   --bg-body: #020617;
   --bg-elevated: #020617;
@@ -184,39 +200,46 @@ body.light {
   }
 }
 
-/* 3D CURSOR ORB */
-/* .cursor-orb {
+/* 3D CURSOR ORB + PERSONALISED CURSOR */
+.cursor-code {
   position: fixed;
   top: 0;
   left: 0;
-  width: 26px;
-  height: 26px;
+  font-family: "Fira Code", monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: #38bdf8;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+}
+
+
+.cursor-orb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
   pointer-events: none;
   border-radius: 999px;
-  background: radial-gradient(
-      circle at 10% 0,
-      rgba(248, 250, 252, 0.85),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at 130% 120%,
-      rgba(56, 189, 248, 0.9),
-      transparent 70%
-    ),
-    radial-gradient(
-      circle at -40% 140%,
-      rgba(129, 140, 248, 0.9),
-      transparent 70%
-    );
-  box-shadow: 0 0 26px rgba(56, 189, 248, 0.55), 0 0 60px rgba(15, 23, 42, 0.9);
-  filter: blur(3px);
+
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,1), transparent 35%),
+    radial-gradient(circle at 70% 70%, rgba(34,211,238,1), transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(99,102,241,1), transparent 60%);
+
+  box-shadow:
+    0 0 45px rgba(34,211,238,0.9),
+    0 0 90px rgba(99,102,241,0.7);
+
+  filter: blur(9px);
   opacity: 0;
-  mix-blend-mode: lighten;
-  transform: translate3d(-50%, -50%, 0);
-  transform-style: preserve-3d;
-  transition: opacity 0.2s ease;
-  z-index: 10;
-} */
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.15s ease;
+  z-index: 9999;
+}
 
 @media (max-width: 900px) {
   .cursor-orb {

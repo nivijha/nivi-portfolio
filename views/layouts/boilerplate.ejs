@@ -1,81 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <title>Nivi Jha | Portfolio</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
+  <title>Nivi Jha | Portfolio</title>
 
-  <body>
-    <div class="cursor-orb" id="cursor-orb"></div>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const orb = document.getElementById("cursor-orb");
-        if (!orb) return;
+<body>
+  <div class="cursor-code">&lt;/&gt;</div>
+  <div class="cursor-orb" id="cursor-orb"></div>
 
-        let targetX = window.innerWidth / 2;
-        let targetY = window.innerHeight / 3;
-        let currentX = targetX;
-        let currentY = targetY;
-        let hasEntered = false;
+  <script>
+    const dot = document.querySelector(".cursor-code");
+    const orb = document.querySelector(".cursor-orb");
 
-        const lerp = (a, b, t) => a + (b - a) * t;
+    let mouseX = 0, mouseY = 0;
+    let orbX = 0, orbY = 0;
 
-        window.addEventListener("mousemove", (e) => {
-          targetX = e.clientX;
-          targetY = e.clientY;
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
 
-          if (!hasEntered) {
-            hasEntered = true;
-            orb.style.opacity = "0.35";
-          }
-        });
+      dot.style.left = mouseX + "px";
+      dot.style.top = mouseY + "px";
 
-        document.addEventListener("mouseleave", () => {
-          hasEntered = false;
-          orb.style.opacity = "0";
-        });
+      dot.style.opacity = "1";
+      orb.style.opacity = "1";
+    });
 
-        function animate() {
-          currentX = lerp(currentX, targetX, 0.08);
-          currentY = lerp(currentY, targetY, 0.08);
+    function animate() {
+      orbX += (mouseX - orbX) * 0.15;
+      orbY += (mouseY - orbY) * 0.15;
 
-          const centerX = window.innerWidth / 2;
-          const centerY = window.innerHeight / 2;
-          const offsetX = (currentX - centerX) / centerX;
-          const offsetY = (currentY - centerY) / centerY;
+      orb.style.left = orbX + "px";
+      orb.style.top = orbY + "px";
 
-          const rotateX = offsetY * 12;
-          const rotateY = -offsetX * 12;
+      requestAnimationFrame(animate);
+    }
 
-          orb.style.transform =
-            `translate3d(${currentX}px, ${currentY}px, 0) translate3d(-50%, -50%, 0) ` +
-            `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-
-          requestAnimationFrame(animate);
-        }
-
-        animate();
+    document.querySelectorAll("a, button").forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        orb.style.transform = "translate(-50%, -50%) scale(1.5)";
       });
-    </script>
+      el.addEventListener("mouseleave", () => {
+        orb.style.transform = "translate(-50%, -50%) scale(1)";
+      });
+    });
 
-    <%- include('../includes/navbar') %>
+    animate();
+
+  </script>
+
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const orb = document.getElementById("cursor-orb");
+      if (!orb) return;
+
+      let targetX = window.innerWidth / 2;
+      let targetY = window.innerHeight / 3;
+      let currentX = targetX;
+      let currentY = targetY;
+      let hasEntered = false;
+
+      const lerp = (a, b, t) => a + (b - a) * t;
+
+      window.addEventListener("mousemove", (e) => {
+        targetX = e.clientX;
+        targetY = e.clientY;
+
+        if (!hasEntered) {
+          hasEntered = true;
+          orb.style.opacity = "0.35";
+        }
+      });
+
+      document.addEventListener("mouseleave", () => {
+        hasEntered = false;
+        orb.style.opacity = "0";
+      });
+
+      function animate() {
+        currentX = lerp(currentX, targetX, 0.08);
+        currentY = lerp(currentY, targetY, 0.08);
+
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const offsetX = (currentX - centerX) / centerX;
+        const offsetY = (currentY - centerY) / centerY;
+
+        const rotateX = offsetY * 12;
+        const rotateY = -offsetX * 12;
+
+        orb.style.transform =
+          `translate3d(${currentX}px, ${currentY}px, 0) translate3d(-50%, -50%, 0) ` +
+          `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    });
+  </script> -->
+
+  <%- include('../includes/navbar') %>
     <main>
       <%- body %>
-      <div id="scroll-progress"></div>
+        <div id="scroll-progress"></div>
     </main>
 
     <script>
@@ -84,110 +121,111 @@
 
     <%- include('../includes/footer') %>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Active nav highlight -->
-    <script>
-      const sections = document.querySelectorAll("section");
-      const navLinks = document.querySelectorAll(".navbar .nav-link");
+      <!-- Active nav highlight -->
+      <script>
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".navbar .nav-link");
 
-      window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach((section) => {
-          const top = section.offsetTop - 120;
-          const height = section.offsetHeight;
-          if (pageYOffset >= top && pageYOffset < top + height) {
-            current = section.getAttribute("id");
-          }
-        });
-
-        // Map certain sections to navbar groups
-        let navSection = current;
-        if (current === "skills" || current === "resume") {
-          navSection = "about";
-        }
-
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === "#" + navSection) {
-            link.classList.add("active");
-          }
-        });
-      });
-    </script>
-
-    <!-- Fade-in animation -->
-    <script>
-      const reveals = document.querySelectorAll(".reveal, .reveal-stagger");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("show");
+        window.addEventListener("scroll", () => {
+          let current = "";
+          sections.forEach((section) => {
+            const top = section.offsetTop - 120;
+            const height = section.offsetHeight;
+            if (pageYOffset >= top && pageYOffset < top + height) {
+              current = section.getAttribute("id");
             }
           });
-        },
-        { threshold: 0.15 }
-      );
 
-      reveals.forEach((el) => observer.observe(el));
-    </script>
-
-    <!-- SCROLL PROGRESS BAR -->
-    <script>
-      const progressBar = document.getElementById("scroll-progress");
-
-      window.addEventListener("scroll", () => {
-        const scrollTop = window.scrollY;
-        const docHeight =
-          document.documentElement.scrollHeight -
-          document.documentElement.clientHeight;
-
-        const scrollPercent = (scrollTop / docHeight) * 100;
-        progressBar.style.width = scrollPercent + "%";
-      });
-    </script>
-
-    <!-- SUBTITLE TYPING EFFECT -->
-    <script>
-      const words = [
-        "scalable web apps",
-        "clean user interfaces",
-        "reliable backend systems",
-        "real-world solutions",
-      ];
-
-      let i = 0,
-        j = 0,
-        isDeleting = false;
-      const typingSpeed = 90;
-      const deletingSpeed = 50;
-      const pause = 1200;
-
-      const el = document.getElementById("typing-text");
-
-      function type() {
-        const current = words[i];
-        if (!isDeleting) {
-          el.textContent = current.slice(0, j++);
-          if (j === current.length) {
-            setTimeout(() => (isDeleting = true), pause);
+          // Map certain sections to navbar groups
+          let navSection = current;
+          if (current === "skills" || current === "resume") {
+            navSection = "about";
           }
-        } else {
-          el.textContent = current.slice(0, j--);
-          if (j === 0) {
-            isDeleting = false;
-            i = (i + 1) % words.length;
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === "#" + navSection) {
+              link.classList.add("active");
+            }
+          });
+        });
+      </script>
+
+      <!-- Fade-in animation -->
+      <script>
+        const reveals = document.querySelectorAll(".reveal, .reveal-stagger");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        reveals.forEach((el) => observer.observe(el));
+      </script>
+
+      <!-- SCROLL PROGRESS BAR -->
+      <script>
+        const progressBar = document.getElementById("scroll-progress");
+
+        window.addEventListener("scroll", () => {
+          const scrollTop = window.scrollY;
+          const docHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          progressBar.style.width = scrollPercent + "%";
+        });
+      </script>
+
+      <!-- SUBTITLE TYPING EFFECT -->
+      <script>
+        const words = [
+          "scalable web apps",
+          "clean user interfaces",
+          "reliable backend systems",
+          "real-world solutions",
+        ];
+
+        let i = 0,
+          j = 0,
+          isDeleting = false;
+        const typingSpeed = 90;
+        const deletingSpeed = 50;
+        const pause = 1200;
+
+        const el = document.getElementById("typing-text");
+
+        function type() {
+          const current = words[i];
+          if (!isDeleting) {
+            el.textContent = current.slice(0, j++);
+            if (j === current.length) {
+              setTimeout(() => (isDeleting = true), pause);
+            }
+          } else {
+            el.textContent = current.slice(0, j--);
+            if (j === 0) {
+              isDeleting = false;
+              i = (i + 1) % words.length;
+            }
           }
+          setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
         }
-        setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
-      }
 
-      type();
-    </script>
+        type();
+      </script>
 
-    <!-- Contact form handler -->
-    <script src="/js/contactHandler.js"></script>
-  </body>
+      <!-- Contact form handler -->
+      <script src="/js/contactHandler.js"></script>
+</body>
+
 </html>
