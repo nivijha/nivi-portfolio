@@ -185,7 +185,7 @@ body.light {
 }
 
 /* 3D CURSOR ORB */
-.cursor-orb {
+/* .cursor-orb {
   position: fixed;
   top: 0;
   left: 0;
@@ -216,7 +216,7 @@ body.light {
   transform-style: preserve-3d;
   transition: opacity 0.2s ease;
   z-index: 10;
-}
+} */
 
 @media (max-width: 900px) {
   .cursor-orb {
