@@ -1,7 +1,64 @@
 html,
 body {
   overflow-x: hidden;
-  background: #020617;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(99,102,241,0.18), transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(31, 93, 120, 0.14), transparent 35%),
+    radial-gradient(circle at 50% 90%, rgba(129,140,248,0.12), transparent 45%),
+    #020617;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 90px 90px;
+  opacity: 0.15;
+}
+
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.08;
+}
+
+.bg-orb {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(99,102,241,0.12);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-orb.one {
+  top: -120px;
+  left: -120px;
+}
+
+.bg-orb.two {
+  bottom: -140px;
+  right: -140px;
+  background: rgba(56,189,248,0.12);
 }
 
 /* Hide system cursor everywhere */
@@ -15,18 +72,12 @@ textarea {
   cursor: text !important;
 }
 
-input:focus ~ .cursor-orb,
-textarea:focus ~ .cursor-orb,
-input:focus ~ .cursor-code,
-textarea:focus ~ .cursor-code {
-  opacity: 0;
-}
 
 :root {
-  --bg-body: #020617;
-  --bg-elevated: #020617;
-  --bg-section: #020617;
-  --surface-soft: #020617;
+  --bg-body: transparent;
+  --bg-section: transparent;
+  --bg-elevated: rgba(255, 255, 255, 0.03);
+  --surface-soft: rgba(255, 255, 255, 0.04);
   --primary: #6366f1;
   --primary-soft: #818cf8;
   --accent: #38bdf8;
@@ -214,40 +265,11 @@ body.light {
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 10000;
+  text-shadow:
+    0 0 8px rgba(56,189,248,0.6),
+    0 0 16px rgba(99,102,241,0.4);
 }
 
-
-.cursor-orb {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  pointer-events: none;
-  border-radius: 999px;
-
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,1), transparent 35%),
-    radial-gradient(circle at 70% 70%, rgba(34,211,238,1), transparent 55%),
-    radial-gradient(circle at 20% 80%, rgba(99,102,241,1), transparent 60%);
-
-  box-shadow:
-    0 0 45px rgba(34,211,238,0.9),
-    0 0 90px rgba(99,102,241,0.7);
-
-  filter: blur(9px);
-  opacity: 0;
-  mix-blend-mode: screen;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.15s ease;
-  z-index: 9999;
-}
-
-@media (max-width: 900px) {
-  .cursor-orb {
-    display: none;
-  }
-}
 
 /* --------- HERO SECTION --------- */
 .hero-section {
@@ -261,7 +283,7 @@ body.light {
       rgba(56, 189, 248, 0.18),
       transparent 32%
     ),
-    var(--bg-body);
+    transparent;
   position: relative;
   overflow: hidden;
 }
@@ -346,10 +368,17 @@ body.light {
   width: 500px;
   width: 100%;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.04);
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.02)
+  );
   backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 18px 60px rgba(99, 102, 241, 0.25);
+  box-shadow:
+  0 20px 60px rgba(15,23,42,0.8),
+  inset 0 1px 0 rgba(255,255,255,0.08);
   overflow: hidden;
   font-family: "Fira Code", monospace;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -524,7 +553,8 @@ body.light {
 /* --------- ABOUT SECTION --------- */
 .about-section {
   padding: 100px 0;
-  background: radial-gradient(circle at top right, #0b1120, var(--bg-body) 75%);
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .about-grid {
@@ -570,7 +600,7 @@ body.light {
   margin-left: auto;
   padding: 24px;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(10, 49, 68, 0);
   backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
@@ -643,10 +673,8 @@ body.light {
 .skills-section {
   position: relative;
   padding: 96px 0 110px;
-  background: var(--bg-section);
+  background: transparent;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .skills-section::before {
@@ -796,8 +824,7 @@ body.light {
 .resume-section {
   position: relative;
   padding: 96px 0 110px;
-  background: var(--bg-section);
-  border-top: 1px solid var(--border-strong);
+  background: transparent;
   border-bottom: 1px solid var(--border-strong);
 }
 
@@ -911,8 +938,9 @@ body.light {
 .projects-section {
   position: relative;
   padding: 100px 0 120px;
-  background: var(--bg-section);
+  background: transparent;
   overflow: hidden;
+  border-bottom: 1px solid var(--border-strong);
 }
 
 .projects-header {
@@ -1088,7 +1116,7 @@ body.light {
 .contact-section {
   position: relative;
   padding: 100px 0 120px;
-  background: var(--bg-section);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -1262,7 +1290,8 @@ textarea.invalid {
 
 /* --------- FOOTER --------- */
 .footer {
-  background: var(--bg-body);
+  background: rgba(2, 6, 23, 0.6);
+  backdrop-filter: blur(8px);
   border-top: 1px solid var(--border-strong);
   padding: 32px 0;
 }

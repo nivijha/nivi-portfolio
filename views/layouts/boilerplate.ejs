@@ -14,15 +14,16 @@
 </head>
 
 <body>
+  <div class="bg-orb one"></div>
+  <div class="bg-orb two"></div>
+
   <div class="cursor-code">&lt;/&gt;</div>
   <div class="cursor-orb" id="cursor-orb"></div>
 
   <script>
     const codeCursor = document.querySelector(".cursor-code");
-    const orb = document.querySelector(".cursor-orb");
 
     let mouseX = 0, mouseY = 0;
-    let orbX = 0, orbY = 0;
 
     document.addEventListener("mousemove", (e) => {
       mouseX = e.clientX;
@@ -32,12 +33,11 @@
       codeCursor.style.top = mouseY + "px";
       codeCursor.style.opacity = "1";
 
-      orb.style.opacity = "1";
     });
 
     function animate() {
-      orbX += (mouseX - orbX) * 0.15;
-      orbY += (mouseY - orbY) * 0.15;
+      orbX += (mouseX) * 0.15;
+      orbY += (mouseY) * 0.15;
 
       orb.style.left = orbX + "px";
       orb.style.top = orbY + "px";
