@@ -489,7 +489,8 @@ body.light {
 
 @media (max-width: 1400px) and (min-width: 1200px) {
   .code-card {
-    transform: scale(1.85);
+    transform: scale(0.95);
+    margin-top: 20px;
   }
 }
 
