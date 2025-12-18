@@ -17,16 +17,18 @@
                     <h2 class="hero-typing">I build <span id="typing-text"></span></h2>
                     <p class="hero-subtitle">
                         Full-stack developer building scalable web applications with modern
-                        tech. Actively seeking internships and software engineering
-                        opportunities.
+                        tech, focused on turning real problems into thoughtful products.
                     </p>
 
                     <div class="hero-buttons mt-4">
-                        <a href="#contact" class="btn btn-primary btn-lg me-3">
-                            Get in Touch
-                        </a>
-                        <a href="#projects" class="btn btn-outline-light btn-lg">
+                        <a href="#projects" class="btn btn-primary btn-lg me-3">
                             See My Work
+                        </a>
+                        <a href="#resume" class="btn btn-outline-light btn-lg me-3">
+                            View Resume
+                        </a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">
+                            Get in Touch
                         </a>
                     </div>
                 </div>
@@ -63,13 +65,6 @@
             </div>
         </div>
 
-        <div class="scroll-down" onclick="document.querySelector('#about').scrollIntoView({behavior:'smooth'})">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
-                <path
-                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
-            </svg>
-        </div>
     </section>
 
     <!-- ABOUT SECTION -->
@@ -114,109 +109,145 @@
                 </p>
             </div>
 
-            <div class="skills-grid">
-                <div class="skills-group">
+            <div class="skills-grid-compact">
+                <div class="skills-column">
                     <div class="skills-row-label">Languages</div>
-                    <div class="skills-cards">
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                                alt="JavaScript" />
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                                alt="Python" />
-                            <span>Python</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-                                alt="Java" />
-                            <span>Java</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-                                alt="C++" />
-                            <span>C++</span>
-                        </div>
+                    <div class="skills-pill-row">
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+                            Java
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+                            C++
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                            Python
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                            JavaScript
+                        </span>
                     </div>
                 </div>
 
-                <div class="skills-group">
+                <div class="skills-column">
                     <div class="skills-row-label">Frontend</div>
-                    <div class="skills-cards">
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                                alt="React" />
-                            <span>React</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                                alt="HTML5" />
-                            <span>HTML5</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                                alt="CSS3" />
-                            <span>CSS3</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
-                                alt="Bootstrap" />
-                            <span>Bootstrap</span>
-                        </div>
+                    <div class="skills-pill-row">
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                            React
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />
+                            Next.js
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+                            HTML5
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+                            CSS3
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" />
+                            Bootstrap
+                        </span>
                     </div>
                 </div>
 
-                <div class="skills-group">
-                    <div class="skills-row-label">Backend & Database</div>
-                    <div class="skills-cards">
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                                alt="Node.js" />
-                            <span>Node.js</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
-                                alt="Express" />
-                            <span>Express</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-                                alt="MongoDB" />
-                            <span>MongoDB</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-                                alt="MySQL" />
-                            <span>MySQL</span>
-                        </div>
+                <div class="skills-column">
+                    <div class="skills-row-label">Backend &amp; Database</div>
+                    <div class="skills-pill-row">
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+                            Node.js
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" />
+                            Express
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
+                            MongoDB
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                            MySQL
+                        </span>
                     </div>
                 </div>
 
-                <div class="skills-group">
-                    <div class="skills-row-label">Tools & DevOps</div>
-                    <div class="skills-cards">
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-                                alt="Git" />
-                            <span>Git</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
-                                alt="Docker" />
-                            <span>Docker</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
-                                alt="Linux" />
-                            <span>Linux</span>
-                        </div>
-                        <div class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
-                                alt="AWS" />
-                            <span>AWS</span>
-                        </div>
+                <div class="skills-column">
+                    <div class="skills-row-label">Tools &amp; DevOps</div>
+                    <div class="skills-pill-row">
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                            Git
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+                            GitHub
+                        </span>          
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
+                            Linux
+                        </span>      
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
+                            Docker
+                        </span>
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cucumber/cucumber-plain.svg" alt="Cucumber" />
+                            Cucumber
+                        </span>           
+                        <span class="skill-pill">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" />
+                            AWS
+                        </span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- RESUME SECTION -->
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <div class="resume-header">
+                <h2 class="section-title">Resume</h2>
+                <p class="section-subtitle">
+                    Quick snapshot of my experience and skills. You can preview it here or download the full PDF.
+                </p>
+            </div>
+
+            <div class="resume-grid">
+                <div class="resume-summary">
+                    <h3>At a glance</h3>
+                    <ul>
+                        <li>Pre-final year CSE student with full‑stack web experience.</li>
+                        <li>Focused on building reliable, human‑centered products.</li>
+                        <li>Enjoys working with teams that care about clean code, learning, and impact.</li>
+                    </ul>
+
+                    <a href="https://drive.google.com/uc?export=download&id=153A-wZwXpX5_he8Hr9va6zCeN5ZWFqix"
+                       class="btn btn-outline-light resume-download-btn"
+                       target="_blank"
+                       rel="noopener">
+                        Download full resume
+                    </a>
+                </div>
+
+                <div class="resume-preview">
+                    <!-- Google Drive preview embed; make sure sharing is set to 'Anyone with the link' -->
+                    <iframe src="https://drive.google.com/file/d/153A-wZwXpX5_he8Hr9va6zCeN5ZWFqix/preview" title="Nivi Jha Resume" loading="lazy"></iframe>
+                    <p class="resume-fallback">
+                        If the preview doesn't load, you can still download the PDF using the button on the left.
+                    </p>
                 </div>
             </div>
         </div>
@@ -292,9 +323,9 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-header">
-                <h2 class="section-title">Let's work together</h2>
+                <h2 class="section-title">Contact Me</h2>
                 <p class="section-subtitle">
-                    Open to internships, collaborations, and meaningful conversations. Tell me what you’re building.
+                    Curious about thoughtful collaborations and meaningful conversations. Tell me what you’re building.
                 </p>
             </div>
 
@@ -304,8 +335,8 @@
                     <h3>Let's work together</h3>
 
                     <p>
-                        I'm currently open to software engineering internships, collaborative
-                        projects, and learning-driven opportunities.
+                        I love working on products where good engineering and good UX meet.
+                        If you’re exploring an idea or need help shipping a feature, I’d be happy to chat.
                     </p>
 
                     <ul class="contact-list">
@@ -362,3 +393,5 @@
             </div>
         </div>
     </section>
+
+    
