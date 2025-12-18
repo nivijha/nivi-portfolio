@@ -1,4 +1,4 @@
-# Nivi Jha – Portfolio 🌐✨
+# Nivi Jha – Portfolio 🌐
 
 This repository contains the source code for my **personal portfolio website**, built to showcase my projects, skills, and journey as a software developer.
 
