@@ -313,6 +313,7 @@ body.light {
 /* CODE CARD - REDUCED ANIMATION */
 .code-card {
   width: 500px;
+  max-width: 100%;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(14px);
@@ -321,6 +322,12 @@ body.light {
   overflow: hidden;
   font-family: "Fira Code", monospace;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 1400px) and (min-width: 992px) {
+  .code-card {
+    max-width: 460px;
+  }
 }
 
 .code-card:hover {
@@ -784,13 +791,11 @@ body.light {
   font-size: 1.4rem;
   color: #e5e7eb;
   margin: 0;
-  margin-top: -110px;
 }
 
 .resume-summary ul {
   padding-left: 20px;
   margin: 0;
-  margin-top: -10px;
   display: flex;
   flex-direction: column;
   gap: 8px;
