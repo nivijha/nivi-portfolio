@@ -312,7 +312,7 @@ body.light {
 
 /* CODE CARD - REDUCED ANIMATION */
 .code-card {
-  width: 500px;
+  width: 460px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(14px);
@@ -321,6 +321,7 @@ body.light {
   overflow: hidden;
   font-family: "Fira Code", monospace;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(0.95);
 }
 
 .code-card:hover {
