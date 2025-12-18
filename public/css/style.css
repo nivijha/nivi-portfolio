@@ -4,20 +4,22 @@ body {
   background: #020617;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  body {
-    cursor: none;
-  }
+/* Hide system cursor everywhere */
+html, body, * {
+  cursor: none !important;
 }
 
+/* Allow text cursor ONLY inside form fields */
 input,
 textarea {
-  cursor: text;
+  cursor: text !important;
 }
 
-button,
-a {
-  cursor: pointer;
+input:focus ~ .cursor-orb,
+textarea:focus ~ .cursor-orb,
+input:focus ~ .cursor-code,
+textarea:focus ~ .cursor-code {
+  opacity: 0;
 }
 
 :root {

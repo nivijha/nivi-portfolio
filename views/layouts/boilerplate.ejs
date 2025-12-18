@@ -18,7 +18,7 @@
   <div class="cursor-orb" id="cursor-orb"></div>
 
   <script>
-    const dot = document.querySelector(".cursor-code");
+    const codeCursor = document.querySelector(".cursor-code");
     const orb = document.querySelector(".cursor-orb");
 
     let mouseX = 0, mouseY = 0;
@@ -28,10 +28,10 @@
       mouseX = e.clientX;
       mouseY = e.clientY;
 
-      dot.style.left = mouseX + "px";
-      dot.style.top = mouseY + "px";
+      codeCursor.style.left = mouseX + "px";
+      codeCursor.style.top = mouseY + "px";
+      codeCursor.style.opacity = "1";
 
-      dot.style.opacity = "1";
       orb.style.opacity = "1";
     });
 
@@ -45,18 +45,9 @@
       requestAnimationFrame(animate);
     }
 
-    document.querySelectorAll("a, button").forEach(el => {
-      el.addEventListener("mouseenter", () => {
-        orb.style.transform = "translate(-50%, -50%) scale(1.5)";
-      });
-      el.addEventListener("mouseleave", () => {
-        orb.style.transform = "translate(-50%, -50%) scale(1)";
-      });
-    });
-
     animate();
-
   </script>
+
 
   <!-- <script>
     document.addEventListener("DOMContentLoaded", () => {
