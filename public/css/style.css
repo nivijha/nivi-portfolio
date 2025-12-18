@@ -241,6 +241,12 @@ body.light {
   overflow: hidden;
 }
 
+.hero-section .row {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .hero-title {
   font-size: 3.8rem;
   font-weight: 700;
@@ -313,7 +319,7 @@ body.light {
 /* CODE CARD - REDUCED ANIMATION */
 .code-card {
   width: 500px;
-  max-width: 100%;
+  width: 100%;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(14px);
@@ -324,9 +330,13 @@ body.light {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@media (max-width: 1400px) and (min-width: 992px) {
+@media (max-width: 1366px) and (min-width: 992px) {
+  .hero-section .container {
+    max-width: 1140px;
+  }
+
   .code-card {
-    max-width: 460px;
+    max-width: 420px;
   }
 }
 
