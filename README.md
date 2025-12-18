@@ -78,8 +78,8 @@ Visit: http://localhost:3000
 
 ---
 
-## 📄 License
+## License
 
 Licensed under the MIT License.
 
-✨ Thank you for visiting my portfolio!
+Thank you for visiting my portfolio! :)
