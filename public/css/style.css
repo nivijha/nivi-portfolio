@@ -487,17 +487,12 @@ body.light {
   }
 }
 
-@media (max-width: 1366px) and (min-width: 992px) {
-  .hero-section .col-lg-6:last-child {
-    display: flex;
-    justify-content: flex-end;
-  }
-
+@media (max-width: 1400px) and (min-width: 1200px) {
   .code-card {
-    width: 420px;
-    max-width: 420px;
+    transform: scale(0.95);
   }
 }
+
 
 /* --------- ABOUT SECTION --------- */
 .about-section {
