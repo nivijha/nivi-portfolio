@@ -21,6 +21,16 @@
   <!-- Vercel Speed Insights -->
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    
+    // Optional: Add a beforeSend function to filter sensitive data
+    // See: https://vercel.com/docs/speed-insights/package#beforesend
+    window.speedInsightsBeforeSend = function(data) {
+      // Clean up sensitive parameters from the URL if needed
+      if (data.url) {
+        data.url = data.url.split('?')[0]; // Remove query parameters
+      }
+      return data;
+    };
   </script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
