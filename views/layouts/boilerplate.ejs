@@ -25,6 +25,7 @@
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
 
+
 <body>
   <div class="bg-orb one"></div>
   <div class="bg-orb two"></div>
@@ -67,7 +68,10 @@
     </main>
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("year").textContent =
+          new Date().getFullYear();
+      });
     </script>
 
     <%- include('../includes/footer') %>
@@ -220,6 +224,28 @@
 
         window.addEventListener("scroll", updateActiveNav);
         window.addEventListener("load", updateActiveNav);
+      </script>
+
+      <!-- DARK & LIGHT MODE TOGGLE -->
+      <script>
+        const toggleBtn = document.getElementById("theme-toggle");
+        const icon = toggleBtn.querySelector("i");
+
+        // Load saved theme
+        if (localStorage.getItem("theme") === "light") {
+          document.body.classList.add("light");
+          icon.classList.replace("fa-moon", "fa-sun");
+        }
+
+        toggleBtn.addEventListener("click", () => {
+          document.body.classList.toggle("light");
+
+          const isLight = document.body.classList.contains("light");
+          localStorage.setItem("theme", isLight ? "light" : "dark");
+
+          icon.classList.toggle("fa-moon");
+          icon.classList.toggle("fa-sun");
+        });
       </script>
 
       <!-- Contact form handler -->
