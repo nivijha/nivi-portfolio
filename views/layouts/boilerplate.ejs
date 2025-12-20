@@ -254,7 +254,7 @@
     if (!el) return;
 
     const finalText = el.textContent;
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789{}/|*&^%$#@~+_></][}{;':`?";
     let iterations = 0;
 
     // clear text before animation
@@ -274,13 +274,13 @@
         })
         .join("");
 
-      iterations += 1 / 4;
+      iterations += 1 / 5;
 
       if (iterations >= finalText.length) {
         el.textContent = finalText;
         clearInterval(interval);
       }
-    }, 40);
+    }, 50);
   });
 </script>
 
