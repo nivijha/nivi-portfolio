@@ -3,8 +3,8 @@ const path = require("path");
 const crypto = require("crypto");
 const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
-// const { inject } = require("@vercel/analytics");
-// const { injectSpeedInsights } = require("@vercel/speed-insights");
+const { inject } = require("@vercel/analytics");
+const { injectSpeedInsights } = require("@vercel/speed-insights");
 const projects = require("./data/projects");
 const ejsMate = require("ejs-mate");
 require("dotenv").config();
@@ -20,10 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Inject Vercel Web Analytics script
-// inject();
+inject();
 
 // Inject Vercel Speed Insights script
-// injectSpeedInsights();
+injectSpeedInsights();
 
 // DynamoDB client (configure via env)
 const ddbRegion = process.env.AWS_REGION || "us-east-1";

@@ -15,7 +15,11 @@
   --text-muted: #9ca3af;
   --border-subtle: rgba(148, 163, 184, 0.35);
   --border-strong: rgba(255, 255, 255, 0.08);
-  --code-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  --code-bg: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
   --code-header-bg: rgba(0, 0, 0, 0.25);
   --card-bg: rgba(255, 255, 255, 0.035);
   --card-border: rgba(255, 255, 255, 0.08);
@@ -48,7 +52,8 @@ body.light {
 /* BASE STYLES                               */
 /* ========================================= */
 
-html, body {
+html,
+body {
   overflow-x: hidden;
   min-height: 100%;
   margin: 0;
@@ -79,15 +84,19 @@ section {
   background: var(--bg-section);
 }
 
-html, body, * {
+html,
+body,
+* {
   cursor: none !important;
 }
 
-input, textarea {
+input,
+textarea {
   cursor: text !important;
 }
 
-.btn-primary, .btn-outline-light {
+.btn-primary,
+.btn-outline-light {
   background: transparent;
   border: 1px solid var(--border-subtle);
   color: var(--text-main);
@@ -95,22 +104,29 @@ input, textarea {
   transition: all 0.2s ease;
 }
 
-.btn-primary:hover, .btn-outline-light:hover {
+.btn-primary:hover,
+.btn-outline-light:hover {
   background: var(--bg-elevated);
   border-color: var(--primary);
 }
 
-a, button, .project-card, .skill-pill {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+a,
+button,
+.project-card,
+.skill-pill {
+  transition: color 0.2s ease, background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.reveal, .reveal-stagger > * {
+.reveal,
+.reveal-stagger > * {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.reveal.show, .reveal-stagger.show > * {
+.reveal.show,
+.reveal-stagger.show > * {
   opacity: 1;
   transform: translateY(0);
 }
@@ -272,6 +288,14 @@ body.light .navbar.glass-nav.scrolled {
     box-shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
   }
 
+  body.light .navbar-toggler {
+    border-color: rgba(2, 6, 23, 0.25);
+  }
+
+  body.light .navbar-toggler-icon {
+    filter: invert(1) brightness(0);
+  }
+
   .navbar-nav {
     display: flex;
     flex-direction: column;
@@ -304,10 +328,18 @@ body.light .navbar.glass-nav.scrolled {
   animation: heroFade 0.6s ease forwards;
 }
 
-.hero-left > *:nth-child(1) { animation-delay: 0.1s; }
-.hero-left > *:nth-child(2) { animation-delay: 0.2s; }
-.hero-left > *:nth-child(3) { animation-delay: 0.3s; }
-.hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+.hero-left > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.hero-left > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.hero-left > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.hero-left > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
 
 @keyframes heroFade {
   to {
@@ -379,7 +411,9 @@ body.light .navbar.glass-nav.scrolled {
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 .hero-buttons {
@@ -451,9 +485,15 @@ body.light .code-card:hover {
   border-radius: 50%;
 }
 
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
+.dot.red {
+  background: #ff5f56;
+}
+.dot.yellow {
+  background: #ffbd2e;
+}
+.dot.green {
+  background: #27c93f;
+}
 
 .code-card pre {
   margin: 0;
@@ -466,20 +506,46 @@ body.light .code-card:hover {
 }
 
 /* Syntax highlighting - colors only */
-.kw { color: #c084fc; }
-.var { color: #38bdf8; }
-.prop { color: var(--text-main); }
-.str { color: #facc15; }
-.bool { color: #22c55e; }
-.func { color: #60a5fa; }
-.num { color: #fb7185; }
+.kw {
+  color: #c084fc;
+}
+.var {
+  color: #38bdf8;
+}
+.prop {
+  color: var(--text-main);
+}
+.str {
+  color: #facc15;
+}
+.bool {
+  color: #22c55e;
+}
+.func {
+  color: #60a5fa;
+}
+.num {
+  color: #fb7185;
+}
 
-body.light .kw { color: #7c3aed; }
-body.light .var { color: #0284c7; }
-body.light .func { color: #2563eb; }
-body.light .str { color: #b45309; }
-body.light .num { color: #dc2626; }
-body.light .bool { color: #16a34a; }
+body.light .kw {
+  color: #7c3aed;
+}
+body.light .var {
+  color: #0284c7;
+}
+body.light .func {
+  color: #2563eb;
+}
+body.light .str {
+  color: #b45309;
+}
+body.light .num {
+  color: #dc2626;
+}
+body.light .bool {
+  color: #16a34a;
+}
 
 /* HERO MOBILE - IDENTICAL SPACING */
 @media (max-width: 768px) {
