@@ -30,7 +30,7 @@
   <div class="bg-orb one"></div>
   <div class="bg-orb two"></div>
 
-  <div class="cursor-code">&lt;/&gt;</div>
+  <div class="cursor-code"><strong>⁖</strong></div>
   <div class="cursor-orb" id="cursor-orb"></div>
 
   <script>
@@ -114,9 +114,9 @@
       <!-- SUBTITLE TYPING EFFECT -->
       <script>
         const words = [
-          "thoughtful web products",
-          "clean, scalable systems",
-          "human-centered software",
+          "Full Stack Developer",
+          "Competitive Programmer",
+          "Developer who ships.",
         ];
 
         let i = 0,
@@ -247,6 +247,43 @@
           icon.classList.toggle("fa-sun");
         });
       </script>
+
+      <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const el = document.getElementById("hero-name");
+    if (!el) return;
+
+    const finalText = el.textContent;
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let iterations = 0;
+
+    // clear text before animation
+    el.textContent = "";
+
+    const interval = setInterval(() => {
+      el.textContent = finalText
+        .split("")
+        .map((char, index) => {
+          if (char === " ") return " ";
+
+          if (index < iterations) {
+            return finalText[index];
+          }
+
+          return chars[Math.floor(Math.random() * chars.length)];
+        })
+        .join("");
+
+      iterations += 1 / 4;
+
+      if (iterations >= finalText.length) {
+        el.textContent = finalText;
+        clearInterval(interval);
+      }
+    }, 40);
+  });
+</script>
+
 
       <!-- Contact form handler -->
       <script src="/js/contactHandler.js"></script>

@@ -6,14 +6,11 @@
       <div class="row align-items-center hero-row">
         <!-- LEFT CONTENT -->
         <div class="col-lg-6 text-white hero-left">
-          <span class="hero-eyebrow">FULL-STACK DEVELOPER</span>
           <h1 class="hero-title intent-text">
-            Hi, I'm <span class="hero-name">Nivi Jha</span>
+            <span class="hero-name" id="hero-name">Hi, I'm Nivi Jha</span>
           </h1>
 
-          <p class="hero-note">Open to internships · <span id="year"></span></p>
-
-          <h2 class="hero-typing">I build <span id="typing-text"></span></h2>
+          <h2 class="hero-typing">> <span id="typing-text"></span></h2>
           <p class="hero-subtitle">
             Full-stack developer building scalable web applications with modern
             tech, focused on turning real problems into thoughtful products.
@@ -22,9 +19,6 @@
           <div class="hero-buttons mt-4">
             <a href="#projects" class="btn btn-primary btn-lg me-3 magnetic">
               View Projects
-            </a>
-            <a href="#resume" class="btn btn-primary btn-lg me-3 magnetic">
-              Resume
             </a>
           </div>
         </div>
@@ -70,26 +64,48 @@
           <h2 class="section-title">About</h2>
 
           <h2 class="about-title">
-            I build software with <span>clarity</span>, not clutter.
+            Building software with <span>clarity</span>, not clutter.
           </h2>
 
           <p class="about-text intent-text">
-            I’m a pre-final year Computer Science student who enjoys turning
-            complex problems into simple, reliable web products.
+            I’m a pre-final year computer science student who enjoys turning complex problems into clean, reliable
+            products.
           </p>
 
           <p class="about-text intent-text">
             Through projects like <strong>Ecosense</strong> and
             <strong>MedTracker</strong>, I’ve learned to design scalable backend
-            systems, write clean APIs, and build interfaces that feel intuitive
-            to use.
+            systems, write clean APIs, and build interfaces that feel intuitive and purposeful.
           </p>
+
+          <p class="about-text">
+            Currently exploring system design and cloud architecture, and always down to collaborate on thoughtful
+            projects.
+          </p>
+
+          <p class="resume-cta">
+            Want the full story?
+            <a href="https://drive.google.com/file/d/1QFgZbvDQn99wsy-nNUcoRNeySuxzbh1V" class="resume-btn"
+              target="_blank" rel="noopener">
+              Download My Resume
+              <span class="btn-icon"></span>
+            </a>
+          </p>
+
 
         </div>
 
         <div class="about-card reveal-stagger">
-          <img src="/avataar.png" alt="Nivi Jha Avatar" />
+          <div class="avatar-container">
+            <img src="/avataar.png" alt="Nivi Jha Avatar" class="avatar" />
+
+            <div class="avatar-tooltip">
+              👋 Hi, I’m <strong>Nivi</strong><br />
+              Backend | MERN | Problem Solver
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -97,16 +113,15 @@
   <!-- SKILLS SECTION -->
   <section id="skills" class="skills-section">
     <div class="container">
-      <div class="skills-header">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">
-          Technologies I use to build scalable, production-ready applications
-        </p>
-      </div>
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">
+        Technologies I use to build scalable, production-ready applications
+      </p>
 
-      <div class="skills-grid-compact">
-        <div class="skills-column">
-          <div class="skills-row-label">Languages</div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <br>
           <div class="skills-pill-row">
             <span class="skill-pill">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
@@ -129,8 +144,9 @@
           </div>
         </div>
 
-        <div class="skills-column">
-          <div class="skills-row-label">Frontend</div>
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <br>
           <div class="skills-pill-row">
             <span class="skill-pill">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
@@ -156,8 +172,9 @@
           </div>
         </div>
 
-        <div class="skills-column">
-          <div class="skills-row-label">Backend &amp; Database</div>
+        <div class="skill-card">
+          <h3>Backend &amp; Database</h3>
+          <br>
           <div class="skills-pill-row">
             <span class="skill-pill">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
@@ -180,8 +197,9 @@
           </div>
         </div>
 
-        <div class="skills-column">
-          <div class="skills-row-label">Tools &amp; DevOps</div>
+        <div class="skill-card">
+          <h3>Tools & DevOps</h3>
+          <br>
           <div class="skills-pill-row">
             <span class="skill-pill">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
@@ -216,48 +234,6 @@
     </div>
   </section>
 
-  <!-- RESUME SECTION -->
-  <section id="resume" class="resume-section">
-    <div class="container">
-      <div class="resume-header">
-        <h2 class="section-title">Resume</h2>
-        <p class="section-subtitle">
-          Quick snapshot of my experience and skills. You can preview it here or
-          download the full PDF.
-        </p>
-      </div>
-
-      <div class="resume-grid">
-        <div class="resume-summary">
-          <h3>At a glance</h3>
-          <ul>
-            <li>Pre-final year CSE student with full‑stack web experience.</li>
-            <li>Focused on building reliable, human‑centered products.</li>
-            <li>
-              Enjoys working with teams that care about clean code, learning, and
-              impact.
-            </li>
-          </ul>
-
-          <a href="https://drive.google.com/file/d/1QFgZbvDQn99wsy-nNUcoRNeySuxzbh1V"
-            class="btn btn-outline-light resume-download-btn" target="_blank" rel="noopener">
-            Download full resume
-          </a>
-        </div>
-
-        <div class="resume-preview">
-          <iframe src="https://drive.google.com/file/d/1QFgZbvDQn99wsy-nNUcoRNeySuxzbh1V/preview"
-            title="Nivi Jha Resume" loading="lazy"></iframe>
-          <p class="resume-fallback">
-            If the preview doesn't load, you can still download the PDF using the
-            button on the left.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
   <!-- PROJECT SECTION -->
   <section id="projects" class="projects-section">
     <div class="container">
@@ -272,10 +248,6 @@
       <div class="projects-grid">
         <!-- Project 1: Ecosense -->
         <article class="project-card">
-          <div class="project-meta">
-            <span class="project-tag">Full-Stack</span>
-            <span class="project-year">2025</span>
-          </div>
 
           <span class="project-status">🚧 In Development</span>
 
@@ -302,17 +274,13 @@
 
         <!-- Project 2: MedTracker -->
         <article class="project-card">
-          <div class="project-meta">
-            <span class="project-tag">AI / NLP</span>
-            <span class="project-year">2025</span>
-          </div>
-
           <span class="project-status">🚧 In Development</span>
 
           <h3 class="project-title intent-text">AI Product Review Analyzer</h3>
 
           <p class="project-desc">
-            An AI-powered system that analyzes customer reviews to extract sentiment, insights, and overall product perception.
+            An AI-powered system that analyzes customer reviews to extract sentiment, insights, and overall product
+            perception.
           </p>
 
           <div class="project-tech">
@@ -337,8 +305,7 @@
       <div class="contact-header">
         <h2 class="section-title">Contact Me</h2>
         <p class="section-subtitle">
-          Curious about thoughtful collaborations and meaningful conversations.
-          Tell me what you’re building.
+          Building something interesting? Need a developer who actually ships?
         </p>
       </div>
 
@@ -350,6 +317,11 @@
           <p>
             I enjoy collaborating on thoughtful products where clean engineering
             and good user experience go hand in hand.
+          </p>
+
+          <p class="contact-status">
+            <strong>Currently: </strong>Open to internships | Available for projects<br />
+            <strong>Response time: </strong>Usually within 24 hours
           </p>
 
           <ul class="contact-list">
@@ -391,10 +363,6 @@
             <label>Message</label>
             <textarea rows="5" name="message" id="message" placeholder="Tell me about your idea..." required></textarea>
           </div>
-
-          <small class="contact-note text-white">
-            I personally read every message. Please be genuine :)
-          </small>
 
           <button type="submit" class="contact-btn" disabled>
             Send Message →

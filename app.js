@@ -38,6 +38,10 @@ app.get("/", (req, res) => {
   res.render("home", { projects });
 });
 
+app.get('/manifesto', (req, res) => {
+  res.render('manifesto');
+});
+
 // contact submission (placeholder handler)
 app.post("/contact", (req, res) => {
   const { name, email, message, company } = req.body || {};
