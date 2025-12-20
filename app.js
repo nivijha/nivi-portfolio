@@ -19,10 +19,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Inject Vercel Web Analytics script
+// Initialize Vercel Web Analytics
+// This injects the analytics tracking script for monitoring user interactions
 inject();
 
-// Inject Vercel Speed Insights script
+// Initialize Vercel Speed Insights
+// This enables performance monitoring and Web Vitals tracking
+// Documentation: https://vercel.com/docs/speed-insights
 injectSpeedInsights();
 
 // DynamoDB client (configure via env)
