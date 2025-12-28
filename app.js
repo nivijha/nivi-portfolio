@@ -5,7 +5,6 @@ const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
 const { inject } = require("@vercel/analytics");
 const { injectSpeedInsights } = require("@vercel/speed-insights");
-const projects = require("./data/projects");
 const ejsMate = require("ejs-mate");
 require("dotenv").config();
 
@@ -38,11 +37,7 @@ const ddbClient = new DynamoDBClient({
 
 //home
 app.get("/", (req, res) => {
-  res.render("home", { projects });
-});
-
-app.get('/manifesto', (req, res) => {
-  res.render('manifesto');
+  res.render("home");
 });
 
 // contact submission (placeholder handler)
