@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate') %>
+
+  <section id="skills" class="skills-section reveal">
+    <div class="section-inner">
+      <div class="section-text">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">
+          Technologies I use to build scalable, production-ready applications
+        </p>
+      </div>
+
+      <div class="terminal">
+
+        <div class="terminal-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="terminal-title">skills — bash</span>
+        </div>
+
+        <div class="terminal-body">
+
+          <p class="terminal-line muted" id="last-login"></p>
+
+          <p class="terminal-line">
+            <span class="user">nivi@macbook</span><span class="path">:~</span>
+            <span class="prompt">$</span>
+            <span class="command" id="typed-command"></span><span class="caret" id="caret">▍</span>
+          </p>
+
+          <div class="terminal-output" id="terminal-output"></div>
+
+          <p class="terminal-line" id="next-prompt" style="display:none;">
+            <span class="user">nivi@macbook</span><span class="path">:~</span>
+            <span class="prompt">$</span>
+            <span class="caret">▍</span>
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>

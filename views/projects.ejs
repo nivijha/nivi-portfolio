@@ -1,0 +1,135 @@
+<% layout('layouts/boilerplate') %>
+
+  <section id="projects" class="projects-section reveal">
+    <div class="section-inner">
+
+      <!-- SAME AS SKILLS -->
+      <div class="section-text">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          A selection of projects where I focused on clean architecture,
+          scalability, and real-world impact.
+        </p>
+      </div>
+
+      <!-- SAME CENTER WIDTH AS TERMINAL -->
+      <div class="projects-content">
+
+        <!-- TERMINAL -->
+        <div class="terminal projects-terminal">
+          <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">projects — bash</span>
+          </div>
+
+          <div class="terminal-body">
+            <p class="terminal-line">
+              <span class="user">nivi@macbook</span><span class="path">:~/projects</span>
+              <span class="prompt">$</span>
+              <span class="command">projects --list</span>
+            </p>
+
+            <p class="muted"># select a project to view details</p>
+
+            <div class="projects-index">
+              <button data-target="project-01">[01] MedTracker</button>
+              <button data-target="project-02">[02] AI Product Review Analyzer</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT DETAILS (OUTSIDE TERMINAL) -->
+        <div class="projects-grid">
+          <!-- project cards here -->
+          <article id="project-01" class="project-card clickable">
+            <div class="project-header">
+              <h3 class="project-title">
+                <span class="project-index">[01]</span> MedTracker
+              </h3>
+              <span class="project-status">In development</span>
+            </div>
+
+            <p class="project-desc">
+              A full-stack application that helps patients manage medical records,
+              prescriptions, and reports in one place.
+            </p>
+
+            <p class="project-impact">
+              Designed REST APIs, implemented role-based access,
+              and built secure data flows for patient records.
+            </p>
+
+            <p class="project-tech">
+              React · Node.js · MongoDB 
+            </p>
+
+            <div class="project-links">
+              <a href="https://github.com/nivijha/medtracker-frontend" target="_blank" aria-label="GitHub Repository"
+                class="icon-link">
+                <!-- GitHub Icon -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.29-1.72-1.29-1.72-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.18-1.17 3.18-1.17.63 1.6.23 2.78.11 3.07.74.8 1.19 1.82 1.19 3.07 0 4.39-2.69 5.36-5.25 5.64.41.36.77 1.07.77 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z" />
+                </svg>
+              </a>
+
+              <a href="https://medtracker-frontend.vercel.app/" target="_blank" aria-label="Live Website"
+                class="icon-link">
+                <!-- Website Icon -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.93 9h-2.02a15.4 15.4 0 00-1.36-5.03A8.03 8.03 0 0118.93 11zM12 4.07c.96 1.38 1.7 3.38 2.02 5.93H9.98c.32-2.55 1.06-4.55 2.02-5.93zM5.07 13h2.02a15.4 15.4 0 001.36 5.03A8.03 8.03 0 015.07 13zm2.02-2H5.07a8.03 8.03 0 013.38-5.03A15.4 15.4 0 007.09 11zm2.89 2h4.04c-.32 2.55-1.06 4.55-2.02 5.93-.96-1.38-1.7-3.38-2.02-5.93zm6.94 0h2.02a8.03 8.03 0 01-3.38 5.03A15.4 15.4 0 0016.92 13z" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article id="project-02" class="project-card clickable">
+
+            <div class="project-header">
+              <h3 class="project-title">
+                <span class="project-index">[02]</span> AI Product Review Analyzer
+              </h3>
+              <span class="project-status">In development</span>
+            </div>
+
+            <p class="project-desc">
+              An AI-powered system that analyzes customer reviews to extract sentiment, insights, and overall product
+              perception.
+            </p>
+
+            <p class="project-impact">
+              Achieved a low-maintenance, cost-efficient deployment by using a fully serverless AWS stack with on-demand
+              scaling.
+            </p>
+
+            <p class="project-tech">
+              React · Node.js · AWS
+            </p>
+
+            <div class="project-links">
+              <a href="https://github.com/nivijha/medtracker-frontend" target="_blank" aria-label="GitHub Repository"
+                class="icon-link">
+                <!-- GitHub Icon -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.29-1.72-1.29-1.72-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.18-1.17 3.18-1.17.63 1.6.23 2.78.11 3.07.74.8 1.19 1.82 1.19 3.07 0 4.39-2.69 5.36-5.25 5.64.41.36.77 1.07.77 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z" />
+                </svg>
+              </a>
+
+              <a href="https://medtracker-frontend.vercel.app/" target="_blank" aria-label="Live Website"
+                class="icon-link">
+                <!-- Website Icon -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 2a10 10 0 100 20 10 10 0 000-20zm6.93 9h-2.02a15.4 15.4 0 00-1.36-5.03A8.03 8.03 0 0118.93 11zM12 4.07c.96 1.38 1.7 3.38 2.02 5.93H9.98c.32-2.55 1.06-4.55 2.02-5.93zM5.07 13h2.02a15.4 15.4 0 001.36 5.03A8.03 8.03 0 015.07 13zm2.02-2H5.07a8.03 8.03 0 013.38-5.03A15.4 15.4 0 007.09 11zm2.89 2h4.04c-.32 2.55-1.06 4.55-2.02 5.93-.96-1.38-1.7-3.38-2.02-5.93zm6.94 0h2.02a8.03 8.03 0 01-3.38 5.03A15.4 15.4 0 0016.92 13z" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,72 +1,87 @@
-const form = document.getElementById("contact-form");
-const statusText = document.getElementById("contact-status");
-const submitBtn = form.querySelector(".contact-btn");
+(() => {
+  // Guard: only run on contact page
+  const form = document.getElementById("contact-form");
+  if (!form) return;
 
-// Get fields safely
-const nameInput = form.elements["name"];
-const emailInput = form.elements["email"];
-const messageInput = form.elements["message"];
-const honeypot = form.elements["company"];
+  const statusText = document.getElementById("contact-status");
+  const submitBtn = form.querySelector(".contact-btn");
 
-/* ----------------------------
-   Enable / Disable button logic
------------------------------ */
-function validateForm() {
-  const isValid =
-    nameInput.value.trim() &&
-    emailInput.validity.valid &&
-    messageInput.value.trim();
+  const nameInput = form.elements["name"];
+  const emailInput = form.elements["email"];
+  const messageInput = form.elements["message"];
+  const honeypot = form.elements["company"];
 
-  submitBtn.disabled = !isValid;
-}
+  if (!statusText || !submitBtn || !nameInput || !emailInput || !messageInput) {
+    console.warn("Contact form elements missing. Script aborted.");
+    return;
+  }
 
-// Run validation on input
-[nameInput, emailInput, messageInput].forEach((field) => {
-  field.addEventListener("input", validateForm);
-});
+  /* ----------------------------
+     Enable / Disable Submit
+  -----------------------------*/
+  function validateForm() {
+    const isValid =
+      nameInput.value.trim().length > 0 &&
+      emailInput.validity.valid &&
+      messageInput.value.trim().length > 0;
 
-/* ----------------------------
-   Submit handler
------------------------------ */
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+    submitBtn.disabled = !isValid;
+  }
 
-  // Honeypot check
-  if (honeypot.value) return;
+  [nameInput, emailInput, messageInput].forEach(field =>
+    field.addEventListener("input", validateForm)
+  );
 
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Sending...";
-  statusText.textContent = "";
+  validateForm();
 
-  const data = {
-    name: nameInput.value.trim(),
-    email: emailInput.value.trim(),
-    message: messageInput.value.trim(),
-  };
+  /* ----------------------------
+     Submit Handler
+  -----------------------------*/
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  try {
-    const res = await fetch(
-      "https://1emm8cvh74.execute-api.us-east-1.amazonaws.com/contact",
-      {
+    // Honeypot → silently ignore bots
+    if (honeypot && honeypot.value) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    statusText.textContent = "";
+    statusText.style.color = "";
+
+    const payload = {
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      message: messageInput.value.trim(),
+    };
+
+    try {
+      const res = await fetch("/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      }
-    );
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-    if (res.ok) {
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Submission failed");
+      }
+
+      // Success
       statusText.textContent = "Message sent successfully!";
       statusText.style.color = "#22c55e";
       form.reset();
-    } else {
-      statusText.textContent = "Something went wrong!";
+      validateForm();
+    } catch (err) {
+      // console.error("Contact form error:", err);
+
+      statusText.textContent =
+        "Something went wrong. Please try again later.";
       statusText.style.color = "#ef4444";
+    } finally {
+      submitBtn.textContent = "Send Message →";
     }
-  } catch (err) {
-    statusText.textContent = "Server error! Please try again.";
-    statusText.style.color = "#ef4444";
-  } finally {
-    submitBtn.textContent = "Send Message →";
-    validateForm(); // re-check after reset
-  }
-});
+  });
+})();

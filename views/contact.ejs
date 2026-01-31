@@ -1,0 +1,66 @@
+<% layout('layouts/boilerplate') %>
+
+  <section id="contact" class="contact-section reveal">
+    <div class="section-inner">
+
+      <!-- SAME HEADER STRUCTURE AS OTHER SECTIONS -->
+      <div class="section-text">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-subtitle">
+          Building something interesting? Need a developer who actually ships?
+        </p>
+        <p class="contact-status">
+          <strong>Currently:</strong> Open to internships | Available for projects
+        </p>
+
+        <ul class="contact-list">
+          <li>
+            <a href="https://www.linkedin.com/in/nivi-jha/" target="_blank" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/nivijha" target="_blank" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:nivijha04@gmail.com" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="contact-grid split-panel">
+
+        <!-- FORM -->
+        <form id="contact-form" class="contact-form contact-form-split" novalidate>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" hidden />
+
+          <div class="form-group">
+            <label>Name</label>
+            <input name="name" type="text" placeholder="Your name" required />
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input name="email" type="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" rows="5" placeholder="Tell me about your idea..." required></textarea>
+          </div>
+
+          <button type="submit" class="contact-btn" disabled>
+            Send Message →
+          </button>
+
+          <p class="contact-note" id="contact-status"></p>
+        </form>
+
+      </div>
+    </div>
+  </section>
