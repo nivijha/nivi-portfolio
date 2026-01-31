@@ -1224,3 +1224,253 @@ button,
     padding: 6px 8px;
   }
 }
+
+/* ========================================= */
+/* MOBILE RESPONSIVE – GLOBAL (≤ 768px)      */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+  /* ---------- GLOBAL ---------- */
+
+  .section-inner {
+    padding: 0 20px;
+  }
+
+  main > section:not(.hero-section) {
+    margin-top: 96px;
+    padding-bottom: 64px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    letter-spacing: 1.4px;
+  }
+
+  .section-title::after {
+    width: 40px;
+    height: 3px;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ---------- NAVBAR ---------- */
+
+  .nav-container {
+    padding: 0 14px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .nav-resume-btn {
+    min-width: auto;
+    height: 34px;
+    padding: 0 14px;
+    font-size: 0.8rem;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero-inner {
+    max-width: 100%;
+    padding: 0 16px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 7vw, 2.6rem);
+  }
+
+  .hero-typing {
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+  }
+
+  .hero-buttons {
+    justify-content: flex-start;
+  }
+
+  /* ---------- ABOUT ---------- */
+
+  .about-content {
+    max-width: 100%;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .about-principle {
+    margin-top: 28px;
+  }
+
+  /* ---------- CAREER ---------- */
+
+  .career-title {
+    font-size: 1.25rem;
+    margin-top: 48px;
+    margin-bottom: 36px;
+  }
+
+  .career-group {
+    margin-bottom: 44px;
+  }
+
+  .career-item {
+    padding-left: 14px;
+    margin-bottom: 28px;
+  }
+
+  .career-role {
+    font-size: 1rem;
+  }
+
+  .career-meta {
+    font-size: 0.8rem;
+  }
+
+  .career-desc {
+    font-size: 0.9rem;
+  }
+
+  /* ---------- SKILLS ---------- */
+
+  .skills-section {
+    min-height: auto;
+  }
+
+  .terminal {
+    border-radius: 8px;
+  }
+
+  .terminal-body {
+    font-size: 0.8rem;
+    padding: 14px 16px;
+  }
+
+  /* ---------- PROJECTS ---------- */
+
+  .projects-section {
+    padding-bottom: 80px;
+  }
+
+  .projects-index {
+    padding-left: 6px;
+  }
+
+  .projects-index button {
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  .projects-grid {
+    margin-top: 28px;
+  }
+
+  .project-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .project-impact {
+    font-size: 0.8rem;
+  }
+
+  .project-tech {
+    font-size: 0.75rem;
+  }
+
+  /* ---------- CONTACT ---------- */
+
+  .contact-grid {
+    margin-top: 40px;
+  }
+
+  .contact-form-split {
+    max-width: 100%;
+    gap: 22px;
+  }
+
+  .contact-form-split input,
+  .contact-form-split textarea {
+    font-size: 0.9rem;
+  }
+
+  .contact-form-split .contact-btn {
+    width: 100%;
+    padding: 14px 0;
+    text-align: center;
+  }
+
+  .contact-note {
+    font-size: 0.8rem;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  .footer {
+    padding: 26px 0 30px;
+  }
+
+  .footer-left p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .footer-right {
+    gap: 16px;
+  }
+}
+
+/* ========================================= */
+/* SMALL MOBILE (≤ 420px)                    */
+/* ========================================= */
+
+@media (max-width: 420px) {
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .terminal-body {
+    font-size: 0.75rem;
+  }
+
+  .project-card {
+    padding: 18px;
+  }
+
+  .contact-form-split label {
+    font-size: 0.65rem;
+  }
+
+  .contact-form-split input,
+  .contact-form-split textarea {
+    font-size: 0.85rem;
+  }
+}
