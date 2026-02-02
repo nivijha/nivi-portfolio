@@ -47,7 +47,7 @@
 /* ========================================= */
 
 main > section:not(.hero-section) {
-  margin-top: 120px;
+  margin-top: 70px;
   padding-bottom: 80px;
 }
 
@@ -229,7 +229,7 @@ button,
 }
 
 /* ===================== */
-/* NAVBAR – CLEAN, CONFIDENT */
+/*        NAVBAR         */
 /* ===================== */
 
 .site-nav {
@@ -321,12 +321,12 @@ button,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 38px; 
+  height: 38px;
   min-width: 100px;
-  padding: 0 22px; 
+  padding: 0 22px;
   background: #ffffff;
   color: #000000 !important;
-  font-size: 0.9rem; 
+  font-size: 0.9rem;
   font-weight: 600;
   line-height: 1;
   border: 1px solid #000;
@@ -352,21 +352,30 @@ button,
   transform: translateY(1px);
 }
 
+/* ===================== */
+/* HAMBURGER BUTTON     */
+/* ===================== */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-main);
+  margin: 5px 0;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
 @media (max-width: 768px) {
-  .nav-container {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .nav-links {
-    gap: 18px;
-    font-size: 0.9rem;
-  }
-
-  .nav-resume-btn {
-    padding: 6px 12px;
-    font-size: 0.85rem;
-  }
 }
 
 /* ========================================= */
@@ -399,7 +408,6 @@ button,
   margin-bottom: 12px;
 }
 
-/* typing */
 .hero-typing {
   width: 100%;
   text-align: left;
@@ -432,7 +440,6 @@ button,
   color: #b5b5b5;
 }
 
-/* button */
 .hero-buttons {
   display: flex;
   justify-content: left;
@@ -453,7 +460,6 @@ button,
   letter-spacing: 0.5px;
 }
 
-/* optional subtle caret stays */
 .hero-name::after {
   margin-left: 2px;
   opacity: 0.5;
@@ -602,32 +608,6 @@ button,
   max-width: 640px;
 }
 
-@media (max-width: 768px) {
-  .about-section {
-    padding: 64px 0 72px;
-  }
-
-  .about-grid {
-    padding: 0 20px;
-  }
-
-  .about-title {
-    font-size: 1.75rem;
-  }
-
-  .about-text {
-    font-size: 0.95rem;
-  }
-
-  .career-title {
-    font-size: 1.3rem;
-  }
-
-  .career-item {
-    padding-left: 16px;
-  }
-}
-
 /* ========================================= */
 /* SKILLS SECTION                            */
 /* ========================================= */
@@ -659,7 +639,6 @@ button,
   font-family: "JetBrains Mono", monospace;
 }
 
-/* mac title bar */
 .terminal-header {
   height: 28px;
   display: flex;
@@ -692,14 +671,12 @@ button,
   color: #b5b5b5;
 }
 
-/* body */
 .terminal-body {
   padding: 16px 18px 20px;
   font-size: 0.85rem;
   line-height: 1.6;
 }
 
-/* lines */
 .terminal-line {
   content: center;
   margin-bottom: 6px;
@@ -709,7 +686,6 @@ button,
   color: #888;
 }
 
-/* prompt colors */
 .user {
   color: #22c55e;
 }
@@ -727,7 +703,6 @@ button,
   color: #ffffff;
 }
 
-/* output */
 .terminal-output {
   margin: 2px 0;
 }
@@ -737,7 +712,6 @@ button,
   font-weight: 500;
 }
 
-/* caret blink */
 .caret {
   margin-left: 2px;
   animation: blink 1s steps(1) infinite;
@@ -890,7 +864,9 @@ button,
   height: 22px;
   color: #000;
   opacity: 0.8;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .icon-link svg {
@@ -905,7 +881,6 @@ button,
   transform: translateY(-1px);
 }
 
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -914,72 +889,6 @@ button,
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-
-  .projects-section {
-    padding-bottom: 72px;
-  }
-
-  .projects-terminal {
-    margin: 24px 0 40px;
-  }
-
-  .projects-terminal .terminal-body {
-    padding: 14px 16px 18px;
-    font-size: 0.8rem;
-  }
-
-  .projects-index {
-    padding-left: 8px;
-  }
-
-  .projects-index button {
-    font-size: 0.8rem;
-    line-height: 1.7;
-  }
-
-  .projects-grid {
-    margin-top: 32px;
-  }
-
-  .project-card {
-    padding: 22px;
-    border-radius: 12px;
-  }
-
-  .project-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  .project-title {
-    font-size: 1.15rem;
-  }
-
-  .project-status {
-    font-size: 0.65rem;
-  }
-
-  .project-desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  .project-impact {
-    font-size: 0.8rem;
-  }
-
-  .project-tech {
-    font-size: 0.75rem;
-  }
-
-  .project-links {
-    flex-wrap: wrap;
-    gap: 12px;
   }
 }
 
@@ -1002,13 +911,11 @@ button,
   padding: 0;
 }
 
-/* match other sections */
 .contact-section .section-text {
   max-width: 860px;
   margin-inline: auto;
 }
 
-/* social icons */
 .contact-list {
   list-style: none;
   display: flex;
@@ -1021,7 +928,9 @@ button,
   font-size: 20px;
   color: var(--text-main);
   opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .contact-list a:hover {
@@ -1029,17 +938,15 @@ button,
   transform: translateY(-2px);
 }
 
-/* -------- FORM WRAPPER -------- */
 .contact-grid {
   max-width: 860px;
   margin: 56px auto 0;
-  display: block; /* 🔑 no grid columns */
+  display: block;
 }
 
-/* -------- FORM -------- */
 .contact-form-split {
-  max-width: 520px;          /* controls wideness */
-  margin-left: 0;            /* align with text */
+  max-width: 520px;
+  margin-left: 0;
   background: transparent;
   border: none;
   padding: 0;
@@ -1049,7 +956,6 @@ button,
   gap: 28px;
 }
 
-/* -------- FORM GROUP -------- */
 .contact-form-split .form-group {
   display: flex;
   flex-direction: column;
@@ -1063,7 +969,6 @@ button,
   color: var(--text-muted);
 }
 
-/* inputs */
 .contact-form-split input,
 .contact-form-split textarea {
   background: transparent;
@@ -1086,7 +991,6 @@ button,
   border-bottom-color: var(--text-main);
 }
 
-/* -------- BUTTON -------- */
 .contact-form-split .contact-btn {
   margin-top: 10px;
   align-self: flex-start;
@@ -1096,7 +1000,9 @@ button,
   font-size: 0.9rem;
   border-radius: 999px;
   border: none;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .contact-form-split .contact-btn:hover {
@@ -1109,25 +1015,10 @@ button,
   cursor: not-allowed;
 }
 
-/* status text */
 .contact-note {
   font-size: 0.85rem;
   margin-top: -6px;
 }
-
-/* -------- MOBILE -------- */
-@media (max-width: 768px) {
-  .contact-form-split {
-    max-width: 100%;
-  }
-
-  .contact-form-split .contact-btn {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-
 
 /* ========================================= */
 /* FOOTER - IDENTICAL SPACING               */
@@ -1197,32 +1088,6 @@ button,
 
 /* FOOTER MOBILE - IDENTICAL SPACING */
 @media (max-width: 768px) {
-  .footer {
-    padding: 28px 0 32px;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 14px;
-  }
-
-  .footer-left p {
-    font-size: 0.8rem;
-    line-height: 1.6;
-    max-width: 280px;
-    margin: 0 auto;
-  }
-
-  .footer-right {
-    justify-content: center;
-    gap: 18px;
-  }
-
-  .footer-right a {
-    font-size: 0.85rem;
-    padding: 6px 8px;
-  }
 }
 
 /* ========================================= */
@@ -1230,9 +1095,7 @@ button,
 /* ========================================= */
 
 @media (max-width: 768px) {
-
   /* ---------- GLOBAL ---------- */
-
   .section-inner {
     padding: 0 20px;
   }
@@ -1260,31 +1123,122 @@ button,
   /* ---------- NAVBAR ---------- */
 
   .nav-container {
-    padding: 0 14px;
-  }
-
-  .nav-links {
-    gap: 16px;
-  }
-
-  .nav-links a {
-    font-size: 0.9rem;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .nav-resume-btn {
-    min-width: auto;
-    height: 34px;
-    padding: 0 14px;
-    font-size: 0.8rem;
+    background: transparent;
+    border: none;
+    padding: 14px 6px;
+    height: auto;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-muted) !important;
+    justify-content: flex-start;
+  }
+
+  .nav-resume-btn:hover,
+  .nav-resume-btn:active {
+    background: var(--bg-elevated);
+    color: var(--text-main) !important;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    background: var(--bg-body);
+    border-bottom: 1px solid var(--border-subtle);
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+
+    padding: 12px 20px 20px;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 0.95rem;
+    padding: 14px 6px;
+    border-radius: 6px;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:active {
+    background: var(--bg-elevated);
+    color: var(--text-main);
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .nav-links li:last-child {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .site-nav {
+    background: var(--bg-body);
   }
 
   /* ---------- HERO ---------- */
 
   .hero-inner {
-    max-width: 100%;
-    padding: 0 16px;
+    width: 100%;
+    max-width: 420px;
+    padding: 0 20px;
+
+    margin-left: 0;
+    margin-right: auto;
+
     align-items: flex-start;
     text-align: left;
+
+    transform: none;
   }
 
   .hero-title {
@@ -1297,6 +1251,13 @@ button,
   }
 
   .hero-buttons {
+    justify-content: flex-start;
+  }
+
+  .hero-section {
+    min-height: calc(100svh - var(--nav-height));
+    display: flex;
+    align-items: center;
     justify-content: flex-start;
   }
 
@@ -1314,6 +1275,26 @@ button,
 
   .about-principle {
     margin-top: 28px;
+  }
+
+  .about-section {
+    padding: 64px 0 72px;
+  }
+
+  .about-grid {
+    padding: 0 20px;
+  }
+
+  .about-title {
+    font-size: 1.75rem;
+  }
+
+  .career-title {
+    font-size: 1.3rem;
+  }
+
+  .career-item {
+    padding-left: 16px;
   }
 
   /* ---------- CAREER ---------- */
@@ -1401,6 +1382,61 @@ button,
     font-size: 0.75rem;
   }
 
+  .projects-terminal {
+    margin: 24px 0 40px;
+  }
+
+  .projects-terminal .terminal-body {
+    padding: 14px 16px 18px;
+    font-size: 0.8rem;
+  }
+
+  .projects-index button {
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  .projects-grid {
+    margin-top: 32px;
+  }
+
+  .project-card {
+    padding: 22px;
+    border-radius: 12px;
+  }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .project-title {
+    font-size: 1.15rem;
+  }
+
+  .project-status {
+    font-size: 0.65rem;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .project-impact {
+    font-size: 0.8rem;
+  }
+
+  .project-tech {
+    font-size: 0.75rem;
+  }
+
+  .project-links {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
   /* ---------- CONTACT ---------- */
 
   .contact-grid {
@@ -1430,17 +1466,34 @@ button,
   /* ---------- FOOTER ---------- */
 
   .footer {
-    padding: 26px 0 30px;
+    padding: 20px 0 20px;
+    overflow: visible;
+    flex-wrap: wrap;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
   }
 
   .footer-left p {
     font-size: 0.8rem;
     line-height: 1.6;
+    max-width: 340px;
+    margin: 0 auto;
   }
 
   .footer-right {
+    justify-content: center;
     gap: 16px;
   }
+
+  .footer-right a {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+  }
+
 }
 
 /* ========================================= */
@@ -1448,7 +1501,6 @@ button,
 /* ========================================= */
 
 @media (max-width: 420px) {
-
   .hero-title {
     font-size: 2.1rem;
   }

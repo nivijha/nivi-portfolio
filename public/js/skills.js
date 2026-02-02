@@ -1,5 +1,5 @@
 // Terminal Typing
-const commandText = "skills --list";
+const commandText = "stack --list";
 const outputLines = [
   "<span class='terminal-section'>Languages</span>",
   "  C, C++, Java, Python, JavaScript",

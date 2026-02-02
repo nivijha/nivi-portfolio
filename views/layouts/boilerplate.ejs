@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,60 +17,82 @@
 
   <%- include('../includes/navbar') %>
 
-  <main>
-    <%- body %>
-  </main>
+    <main>
+      <%- body %>
+    </main>
 
-  <%- include('../includes/footer') %>
+    <%- include('../includes/footer') %>
 
-  <!-- GLOBAL JS ONLY -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- GLOBAL JS ONLY -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <script>
-    // Navbar active state (global & safe)
-    const currentPath = window.location.pathname;
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      const linkPath = new URL(link.href).pathname;
-      link.toggleAttribute('aria-current', linkPath === currentPath);
-    });
-  </script>
+      <script>
+        // Navbar active state (global & safe)
+        const currentPath = window.location.pathname;
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          const linkPath = new URL(link.href).pathname;
+          link.toggleAttribute('aria-current', linkPath === currentPath);
+        });
+      </script>
 
-  <script>
-    // Global reveal animation
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
+      <script>
+        // Global reveal animation
+        const revealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el =>
+          revealObserver.observe(el)
+        );
+      </script>
+
+      <script>
+        const toggle = document.querySelector(".nav-toggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        if (toggle && navLinks) {
+          toggle.addEventListener("click", () => {
+            toggle.classList.toggle("active");
+            navLinks.classList.toggle("open");
+          });
+
+          // close menu on link click
+          navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+              toggle.classList.remove("active");
+              navLinks.classList.remove("open");
+            });
+          });
         }
-      });
-    }, { threshold: 0.15 });
+      </script>
 
-    document.querySelectorAll('.reveal').forEach(el =>
-      revealObserver.observe(el)
-    );
-  </script>
 
-  <!-- PAGE-SPECIFIC SCRIPTS -->
-  <% if (page === "about") { %>
-    <script src="/js/about.js" defer></script>
-  <% } %>
-  <% if (page === "home") { %>
-    <script src="/js/home.js" defer></script>
-  <% } %>
+      <!-- PAGE-SPECIFIC SCRIPTS -->
+      <% if (page==="about" ) { %>
+        <script src="/js/about.js" defer></script>
+        <% } %>
+          <% if (page==="home" ) { %>
+            <script src="/js/home.js" defer></script>
+            <% } %>
 
-  <% if (page === "skills") { %>
-    <script src="/js/skills.js" defer></script>
-  <% } %>
+              <% if (page==="skills" ) { %>
+                <script src="/js/skills.js" defer></script>
+                <% } %>
 
-  <% if (page === "projects") { %>
-    <script src="/js/project.js" defer></script>
-  <% } %>
+                  <% if (page==="projects" ) { %>
+                    <script src="/js/project.js" defer></script>
+                    <% } %>
 
-  <% if (page === "contact") { %>
-    <script src="/js/contactHandler.js" defer></script>
-  <% } %>
+                      <% if (page==="contact" ) { %>
+                        <script src="/js/contactHandler.js" defer></script>
+                        <% } %>
 
 
 </body>
+
 </html>
