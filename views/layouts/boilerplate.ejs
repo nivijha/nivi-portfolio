@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,344 +9,67 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css" />
-
-  <!-- Vercel Web Analytics -->
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
-
-  <!-- Vercel Speed Insights -->
-  <script>
-    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-
-    // Optional: Add a beforeSend function to filter sensitive data
-    // See: https://vercel.com/docs/speed-insights/package#beforesend
-    window.speedInsightsBeforeSend = function (data) {
-      // Clean up sensitive parameters from the URL if needed
-      if (data.url) {
-        data.url = data.url.split('?')[0]; // Remove query parameters
-      }
-      return data;
-    };
-  </script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
-
 
 <body>
 
-  <!-- PAGE WRAPPER -->
-  <div>
-    <%- include('../includes/navbar') %>
-      <!-- MAIN CONTENT -->
-      <main>
-        <%- body %>
-      </main>
+  <%- include('../includes/navbar') %>
 
-      <!-- FOOTER -->
-      <%- include('../includes/footer') %>
+  <main>
+    <%- body %>
+  </main>
 
-  </div>
+  <%- include('../includes/footer') %>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("year").textContent =
-        new Date().getFullYear();
-    });
-  </script>
-
+  <!-- GLOBAL JS ONLY -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
+    // Navbar active state (global & safe)
     const currentPath = window.location.pathname;
-
     document.querySelectorAll('.nav-links a').forEach(link => {
       const linkPath = new URL(link.href).pathname;
-
-      if (linkPath === currentPath) {
-        link.setAttribute('aria-current', 'page');
-      } else {
-        link.removeAttribute('aria-current');
-      }
+      link.toggleAttribute('aria-current', linkPath === currentPath);
     });
-
   </script>
 
-  <!-- Career Wapper -->
   <script>
-    const careerSection = document.querySelector('.career-wrapper');
-
-    if (careerSection) {
-      const careerObserver = new IntersectionObserver(
-        ([entry], observer) => {
-          if (entry.isIntersecting) {
-            careerSection.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        },
-        {
-          threshold: 0.25,
+    // Global reveal animation
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
         }
-      );
+      });
+    }, { threshold: 0.15 });
 
-      careerObserver.observe(careerSection);
-    }
-
-  </script>
-
-  <!-- Fade-in animation -->
-  <script>
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.15,
-      }
+    document.querySelectorAll('.reveal').forEach(el =>
+      revealObserver.observe(el)
     );
-
-    document.querySelectorAll('.reveal').forEach(el => {
-      observer.observe(el);
-    });
-
   </script>
 
-  <!-- SUBTITLE TYPING EFFECT -->
-  <script>
-    const words = [
-      "Full Stack Developer",
-      "Competitive Programmer",
-      "Developer who ships.",
-    ];
+  <!-- PAGE-SPECIFIC SCRIPTS -->
+  <% if (page === "about") { %>
+    <script src="/js/about.js" defer></script>
+  <% } %>
+  <% if (page === "home") { %>
+    <script src="/js/home.js" defer></script>
+  <% } %>
 
-    let i = 0,
-      j = 0,
-      isDeleting = false;
-    const typingSpeed = 90;
-    const deletingSpeed = 50;
-    const pause = 1200;
+  <% if (page === "skills") { %>
+    <script src="/js/skills.js" defer></script>
+  <% } %>
 
-    const el = document.getElementById("typing-text");
-    if (el) {
-      function type() {
-        const current = words[i];
-        if (!isDeleting) {
-          el.textContent = current.slice(0, j++);
-          if (j === current.length) {
-            setTimeout(() => (isDeleting = true), pause);
-          }
-        } else {
-          el.textContent = current.slice(0, j--);
-          if (j === 0) {
-            isDeleting = false;
-            i = (i + 1) % words.length;
-          }
-        }
-        setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
-      }
-    }
+  <% if (page === "projects") { %>
+    <script src="/js/project.js" defer></script>
+  <% } %>
 
-    type();
-  </script>
+  <% if (page === "contact") { %>
+    <script src="/js/contactHandler.js" defer></script>
+  <% } %>
 
-  <!-- Glitch Typing -->
-  <script>
-    const nameEl = document.getElementById("glitch-name");
 
-    const leftText = "I'm Ni";
-    const rightText = "vi Jha";
-    const finalText = leftText + rightText;
-
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_<>/\\!@#$%^&*():";
-
-    let leftFrame = 0;
-    let rightFrame = rightText.length - 1;
-
-    let tick = 0;
-
-    const interval = setInterval(() => {
-      tick++;
-
-      if (leftFrame <= leftText.length) {
-        leftFrame++;
-      }
-
-      if (tick % 2 === 0 && rightFrame >= 0) {
-        rightFrame--;
-      }
-
-      const leftPart = leftText
-        .split("")
-        .map((char, i) =>
-          i < leftFrame
-            ? `<span class="glitch-final">${char}</span>`
-            : `<span class="glitch-scramble">${chars[Math.floor(Math.random() * chars.length)]}</span>`
-        )
-        .join("");
-
-      const rightPart = rightText
-        .split("")
-        .map((char, i) =>
-          i > rightFrame
-            ? `<span class="glitch-final">${char}</span>`
-            : `<span class="glitch-scramble">${chars[Math.floor(Math.random() * chars.length)]}</span>`
-        )
-        .join("");
-
-      nameEl.innerHTML = leftPart + rightPart;
-
-      if (leftFrame > leftText.length && rightFrame < 0) {
-        clearInterval(interval);
-        nameEl.innerHTML = finalText
-          .split("")
-          .map(c => `<span class="glitch-final">${c}</span>`)
-          .join("");
-      }
-    }, 70);
-  </script>
-
-  <script>
-    const commandText = "skills --list";
-    const outputLines = [
-      "<span class='terminal-section'>Languages</span>",
-      "  C, C++, Java, Python, JavaScript",
-      "",
-      "<span class='terminal-section'>Frontend</span>",
-      "  React, Next.js, HTML, CSS, Bootstrap",
-      "",
-      "<span class='terminal-section'>Backend & Database</span>",
-      "  Node.js, Express, MongoDB, MySQL",
-      "",
-      "<span class='terminal-section'>Tools</span>",
-      "  Git, GitHub, Linux, Docker, AWS"
-    ];
-
-    const typedCommand = document.getElementById("typed-command");
-    const output = document.getElementById("terminal-output");
-    const nextPrompt = document.getElementById("next-prompt");
-
-    let charIndex = 0;
-    let lineIndex = 0;
-
-    function typeCommand() {
-      if (charIndex < commandText.length) {
-        typedCommand.textContent += commandText.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeCommand, 45);
-      } else {
-        setTimeout(printOutput, 400);
-      }
-    }
-
-    function printOutput() {
-      if (lineIndex < outputLines.length) {
-        const p = document.createElement("p");
-        p.innerHTML = outputLines[lineIndex];
-        output.appendChild(p);
-        lineIndex++;
-        setTimeout(printOutput, 120);
-      }
-      else {
-        setTimeout(() => {
-          const caret = document.getElementById("caret");
-          if (caret) caret.style.display = "none";
-
-          nextPrompt.style.display = "block";
-        }, 400);
-      }
-    }
-
-    window.addEventListener("load", () => {
-      setTimeout(typeCommand, 500);
-    });
-  </script>
-
-  <script>
-    function formatDate(date) {
-      const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-      const d = days[date.getDay()];
-      const m = months[date.getMonth()];
-      const day = String(date.getDate()).padStart(2, "0");
-
-      const h = String(date.getHours()).padStart(2, "0");
-      const min = String(date.getMinutes()).padStart(2, "0");
-      const s = String(date.getSeconds()).padStart(2, "0");
-
-      return `${d} ${m} ${day} ${h}:${min}:${s}`;
-    }
-
-    const lastLoginEl = document.getElementById("last-login");
-    const previousLogin = localStorage.getItem("lastLogin");
-
-    if (previousLogin) {
-      lastLoginEl.textContent = `Last login: ${previousLogin} on ttys001`;
-    } else {
-      lastLoginEl.style.display = "none";
-    }
-
-    // store current login for next visit
-    const now = new Date();
-    localStorage.setItem("lastLogin", formatDate(now));
-  </script>
-
-  <script>
-    const projectButtons = document.querySelectorAll(".projects-index button");
-    const projectCards = document.querySelectorAll(".project-card");
-
-    projectButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const targetId = button.dataset.target;
-
-        projectCards.forEach(card => {
-          if (card.id === targetId) {
-            card.classList.toggle("active");
-          } else {
-            card.classList.remove("active");
-          }
-        });
-      });
-    });
-  </script>
-
-  <script>
-    const buttons = document.querySelectorAll(".projects-index button");
-    const cards = document.querySelectorAll(".project-card");
-
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        const targetId = button.dataset.target;
-
-        // hide all cards
-        cards.forEach(card => card.classList.remove("active"));
-
-        // show selected
-        const activeCard = document.getElementById(targetId);
-        if (activeCard) {
-          activeCard.classList.add("active");
-          activeCard.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      });
-    });
-  </script>
-
-  <!-- Contact form handler -->
-  <script src="/js/contactHandler.js" defer></script>
-  </div>
 </body>
-
 </html>

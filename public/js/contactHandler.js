@@ -75,7 +75,6 @@
       form.reset();
       validateForm();
     } catch (err) {
-      // console.error("Contact form error:", err);
 
       statusText.textContent =
         "Something went wrong. Please try again later.";

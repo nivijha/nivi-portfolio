@@ -37,27 +37,23 @@ const ddbClient = new DynamoDBClient({
 
 //home
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("home", { page: "home" });
 });
 
 app.get("/about", (req, res) => {
-  res.render("about");
+  res.render("about", { page: "about" });
 });
 
 app.get("/skills", (req, res) => {
-  res.render("skills");
+  res.render("skills", { page: "skills" });
 });
 
 app.get("/projects", (req, res) => {
-  res.render("projects");
+  res.render("projects", {page: "projects"});
 });
 
 app.get("/contact", (req, res) => {
-  res.render("contact");
-});
-
-app.get("/contact", (req, res) => {
-  res.render("contact");
+  res.render("contact", { page: "contact" });
 });
 
 // contact submission (placeholder handler)
