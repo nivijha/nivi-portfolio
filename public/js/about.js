@@ -1,18 +1,42 @@
-// Career Wapper
-const careerSection = document.querySelector(".career-wrapper");
+document.addEventListener("DOMContentLoaded", () => {
+  /* Career wrapper reveal */
+  const careerWrapper = document.querySelector(".career-wrapper");
+  if (careerWrapper) {
+    new IntersectionObserver(
+      ([entry], obs) => {
+        if (entry.isIntersecting) {
+          careerWrapper.classList.add("visible");
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.25 },
+    ).observe(careerWrapper);
+  }
+});
 
-if (careerSection) {
-  const careerObserver = new IntersectionObserver(
-    ([entry], observer) => {
-      if (entry.isIntersecting) {
-        careerSection.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    },
-    {
-      threshold: 0.25,
-    },
-  );
+document.querySelectorAll(".career-timeline").forEach((timeline) => {
+  const progress = timeline.querySelector(".timeline-progress");
+  const dot = timeline.querySelector(".timeline-active-dot");
 
-  careerObserver.observe(careerSection);
-}
+  if (!progress || !dot) return;
+
+  const onScroll = () => {
+    const rect = timeline.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    const start = windowHeight * 0.3;
+    const end = rect.height + windowHeight * 0.3;
+
+    const progressRaw = (start - rect.top) / end;
+    const progressClamped = Math.min(Math.max(progressRaw, 0), 1);
+
+    const percent = progressClamped * 100;
+
+    progress.style.height = `${percent}%`;
+    dot.style.transform = `translateY(${rect.height * progressClamped}px)`;
+  };
+
+  window.addEventListener("scroll", onScroll);
+  window.addEventListener("resize", onScroll);
+  onScroll();
+});

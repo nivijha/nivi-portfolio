@@ -12,15 +12,27 @@
     <ul class="nav-links">
       <li><a href="/about">About</a></li>
       <li><a href="/skills">Stack</a></li>
-      <li><a href="/projects">projects</a></li>
+      <li><a href="/projects">Projects</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li>
-        <a href="https://drive.google.com/file/d/1QFgZbvDQn99wsy-nNUcoRNeySuxzbh1V" target="_blank" rel="noopener"
-          class="nav-resume-btn">
-          Resume
-        </a>
-      </li>
-
     </ul>
+
+    <div class="nav-actions">
+      <a href="https://drive.google.com/file/d/1QFgZbvDQn99wsy-nNUcoRNeySuxzbh1V" target="_blank" rel="noopener"
+        class="nav-resume-btn">Resume</a>
+
+      <button class="music-toggle" aria-label="Toggle background music">
+        <span class="eq">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="music-label">Play</span>
+      </button>
+
+      <audio id="bg-music">
+        <source src="/music.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
   </div>
 </nav>
