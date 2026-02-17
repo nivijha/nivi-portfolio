@@ -1,4 +1,4 @@
-(() => {
+window.initContactPage = function() {(() => {
   // Guard: only run on contact page
   const form = document.getElementById("contact-form");
   if (!form) return;
@@ -84,3 +84,4 @@
     }
   });
 })();
+}

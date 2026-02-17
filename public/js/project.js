@@ -1,19 +1,32 @@
-// Project Terminal Show Cards
-const buttons = document.querySelectorAll(".projects-index button");
-const cards = document.querySelectorAll(".project-card");
+window.initProjectsPage = function () {
+  document.querySelectorAll(".project-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      const target = item.dataset.target;
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const targetId = button.dataset.target;
+      document
+        .querySelectorAll(".project-item")
+        .forEach((i) => i.classList.remove("active"));
+      item.classList.add("active");
 
-    // hide all cards
-    cards.forEach((card) => card.classList.remove("active"));
+      document
+        .querySelectorAll(".project-card")
+        .forEach((card) => card.classList.remove("active"));
 
-    // show selected
-    const activeCard = document.getElementById(targetId);
-    if (activeCard) {
-      activeCard.classList.add("active");
-      activeCard.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+      document.getElementById(target).classList.add("active");
+    });
   });
-});
+
+  document.querySelectorAll(".project-image").forEach((container) => {
+    const video = container.querySelector(".project-video");
+    if (!video) return;
+
+    container.addEventListener("mouseenter", () => {
+      video.play();
+    });
+
+    container.addEventListener("mouseleave", () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+};
