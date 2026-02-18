@@ -66,7 +66,6 @@
 
           if (!toggleBtn) return;
 
-          // Set correct icon on load
           toggleBtn.innerHTML = root.classList.contains("dark")
             ? '<i data-lucide="sun"></i>'
             : '<i data-lucide="moon"></i>';
@@ -249,12 +248,10 @@
             currentMain.classList.remove("page-exit");
           }
 
-          // Initial load
           initRevealAnimations();
           runPageInit();
           updateActiveNav();
 
-          // Link navigation
           document.querySelectorAll("a[href^='/']").forEach(link => {
             link.addEventListener("click", async (e) => {
               const url = link.getAttribute("href");
@@ -265,13 +262,10 @@
               await loadPage(url);
 
               window.history.pushState({}, "", url);
-
-              // NOW update nav
               updateActiveNav();
             });
           });
 
-          // Back/forward buttons
           window.addEventListener("popstate", async () => {
             await loadPage(window.location.pathname);
             updateActiveNav();
@@ -282,7 +276,6 @@
       <!-- GLOBAL MUSIC ENGINE -->
       <script>
         (function () {
-          // Create single global audio instance
           if (!window.globalAudio) {
             const audio = new Audio("/music.mp3");
             audio.loop = true;
@@ -293,7 +286,6 @@
 
           const audio = window.globalAudio;
 
-          // Restore playback state
           const isPlaying = localStorage.getItem("musicPlaying") === "true";
           const savedTime = parseFloat(localStorage.getItem("musicTime") || "0");
 
@@ -305,7 +297,6 @@
             audio.play().catch(() => { });
           }
 
-          // Persist time smoothly
           setInterval(() => {
             if (!audio.paused) {
               localStorage.setItem("musicTime", audio.currentTime);
@@ -348,7 +339,7 @@
         });
       </script>
 
-      <!-- MUSIC TIP POPUP + APPLE-STYLE BOUNCE -->
+      <!-- MUSIC TIP POPUP -->
       <script>
         window.addEventListener("load", () => {
           const tip = document.getElementById("music-tip");
@@ -356,13 +347,11 @@
 
           if (!tip || !btn) return;
 
-          // show popup
           setTimeout(() => {
             tip.classList.add("show", "bounce");
             btn.classList.add("pulse");
           }, 900);
 
-          // hide popup
           setTimeout(() => {
             tip.classList.remove("show", "bounce");
             btn.classList.remove("pulse");
@@ -370,15 +359,100 @@
         });
       </script>
 
+      <!-- HAMBURGER MOBILE SHEET -->
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          if (!document.querySelector(".mobile-sheet")) {
+            const sheet = document.createElement("div");
+            sheet.className = "mobile-sheet";
+            sheet.setAttribute("aria-hidden", "true");
+            sheet.innerHTML = `
+        <div class="mobile-sheet-backdrop"></div>
+        <div class="mobile-sheet-card">
+          <ul class="mobile-sheet-nav">
+            <li><a href="/about">About <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+            <li><a href="/skills">Stack <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+            <li><a href="/projects">Projects <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+            <li><a href="/contact">Contact <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+          </ul>
+          <div class="mobile-sheet-divider"></div>
+          <div class="mobile-sheet-actions">
+            <a href="https://drive.google.com/file/d/1QFgZbvDQn99wsy-nNUcoRNeySuxzbh1V"
+               target="_blank" rel="noopener"
+               class="mobile-sheet-action">
+              <span class="mobile-sheet-action-label">
+                <span class="mobile-sheet-action-icon resume-icon">↗</span>
+                Resume
+              </span>
+            </a>
+            <button class="mobile-sheet-action mobile-theme-toggle">
+              <span class="mobile-sheet-action-label">
+                <span class="mobile-sheet-action-icon theme-icon" id="mobile-theme-icon">
+                  <i data-lucide="moon"></i>
+                </span>
+                <span id="mobile-theme-label">Dark mode</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      `;
+            document.body.appendChild(sheet);
+            lucide.createIcons();
+          }
 
+          function updateMobileThemeUI() {
+            const isDark = document.documentElement.classList.contains("dark");
+            const label = document.getElementById("mobile-theme-label");
+            const iconWrap = document.getElementById("mobile-theme-icon");
+            if (label) label.textContent = isDark ? "Light mode" : "Dark mode";
+            if (iconWrap) {
+              iconWrap.innerHTML = isDark
+                ? '<i data-lucide="sun"></i>'
+                : '<i data-lucide="moon"></i>';
+              lucide.createIcons();
+            }
+          }
 
+          updateMobileThemeUI();
 
+          const toggle = document.querySelector(".nav-toggle");
+          const sheet = document.querySelector(".mobile-sheet");
+          const backdrop = document.querySelector(".mobile-sheet-backdrop");
 
+          function openSheet() {
+            sheet.classList.add("open");
+            sheet.setAttribute("aria-hidden", "false");
+            toggle.classList.add("active");
+            toggle.setAttribute("aria-expanded", "true");
+            document.body.style.overflow = "hidden";
+          }
 
+          function closeSheet() {
+            sheet.classList.remove("open");
+            sheet.setAttribute("aria-hidden", "true");
+            toggle.classList.remove("active");
+            toggle.setAttribute("aria-expanded", "false");
+            document.body.style.overflow = "";
+          }
 
+          toggle.addEventListener("click", () => {
+            sheet.classList.contains("open") ? closeSheet() : openSheet();
+          });
 
+          backdrop.addEventListener("click", closeSheet);
 
+          document.querySelectorAll(".mobile-sheet-nav a").forEach(link => {
+            link.addEventListener("click", closeSheet);
+          });
 
+          document.querySelector(".mobile-theme-toggle")?.addEventListener("click", () => {
+            const desktopToggle = document.querySelector(".theme-toggle");
+            if (desktopToggle) desktopToggle.click();
+            setTimeout(updateMobileThemeUI, 700);
+            closeSheet();
+          });
+        });
+      </script>
 </body>
 
 </html>

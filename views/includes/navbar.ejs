@@ -2,13 +2,6 @@
   <div class="nav-container">
     <a href="/" class="nav-brand">nivi<span class="brand-dot">.</span></a>
 
-    <!-- Hamburger -->
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <ul class="nav-links">
       <li><a href="/about">About</a></li>
       <li><a href="/skills">Stack</a></li>
@@ -18,14 +11,22 @@
 
     <div class="nav-actions">
       <a href="https://drive.google.com/file/d/1QFgZbvDQn99wsy-nNUcoRNeySuxzbh1V" target="_blank" rel="noopener"
-        class="nav-resume-btn">Resume</a>
-      <button class="theme-toggle" aria-label="Toggle theme">
+        class="nav-resume-btn desktop-only">Resume</a>
+
+      <button class="theme-toggle desktop-only" aria-label="Toggle theme">
         <i data-lucide="moon"></i>
+      </button>
+
+      <!-- Hamburger  -->
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
   </div>
+
   <div class="nav-progress">
     <div class="nav-progress-bar"></div>
   </div>
-
 </nav>
