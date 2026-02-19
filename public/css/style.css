@@ -665,21 +665,6 @@ html.dark .music-btn.pulse::after {
 
 .nav-toggle {
   display: none;
-  background: none;
-  border: none;
-  padding: 6px;
-  cursor: pointer;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--text-main);
-  margin: 5px 0;
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
 }
 
 .nav-progress {
@@ -1484,10 +1469,6 @@ html.dark .music-btn.pulse::after {
     color: var(--text-main) !important;
   }
 
-  .nav-toggle {
-    display: block;
-  }
-
   .nav-links {
     position: absolute;
     top: var(--nav-height);
@@ -1751,7 +1732,7 @@ html.dark .music-btn.pulse::after {
   }
 
   .nav-toggle {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 36px;
