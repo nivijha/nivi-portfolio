@@ -557,6 +557,7 @@ html.dark .music-btn.pulse::after {
   font-weight: 900;
 }
 
+/* Center links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -591,19 +592,11 @@ html.dark .music-btn.pulse::after {
 }
 
 .nav-links a:hover,
-.nav-links a[aria-current="page"] {
-  color: var(--text-main);
-}
-
-.nav-links a:hover::after,
-.nav-links a[aria-current="page"]::after {
-  width: 100%;
-}
-
 .nav-links a.active {
   color: var(--text-main);
 }
 
+.nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
 }
@@ -614,19 +607,17 @@ html.dark .music-btn.pulse::after {
   gap: 12px;
 }
 
+/* Resume button */
 .nav-resume-btn {
   height: 34px;
   padding: 0 20px;
   padding-top: 5px;
-
   font-size: 0.85rem;
   font-weight: 500;
-
   background: white;
   color: black;
   border: 1px solid var(--border-subtle);
   text-decoration: none;
-
   transition: background 0.2s ease;
 }
 
@@ -635,23 +626,17 @@ html.dark .music-btn.pulse::after {
   color: white;
 }
 
-.nav-resume-btn::after {
-  display: none;
-}
-
+/* Theme toggle */
 .theme-toggle {
   width: 34px;
   height: 34px;
   border-radius: 999px;
-
   display: grid;
   place-items: center;
-
   background: transparent;
   border: none;
   color: var(--text-muted);
   cursor: pointer;
-
   transition:
     background 0.2s ease,
     color 0.2s ease,
@@ -663,10 +648,43 @@ html.dark .music-btn.pulse::after {
   transform: translateY(-1px);
 }
 
+/* Hamburger */
 .nav-toggle {
-  display: none;
+  display: none; /* hidden on desktop */
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  padding: 0;
+  flex-direction: column;
 }
 
+.nav-toggle span {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  background: var(--text-main);
+  border-radius: 2px;
+  margin: 2.5px 0;
+  transition:
+    transform 0.3s ease,
+    opacity 0.2s ease;
+}
+
+/* Visibility helpers */
+.desktop-only {
+  display: flex;
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+/* Progress bar */
 .nav-progress {
   position: absolute;
   left: 0;
@@ -683,10 +701,6 @@ html.dark .music-btn.pulse::after {
   background: var(--text-main);
   transform-origin: left;
   transition: width 0.18s ease-out;
-}
-
-.dark .nav-progress-bar {
-  opacity: 0.85;
 }
 
 /* ========================================= */
@@ -1042,8 +1056,9 @@ html.dark .music-btn.pulse::after {
 
   display: flex;
   flex-direction: column;
-  align-items: flex-end; 
+  align-items: flex-end;
   gap: 22px;
+  margin-top: 20px;
 }
 
 .stack-side-item {
@@ -1055,7 +1070,7 @@ html.dark .music-btn.pulse::after {
   font-size: 0.95rem;
   font-weight: 500;
 
-  transform: rotate(90deg); 
+  transform: rotate(90deg);
   transform-origin: right center;
 
   opacity: 1;
@@ -1065,7 +1080,7 @@ html.dark .music-btn.pulse::after {
 }
 
 .stack-side-item img {
-  width: 28px; 
+  width: 28px;
   height: 28px;
 }
 
@@ -1084,14 +1099,15 @@ html.dark .music-btn.pulse::after {
   }
 
   .stack-side-list {
-    display: flex; 
+    display: flex;
     position: absolute;
-    right: 40px;
+    right: 55px;
     top: 50%;
     transform: translateY(-50%);
     flex-direction: column;
     align-items: flex-end;
-    gap: 35px;
+    gap: 55px;
+    margin-top: 90px;
   }
 
   .stack-side-item {
@@ -1732,7 +1748,7 @@ html.dark .music-btn.pulse::after {
   }
 
   .nav-toggle {
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     width: 36px;
@@ -1776,8 +1792,16 @@ html.dark .music-btn.pulse::after {
     display: none !important;
   }
 
+  .nav-links {
+    display: none;
+  }
+
   .nav-toggle {
-    display: flex;
+    display: flex; /* show hamburger on mobile */
+  }
+
+  .desktop-only {
+    display: none !important;
   }
 
   /* ---------- HERO ---------- */

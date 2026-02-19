@@ -366,6 +366,7 @@
             const sheet = document.createElement("div");
             sheet.className = "mobile-sheet";
             sheet.setAttribute("aria-hidden", "true");
+            sheet.style.display = "none";  // hidden by default on all screen sizes
             sheet.innerHTML = `
         <div class="mobile-sheet-backdrop"></div>
         <div class="mobile-sheet-card">
@@ -420,7 +421,11 @@
           const backdrop = document.querySelector(".mobile-sheet-backdrop");
 
           function openSheet() {
-            sheet.classList.add("open");
+            sheet.style.display = "block";
+            // Small delay so display:block applies before the transition
+            requestAnimationFrame(() => {
+              sheet.classList.add("open");
+            });
             sheet.setAttribute("aria-hidden", "false");
             toggle.classList.add("active");
             toggle.setAttribute("aria-expanded", "true");
@@ -433,8 +438,14 @@
             toggle.classList.remove("active");
             toggle.setAttribute("aria-expanded", "false");
             document.body.style.overflow = "";
+            setTimeout(() => {
+              if (!sheet.classList.contains("open")) {
+                sheet.style.display = "none";
+              }
+            }, 400);
           }
 
+          // Always attach — CSS hides the toggle button on desktop anyway
           toggle.addEventListener("click", () => {
             sheet.classList.contains("open") ? closeSheet() : openSheet();
           });
