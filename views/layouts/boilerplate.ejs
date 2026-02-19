@@ -368,35 +368,51 @@
             sheet.setAttribute("aria-hidden", "true");
             sheet.style.display = "none";  // hidden by default on all screen sizes
             sheet.innerHTML = `
-        <div class="mobile-sheet-backdrop"></div>
-        <div class="mobile-sheet-card">
-          <ul class="mobile-sheet-nav">
-            <li><a href="/about">About <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
-            <li><a href="/skills">Stack <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
-            <li><a href="/projects">Projects <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
-            <li><a href="/contact">Contact <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
-          </ul>
-          <div class="mobile-sheet-divider"></div>
-          <div class="mobile-sheet-actions">
-            <a href="https://drive.google.com/file/d/1QFgZbvDQn99wsy-nNUcoRNeySuxzbh1V"
-               target="_blank" rel="noopener"
-               class="mobile-sheet-action">
-              <span class="mobile-sheet-action-label">
-                <span class="mobile-sheet-action-icon resume-icon">↗</span>
-                Resume
-              </span>
-            </a>
-            <button class="mobile-sheet-action mobile-theme-toggle">
-              <span class="mobile-sheet-action-label">
-                <span class="mobile-sheet-action-icon theme-icon" id="mobile-theme-icon">
-                  <i data-lucide="moon"></i>
-                </span>
-                <span id="mobile-theme-label">Dark mode</span>
-              </span>
-            </button>
-          </div>
-        </div>
-      `;
+  <div class="mobile-sheet-backdrop"></div>
+  <div class="mobile-sheet-card">
+    <ul class="mobile-sheet-nav">
+      <li><a href="/about">About <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+      <li><a href="/skills">Stack <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+      <li><a href="/projects">Projects <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+      <li><a href="/contact">Contact <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+    </ul>
+    <div class="mobile-sheet-divider"></div>
+    <div class="mobile-sheet-actions">
+      <a href="https://drive.google.com/file/d/1QFgZbvDQn99wsy-nNUcoRNeySuxzbh1V"
+         target="_blank" rel="noopener"
+         class="mobile-sheet-action">
+        <span class="mobile-sheet-action-label">
+          <span class="mobile-sheet-action-icon resume-icon">↗</span>
+          Resume
+        </span>
+      </a>
+
+      <button class="mobile-sheet-action mobile-music-toggle" id="mobile-music-btn">
+        <span class="mobile-sheet-action-label">
+          <span class="mobile-sheet-action-icon theme-icon" id="mobile-music-icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" 
+                fill="none" stroke="currentColor" stroke-width="2" 
+                stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="16" r="3"/>
+            </svg>
+          </span>
+          <span id="mobile-music-label">Play music</span>
+        </span>
+      </button>
+
+      <button class="mobile-sheet-action mobile-theme-toggle">
+        <span class="mobile-sheet-action-label">
+          <span class="mobile-sheet-action-icon theme-icon" id="mobile-theme-icon">
+            <i data-lucide="moon"></i>
+          </span>
+          <span id="mobile-theme-label">Dark mode</span>
+        </span>
+      </button>
+    </div>
+  </div>
+`;
             document.body.appendChild(sheet);
             lucide.createIcons();
           }
@@ -415,6 +431,40 @@
           }
 
           updateMobileThemeUI();
+
+          function updateMobileMusicUI() {
+            const label = document.getElementById("mobile-music-label");
+            const audio = window.globalAudio;
+            if (!label || !audio) return;
+            label.textContent = audio.paused ? "Play music" : "Pause music";
+          }
+
+          updateMobileMusicUI();
+
+          document.getElementById("mobile-music-btn")?.addEventListener("click", () => {
+            const audio = window.globalAudio;
+            if (!audio) return;
+
+            if (audio.paused) {
+              audio.play();
+              localStorage.setItem("musicPlaying", "true");
+            } else {
+              audio.pause();
+              localStorage.setItem("musicPlaying", "false");
+            }
+
+            if (!audio.paused) {
+              document.documentElement.classList.add("music-playing");
+            } else {
+              document.documentElement.classList.remove("music-playing");
+            }
+
+            updateMobileMusicUI();
+            closeSheet();
+          });
+
+          window.globalAudio?.addEventListener("play", updateMobileMusicUI);
+          window.globalAudio?.addEventListener("pause", updateMobileMusicUI);
 
           const toggle = document.querySelector(".nav-toggle");
           const sheet = document.querySelector(".mobile-sheet");
