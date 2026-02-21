@@ -514,6 +514,151 @@
           });
         });
       </script>
+
+      <script>
+        const canvas = document.getElementById("network-bg");
+        const ctx = canvas.getContext("2d");
+
+        let particles = [];
+        let mouse = { x: null, y: null };
+        let animationId;
+
+        function resizeCanvas() {
+          canvas.width = canvas.offsetWidth;
+          canvas.height = canvas.offsetHeight;
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+          constructor(layer) {
+            this.layer = layer;
+
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+
+            const speed = layer === 1 ? 0.2 : layer === 2 ? 0.4 : 0.6;
+
+            this.vx = (Math.random() - 0.5) * speed;
+            this.vy = (Math.random() - 0.5) * speed;
+
+            this.radius = layer === 3 ? 2.2 : 1.8;
+          }
+
+          update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+            // Mouse interaction
+            if (mouse.x && mouse.y) {
+              const dx = this.x - mouse.x;
+              const dy = this.y - mouse.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 140) {
+                const force = (140 - distance) / 140;
+                this.x += dx * force * 0.03;
+                this.y += dy * force * 0.03;
+              }
+            }
+          }
+
+          draw(color) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+          }
+        }
+
+        function init() {
+          particles = [];
+
+          const baseCount = window.innerWidth < 768 ? 40 : 90;
+
+          for (let i = 0; i < baseCount; i++) {
+            const layer =
+              i < baseCount * 0.4 ? 1 :
+                i < baseCount * 0.75 ? 2 :
+                  3;
+
+            particles.push(new Particle(layer));
+          }
+        }
+
+        function connect(color) {
+          for (let a = 0; a < particles.length; a++) {
+            for (let b = a; b < particles.length; b++) {
+              const dx = particles[a].x - particles[b].x;
+              const dy = particles[a].y - particles[b].y;
+              const distance = dx * dx + dy * dy;
+
+              if (distance < 120 * 120) {
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 0.4;
+                ctx.beginPath();
+                ctx.moveTo(particles[a].x, particles[a].y);
+                ctx.lineTo(particles[b].x, particles[b].y);
+                ctx.stroke();
+              }
+            }
+          }
+        }
+
+        function getThemeColors() {
+          const isDark = document.documentElement.classList.contains("dark");
+
+          if (isDark) {
+            return {
+              particle: "rgba(255,255,255,0.45)",
+              line: "rgba(255,255,255,0.15)"
+            };
+          } else {
+            return {
+              particle: "rgba(0,0,0,0.45)",
+              line: "rgba(0,0,0,0.14)"
+            };
+          }
+        }
+
+        function animate() {
+          const { particle, line } = getThemeColors();
+
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          particles.forEach(p => {
+            p.update();
+            p.draw(particle);
+          });
+
+          connect(line);
+
+          animationId = requestAnimationFrame(animate);
+        }
+
+        window.addEventListener("mousemove", e => {
+          const rect = canvas.getBoundingClientRect();
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+        });
+
+        window.addEventListener("mouseout", () => {
+          mouse.x = null;
+          mouse.y = null;
+        });
+
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) cancelAnimationFrame(animationId);
+          else animate();
+        });
+
+        init();
+        animate();
+      </script>
 </body>
 
 </html>
