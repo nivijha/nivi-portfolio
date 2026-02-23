@@ -126,45 +126,31 @@ window.initHomePage = function () {
     constructor(layer) {
       this.layer = layer;
 
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
+      this.baseX = Math.random() * canvas.width;
+      this.baseY = Math.random() * canvas.height;
 
-      const speed = layer === 1 ? 0.06 : layer === 2 ? 0.12 : 0.18;
-
-      this.vx = (Math.random() - 0.5) * speed;
-      this.vy = (Math.random() - 0.5) * speed;
+      this.x = this.baseX;
+      this.y = this.baseY;
 
       this.radius = layer === 3 ? 2 : 1.6;
+
+      this.phaseX = Math.random() * Math.PI * 2;
+      this.phaseY = Math.random() * Math.PI * 2;
+
+      this.speedX = 0.0006 + Math.random() * 0.0006;
+      this.speedY = 0.0006 + Math.random() * 0.0006;
+
+      this.amplitude = 8 + Math.random() * 6; // subtle movement
     }
 
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
+    update(time) {
+      const offsetX =
+        Math.sin(time * this.speedX + this.phaseX) * this.amplitude;
+      const offsetY =
+        Math.cos(time * this.speedY + this.phaseY) * this.amplitude;
 
-      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
-      // Repulsion field (stable)
-      if (mouse.x !== null && mouse.y !== null) {
-        const dx = this.x - mouse.x;
-        const dy = this.y - mouse.y;
-        const distSq = dx * dx + dy * dy;
-
-        const maxDist = 160;
-        const maxDistSq = maxDist * maxDist;
-
-        if (distSq < maxDistSq && distSq > 0) {
-          const force = 1 - distSq / maxDistSq;
-          const strength = 0.18;
-
-          this.x += dx * force * strength;
-          this.y += dy * force * strength;
-        }
-      }
-
-      // damping
-      this.vx *= 0.99;
-      this.vy *= 0.99;
+      this.x = this.baseX + offsetX;
+      this.y = this.baseY + offsetY;
     }
 
     draw(color) {
@@ -220,10 +206,25 @@ window.initHomePage = function () {
 
         if (distSq < maxDistSq) {
           const fade = 1 - distSq / maxDistSq;
-          const alpha = theme.isDark ? 0.22 * fade + 0.06 : 0.28 * fade + 0.08;
+
+          let alpha = theme.isDark ? 0.18 * fade + 0.04 : 0.22 * fade + 0.05;
+
+          if (mouse.x !== null && mouse.y !== null) {
+            const mx = particles[a].x - mouse.x;
+            const my = particles[a].y - mouse.y;
+            const mdSq = mx * mx + my * my;
+
+            const boostRadius = 160;
+            const boostRadiusSq = boostRadius * boostRadius;
+
+            if (mdSq < boostRadiusSq) {
+              const boostFade = 1 - mdSq / boostRadiusSq;
+              alpha += boostFade * 0.12;
+            }
+          }
 
           ctx.strokeStyle = `rgba(${theme.lineRGB.r}, ${theme.lineRGB.g}, ${theme.lineRGB.b}, ${alpha})`;
-          ctx.lineWidth = theme.isDark ? 0.7 : 0.8;
+          ctx.lineWidth = 0.6 + fade * 0.3;
 
           ctx.beginPath();
           ctx.moveTo(particles[a].x, particles[a].y);
@@ -256,7 +257,7 @@ window.initHomePage = function () {
       ctx.save();
       ctx.translate(parallax.x, parallax.y);
 
-      particles.forEach((p) => p.update());
+      particles.forEach((p) => p.update(time));
 
       particles.forEach((p) => {
         p.draw(
