@@ -3,8 +3,8 @@ const path = require("path");
 const crypto = require("crypto");
 const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
-// const { inject } = require("@vercel/analytics");
-// const { injectSpeedInsights } = require("@vercel/speed-insights");
+const { inject } = require("@vercel/analytics");
+const { injectSpeedInsights } = require("@vercel/speed-insights");
 const ejsMate = require("ejs-mate");
 require("dotenv").config();
 
@@ -19,13 +19,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Initialize Vercel Web Analytics
-// // This injects the analytics tracking script for monitoring user interactions
-// inject();
+// This injects the analytics tracking script for monitoring user interactions
+inject();
 
-// // Initialize Vercel Speed Insights
-// // This enables performance monitoring and Web Vitals tracking
-// // Documentation: https://vercel.com/docs/speed-insights
-// injectSpeedInsights();
+// Initialize Vercel Speed Insights
+// This enables performance monitoring and Web Vitals tracking
+// Documentation: https://vercel.com/docs/speed-insights
+injectSpeedInsights();
 
 // DynamoDB client (configure via env)
 const ddbRegion = process.env.AWS_REGION || "us-east-1";
@@ -54,6 +54,10 @@ app.get("/projects", (req, res) => {
 
 app.get("/contact", (req, res) => {
   res.render("contact", { page: "contact" });
+});
+
+app.get("/resume", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "Resume.pdf"));
 });
 
 // contact submission (placeholder handler)
