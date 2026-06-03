@@ -1,3 +1,4 @@
+emailjs.init("mm6_wT1sqxczLF3vX");
 window.initContactPage = function() {(() => {
   // Guard: only run on contact page
   const form = document.getElementById("contact-form");
@@ -55,23 +56,19 @@ window.initContactPage = function() {(() => {
     };
 
     try {
-      const res = await fetch("/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      await emailjs.send(
+        "service_aoa66zw",
+        "template_44t3dv8",
+        {
+          from_name: payload.name,
+          from_email: payload.email,
+          message: payload.message,
+        }
+      );
 
-      const data = await res.json();
-
-      if (!res.ok || !data.success) {
-        throw new Error(data.error || "Submission failed");
-      }
-
-      // Success
-      statusText.textContent = "Message sent successfully!";
+      statusText.textContent = "✓ Message sent successfully!";
       statusText.style.color = "#22c55e";
+
       form.reset();
       validateForm();
     } catch (err) {

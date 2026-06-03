@@ -10,6 +10,7 @@ window.initHomePage = function () {
 
   const words = [
     "Full Stack Developer",
+    "ML Enthusiast",
     "Competitive Programmer",
     "Developer who ships.",
   ];

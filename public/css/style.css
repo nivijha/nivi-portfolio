@@ -1069,7 +1069,7 @@ html.dark .music-btn.pulse::after {
 
 .stack-side-list {
   position: absolute;
-  top: 50%;
+  top: 54%;
   right: 32px;
   transform: translateY(-50%);
 
