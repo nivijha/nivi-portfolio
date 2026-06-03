@@ -2,7 +2,7 @@
 
 This repository contains the source code for my **personal portfolio website**, built to showcase my projects, skills, and journey as a software developer.
 
-🔗 **Live Website:** https://nivi-portfolio-lovat.vercel.app  
+🔗 **Live Website:** https://nivijha-portfolio.vercel.app/
 
 ---
 
