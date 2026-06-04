@@ -897,75 +897,92 @@ html.dark .music-btn.pulse::after {
   margin-bottom: 32px;
 }
 
-.career-timeline {
-  position: relative;
-  padding-left: 36px;
+.career-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 40px;
 }
 
-.career-timeline::before {
+.career-tab {
+  padding: 8px 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1.5px solid var(--text-muted);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.career-tab:hover {
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+
+.career-tab.active {
+  color: var(--bg-body);
+  background: var(--text-main);
+  border-color: var(--text-main);
+}
+
+.career-tab-panel {
+  display: none;
+}
+
+.career-tab-panel.active {
+  display: block;
+}
+
+.career-numbered-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.career-numbered-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  padding-bottom: 32px;
+}
+
+.career-numbered-item:last-child {
+  padding-bottom: 0;
+}
+
+.career-numbered-item:not(:last-child)::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 14px;
-  width: 1.5px;
-  height: 100%;
-  background: var(--text-muted);
-  opacity: 0.35;
+  left: 19px;
+  top: 44px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--text-muted), transparent);
+  opacity: 0.3;
 }
 
-.timeline-progress {
-  position: absolute;
-  top: 0;
-  left: 14px;
-  width: 1.5px;
-  height: 0%;
+.career-number {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--bg-body);
   background: var(--text-main);
-  z-index: 2;
-  transition: height 0.15s linear;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
 }
 
 .timeline-item {
   position: relative;
   padding-bottom: 56px;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -27px;
-  top: 6px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--bg-section);
-  border: 2px solid var(--text-main);
-  transition: all 0.3s ease;
-  z-index: 2;
-}
-
-.timeline-active-dot {
-  position: absolute;
-  left: 8px;
-  top: 0;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--text-main);
-  z-index: 3;
-  transform: translateY(0);
-  transition: transform 0.15s linear;
-}
-
-.timeline-active-dot {
-  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.04);
-}
-
-.timeline-item.active .timeline-dot {
-  background: var(--bg-body);
-}
-
-.timeline-item:hover .timeline-dot {
-  background-color: #000;
-  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.08);
 }
 
 .timeline-content {
@@ -996,6 +1013,186 @@ html.dark .music-btn.pulse::after {
   line-height: 1.65;
   color: var(--text-muted);
   max-width: 640px;
+}
+
+/* ========================================= */
+/* EDUCATION                                 */
+/* ========================================= */
+
+.edu-card {
+  margin-bottom: 28px;
+}
+
+.edu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.edu-icon-wrap {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edu-icon-wrap i {
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+}
+
+.edu-header-text {
+  flex: 1;
+}
+
+.edu-degree {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.edu-university {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.edu-details {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 20px;
+  padding-left: 48px;
+}
+
+.edu-detail {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edu-detail-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-right: 2px;
+}
+
+.edu-detail-value {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.edu-cgpa-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--bg-body);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.edu-cgpa-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-cgpa-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.edu-cgpa-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.edu-cgpa-icon i {
+  width: 28px;
+  height: 28px;
+  color: var(--text-muted);
+}
+
+.edu-coursework {
+  margin-bottom: 0;
+}
+
+.edu-coursework-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.edu-coursework-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.edu-coursework-tag {
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: var(--bg-body);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+}
+
+.edu-coursework-tag:hover {
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+
+.edu-achievements {
+  margin-top: 28px;
+}
+
+.edu-achievements-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.edu-achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.edu-achievement-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 12px;
+  background: var(--bg-body);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+}
+
+.edu-achievement-number {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.edu-achievement-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.edu-achievement-desc {
+  font-size: 0.7rem;
+  color: var(--text-muted);
 }
 
 /* ========================================= */
@@ -1878,16 +2075,20 @@ html.dark .music-btn.pulse::after {
     margin-bottom: 72px;
   }
 
-  .career-timeline {
-    padding-left: 28px;
+  .career-numbered-item {
+    gap: 14px;
+    padding-bottom: 24px;
   }
 
-  .career-timeline::before {
-    left: 12px;
+  .career-numbered-item:not(:last-child)::after {
+    left: 16px;
+    top: 38px;
   }
 
-  .timeline-dot {
-    left: 6px;
+  .career-number {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
   }
 
   .career-role {
@@ -1896,41 +2097,6 @@ html.dark .music-btn.pulse::after {
 
   .career-desc {
     font-size: 0.9rem;
-  }
-
-  .career-timeline {
-    padding-left: 24px;
-  }
-
-  .career-timeline::before {
-    left: 6px;
-    width: 1.5px;
-  }
-
-  .timeline-progress {
-    left: 6px;
-    width: 1.5px;
-  }
-
-  .timeline-active-dot {
-    left: 0px;
-    width: 13px;
-    height: 13px;
-  }
-
-  .timeline-dot {
-    left: -19px;
-    top: 8px;
-    width: 11px;
-    height: 11px;
-  }
-
-  .timeline-item {
-    padding-bottom: 36px;
-  }
-
-  .timeline-item:last-child {
-    padding-bottom: 0;
   }
 
   .timeline-label {
@@ -1963,6 +2129,41 @@ html.dark .music-btn.pulse::after {
   .career-section-title {
     margin-bottom: 24px;
     font-size: 0.7rem;
+  }
+
+  .edu-card {
+    padding: 24px;
+  }
+
+  .edu-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .edu-details {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .edu-cgpa-card {
+    padding: 20px;
+  }
+
+  .edu-cgpa-value {
+    font-size: 1.4rem;
+  }
+
+  .edu-achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .edu-achievement-card {
+    padding: 16px 12px;
+  }
+
+  .edu-achievement-number {
+    font-size: 1.3rem;
   }
 
   /* ---------- SKILLS ---------- */
@@ -2290,8 +2491,19 @@ html.dark .cta-btn:hover {
 }
 
 /* ABOUT */
-html.dark .timeline-dot {
-  background: var(--bg-section);
+html.dark .career-number {
+  color: var(--text-main);
+  background: var(--text-muted);
+}
+
+html.dark .career-tab {
+  color: var(--text-muted);
+  border-color: var(--text-muted);
+}
+
+html.dark .career-tab.active {
+  color: var(--bg-body);
+  background: var(--text-main);
   border-color: var(--text-main);
 }
 
@@ -2302,6 +2514,28 @@ html.dark .timeline-label {
 
 html.dark .career-desc {
   color: #b5b5b5;
+}
+
+html.dark .edu-card {
+  border-color: var(--border-subtle);
+}
+
+html.dark .edu-cgpa-card {
+  background: var(--bg-body);
+  border-color: var(--border-subtle);
+}
+
+html.dark .edu-coursework-tag {
+  background: var(--bg-body);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .edu-achievement-card {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .edu-achievement-icon {
+  background: var(--bg-body);
 }
 
 /* Project Cards */

@@ -30,37 +30,81 @@
         <section class="career-wrapper">
           <h3 class="career-title">Career</h3>
 
+          <div class="career-tabs">
+            <button class="career-tab active" data-tab="education">Education</button>
+            <button class="career-tab" data-tab="experience">Experience</button>
+          </div>
+
           <!-- EDUCATION -->
-          <div class="career-section">
-            <h4 class="career-section-title">Education</h4>
+          <div class="career-tab-panel active" data-panel="education">
+            <div class="edu-card">
+              <div class="edu-header">
+                <div class="edu-icon-wrap">
+                  <i data-lucide="book-open"></i>
+                </div>
+                <div class="edu-header-text">
+                  <h5 class="edu-degree">B.Tech — Computer Science & Engineering</h5>
+                  <div class="edu-university">Jaypee University of Information Technology</div>
+                </div>
+              </div>
 
-            <div class="career-timeline" data-timeline>
-              <div class="timeline-progress"></div>
-              <span class="timeline-active-dot"></span>
+              <div class="edu-details">
+                <div class="edu-detail">
+                  <span class="edu-detail-label">Location</span>
+                  <span class="edu-detail-value">Solan, IN</span>
+                </div>
+                <div class="edu-detail">
+                  <span class="edu-detail-label">Duration</span>
+                  <span class="edu-detail-value">Jul 2023 – Present</span>
+                </div>
+              </div>
 
-              <div class="timeline-item">
-                <div class="timeline-content">
-                  <span class="timeline-label">Jul 2023 – Present</span>
-                  <h5 class="career-role">B.Tech — Computer Science & Engineering</h5>
-                  <div class="career-meta">Jaypee University of Information Technology</div>
-                  <p class="career-desc">
-                    Studying data structures, systems, and applied machine learning. Spending most of my time building
-                    projects alongside coursework and understanding how theory behaves in real implementations.
-                  </p>
+              <div class="edu-cgpa-card">
+                <div class="edu-cgpa-text">
+                  <span class="edu-cgpa-label">Academic Performance</span>
+                  <span class="edu-cgpa-value">CGPA: 8.5/10.0</span>
+                </div>
+                <div class="edu-cgpa-icon">
+                  <i data-lucide="graduation-cap"></i>
+                </div>
+              </div>
+
+              <div class="edu-coursework">
+                <h6 class="edu-coursework-title">Relevant Coursework</h6>
+                <div class="edu-coursework-grid">
+                  <span class="edu-coursework-tag">Data Structures and Algorithms</span>
+                  <span class="edu-coursework-tag">Operating Systems</span>
+                  <span class="edu-coursework-tag">Computer Networks</span>
+                  <span class="edu-coursework-tag">Object Oriented Programming</span>
+                  <span class="edu-coursework-tag">Database Management Systems</span>
+                  <span class="edu-coursework-tag">Machine Learning</span>
+                  <span class="edu-coursework-tag">Web Technology</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="edu-achievements">
+              <h6 class="edu-achievements-title">Achievements & Leadership</h6>
+              <div class="edu-achievements-grid">
+                <div class="edu-achievement-card">
+                  <span class="edu-achievement-number">1574</span>
+                  <span class="edu-achievement-label">LEETCODE</span>
+                  <span class="edu-achievement-desc">Contest Rating</span>
+                </div>
+                <div class="edu-achievement-card">
+                  <span class="edu-achievement-number">1</span>
+                  <span class="edu-achievement-label">LEADERSHIP</span>
+                  <span class="edu-achievement-desc">Web Development Team Lead</span>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- EXPERIENCE -->
-          <div class="career-section">
-            <h4 class="career-section-title">Experience</h4>
-
-            <div class="career-timeline" data-timeline>
-              <div class="timeline-progress"></div>
-              <span class="timeline-active-dot"></span>
-
-              <div class="timeline-item">
+          <div class="career-tab-panel" data-panel="experience">
+            <div class="career-numbered-list">
+              <div class="career-numbered-item">
+                <span class="career-number">1</span>
                 <div class="timeline-content">
                   <span class="timeline-label">Jun 2025 – Jul 2025</span>
                   <h5 class="career-role">Summer Intern — IIT Delhi</h5>
@@ -72,9 +116,9 @@
                     and event forwarding.
                   </p>
                 </div>
-                
               </div>
-              <div class="timeline-item">
+              <div class="career-numbered-item">
+                <span class="career-number">2</span>
                 <div class="timeline-content">
                   <span class="timeline-label">Jun 2026 – Present</span>
                   <h5 class="career-role">SDE Intern — Algowire Trading Technologies Pvt. Ltd.</h5>

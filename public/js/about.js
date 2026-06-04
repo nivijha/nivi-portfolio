@@ -13,31 +13,20 @@ window.initAboutPage = function () {
     ).observe(careerWrapper);
   }
 
-  /* Timeline scroll animation */
-  document.querySelectorAll(".career-timeline").forEach((timeline) => {
-    const progress = timeline.querySelector(".timeline-progress");
-    const dot = timeline.querySelector(".timeline-active-dot");
+  /* Career tabs */
+  const tabs = document.querySelectorAll(".career-tab");
+  const panels = document.querySelectorAll(".career-tab-panel");
 
-    if (!progress || !dot) return;
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("active"));
+      panels.forEach((p) => p.classList.remove("active"));
 
-    const onScroll = () => {
-      const rect = timeline.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      const start = windowHeight * 0.3;
-      const end = rect.height + windowHeight * 0.3;
-
-      const progressRaw = (start - rect.top) / end;
-      const progressClamped = Math.min(Math.max(progressRaw, 0), 1);
-
-      const percent = progressClamped * 100;
-
-      progress.style.height = `${percent}%`;
-      dot.style.transform = `translateY(${rect.height * progressClamped}px)`;
-    };
-
-    window.addEventListener("scroll", onScroll);
-    window.addEventListener("resize", onScroll);
-    onScroll();
+      tab.classList.add("active");
+      const target = document.querySelector(
+        `[data-panel="${tab.dataset.tab}"]`
+      );
+      if (target) target.classList.add("active");
+    });
   });
 };
