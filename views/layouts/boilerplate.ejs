@@ -117,6 +117,10 @@
                   : '<i data-lucide="moon"></i>';
 
                 lucide.createIcons();
+
+                if (window.crossfadeThemeChange) {
+                  window.crossfadeThemeChange();
+                }
               }
             }).to(overlay, {
               clipPath: `circle(0px at ${x}px ${y}px)`,
