@@ -47,7 +47,7 @@ app.get("/contact", (req, res) => {
 });
 
 app.get("/resume", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "Resume.pdf"));
+  res.sendFile(path.join(__dirname, "public", "resume.pdf"));
 });
 
 const PORT = 3000;
