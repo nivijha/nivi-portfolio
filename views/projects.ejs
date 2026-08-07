@@ -21,23 +21,88 @@
           <div class="project-card-content">
             <div class="project-card-main">
               <div class="project-card-text">
+                <h3 class="project-card-title">MedTracker</h3>
+                <p class="project-card-impact">Intelligent healthcare record management system</p>
+              </div>
+              <button class="project-card-toggle" aria-label="Expand project details" aria-expanded="false">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="project-card-badges">
+              <span class="project-badge">[ Next.js ]</span>
+              <span class="project-badge">[ Express.js ]</span>
+              <span class="project-badge">[ MongoDB ]</span>
+              <span class="project-badge">[ Redis ]</span>
+              <span class="project-badge">[ JWT ]</span>
+              <span class="project-badge">[ OAuth 2.0 ]</span>
+              <span class="project-badge">[ Gemini API ]</span>
+              <span class="project-badge">[ LLaMA ]</span>
+            </div>
+            <div class="project-card-expanded">
+              <div class="project-card-details">
+                <div class="project-detail-block">
+                  <span class="project-detail-label">Overview</span>
+                  <p>Developed a secure healthcare management platform with AI-powered medical document understanding for automated PDF parsing and structured data extraction.</p>
+                </div>
+                <div class="project-detail-block">
+                  <span class="project-detail-label">Key Features</span>
+                  <ul>
+                    <li>Express + MongoDB REST API (36 endpoints, 7 models) with dual JWT / Google OAuth authentication</li>
+                    <li>Cache-aside pipeline (Redis hot cache, MongoDB source of truth, 30-day TTL) with AI report analysis executed exactly once per record</li>
+                    <li>Automatic LLaMA → Gemini model fallback with fail-open behavior</li>
+                    <li>Cloudinary media storage and Multer upload handling</li>
+                    <li>21 automated tests (Vitest, Supertest, in-memory MongoDB)</li>
+                  </ul>
+                </div>
+                <div class="project-detail-block">
+                  <span class="project-detail-label">Architecture</span>
+                  <p>Next.js frontend with Express REST APIs and MongoDB document storage. JWT + OAuth 2.0 authentication flow, Redis-based cache-aside layer, and a LLaMA / Gemini medical entity extraction pipeline with reliable fallback.</p>
+                </div>
+                <div class="project-detail-block">
+                  <span class="project-detail-label">Impact</span>
+                  <p class="project-card-metric">36 REST endpoints · Redis cache-aside with 30-day TTL · 21 automated tests · Dual JWT/OAuth auth · Redundant de-risked document processing</p>
+                </div>
+              </div>
+              <div class="project-card-actions">
+                <a href="https://github.com/nivijha/medtracker-frontend" target="_blank" class="project-action-link project-action-github">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.29-1.72-1.29-1.72-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.18-1.17 3.18-1.17.63 1.6.23 2.78.11 3.07.74.8 1.19 1.82 1.19 3.07 0 4.39-2.69 5.36-5.25 5.64.41.36.77 1.07.77 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                  Source
+                </a>
+                <a href="https://medtracker-frontend.vercel.app/" target="_blank" class="project-action-link project-action-demo">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/><path d="M5 5h6v2H7v10h10v-4h2v6H5z"/></svg>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 02 -->
+      <article class="project-card" data-card>
+        <div class="project-card-progress"><span class="project-card-progress-fill"></span></div>
+        <div class="project-card-header">
+          <span class="project-card-number" aria-hidden="true">02</span>
+          <div class="project-card-content">
+            <div class="project-card-main">
+              <div class="project-card-text">
                 <h3 class="project-card-title">CardioVision</h3>
                 <p class="project-card-impact">End-to-end clinical AI pipeline for coronary artery stenosis detection</p>
               </div>
-              <div class="project-card-meta">
-                <div class="project-card-badges">
-                  <span class="project-badge">Python</span>
-                  <span class="project-badge">FastAPI</span>
-                  <span class="project-badge">YOLOv8</span>
-                  <span class="project-badge">OpenCV</span>
-                  <span class="project-badge">Grad-CAM</span>
-                </div>
-                <button class="project-card-toggle" aria-label="Expand project details" aria-expanded="false">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
+              <button class="project-card-toggle" aria-label="Expand project details" aria-expanded="false">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="project-card-badges">
+              <span class="project-badge">[ Python ]</span>
+              <span class="project-badge">[ FastAPI ]</span>
+              <span class="project-badge">[ YOLOv8 ]</span>
+              <span class="project-badge">[ OpenCV ]</span>
+              <span class="project-badge">[ Grad-CAM ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
@@ -66,7 +131,7 @@
               </div>
               <div class="project-card-actions">
                 <a href="https://github.com/nivijha/CardioVision" target="_blank" class="project-action-link project-action-github">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.29-1.72-1.29-1.72-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.18-1.17 3.18-1.17.63 1.6.23 2.78.11 3.07.74.8 1.19 1.82 1.19 3.07 0 4.39-2.69 5.36-5.25 5.64.41.36.77 1.07.77 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.29-1.72-1.29-1.72-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.47.11-3.07 0 0 .97.31 3.18 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.18-1.17 3.18-1.17.63 1.6.23 2.78.11 3.07.74.8 1.19 1.82 1.19 3.07 0 4.39-2.69 5.36-5.25 5.64.41.36.77 1.07.77 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
                   Source
                 </a>
                 <a href="https://cardio-vision-murex.vercel.app/" target="_blank" class="project-action-link project-action-demo">
@@ -79,32 +144,30 @@
         </div>
       </article>
 
-      <!-- Project 02 -->
+      <!-- Project 03 -->
       <article class="project-card" data-card>
         <div class="project-card-progress"><span class="project-card-progress-fill"></span></div>
         <div class="project-card-header">
-          <span class="project-card-number" aria-hidden="true">02</span>
+          <span class="project-card-number" aria-hidden="true">03</span>
           <div class="project-card-content">
             <div class="project-card-main">
               <div class="project-card-text">
                 <h3 class="project-card-title">Chat Constellation</h3>
                 <p class="project-card-impact">Graph-native AI chat platform replacing linear conversation history with interactive conversational graphs</p>
               </div>
-              <div class="project-card-meta">
-                <div class="project-card-badges">
-                  <span class="project-badge">React.js</span>
-                  <span class="project-badge">Node.js</span>
-                  <span class="project-badge">Express.js</span>
-                  <span class="project-badge">MongoDB</span>
-                  <span class="project-badge">OpenAI</span>
-                  <span class="project-badge">React Flow</span>
-                </div>
-                <button class="project-card-toggle" aria-label="Expand project details" aria-expanded="false">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
+              <button class="project-card-toggle" aria-expanded="false">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="project-card-badges">
+              <span class="project-badge">[ React.js ]</span>
+              <span class="project-badge">[ Node.js ]</span>
+              <span class="project-badge">[ Express.js ]</span>
+              <span class="project-badge">[ MongoDB ]</span>
+              <span class="project-badge">[ OpenAI ]</span>
+              <span class="project-badge">[ React Flow ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
@@ -133,7 +196,7 @@
               </div>
               <div class="project-card-actions">
                 <a href="https://github.com/nivijha/chat-constellation" target="_blank" class="project-action-link project-action-github">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.29-1.72-1.29-1.72-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.18-1.17 3.18-1.17.63 1.6.23 2.78.11 3.07.74.8 1.19 1.82 1.19 3.07 0 4.39-2.69 5.36-5.25 5.64.41.36.77 1.07.77 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.29-1.72-1.29-1.72-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.47.11-3.07 0 0 .97.31 3.18 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.18-1.17 3.18-1.17.63 1.6.23 2.78.11 3.07.74.8 1.19 1.82 1.19 3.07 0 4.39-2.69 5.36-5.25 5.64.41.36.77 1.07.77 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
                   Source
                 </a>
                 <a href="https://chat-constellation.vercel.app/" target="_blank" class="project-action-link project-action-demo">
@@ -146,31 +209,29 @@
         </div>
       </article>
 
-      <!-- Project 03 -->
+      <!-- Project 04 -->
       <article class="project-card" data-card>
         <div class="project-card-progress"><span class="project-card-progress-fill"></span></div>
         <div class="project-card-header">
-          <span class="project-card-number" aria-hidden="true">03</span>
+          <span class="project-card-number" aria-hidden="true">04</span>
           <div class="project-card-content">
             <div class="project-card-main">
               <div class="project-card-text">
                 <h3 class="project-card-title">AI Product Review Analyzer</h3>
                 <p class="project-card-impact">Fully serverless NLP analytics pipeline for large-scale review understanding</p>
               </div>
-              <div class="project-card-meta">
-                <div class="project-card-badges">
-                  <span class="project-badge">React.js</span>
-                  <span class="project-badge">AWS Lambda</span>
-                  <span class="project-badge">API Gateway</span>
-                  <span class="project-badge">DynamoDB</span>
-                  <span class="project-badge">AWS Comprehend</span>
-                </div>
-                <button class="project-card-toggle" aria-label="Expand project details" aria-expanded="false">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
+              <button class="project-card-toggle" aria-expanded="false">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="project-card-badges">
+              <span class="project-badge">[ React.js ]</span>
+              <span class="project-badge">[ DynamoDB ]</span>
+              <span class="project-badge">[ AWS Lambda ]</span>
+              <span class="project-badge">[ API Gateway ]</span>
+              <span class="project-badge">[ AWS Comprehend ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
@@ -198,73 +259,8 @@
               </div>
               <div class="project-card-actions">
                 <a href="https://github.com/nivijha/aws-product-review-analyzer" target="_blank" class="project-action-link project-action-github">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.29-1.72-1.29-1.72-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.18-1.17 3.18-1.17.63 1.6.23 2.78.11 3.07.74.8 1.19 1.82 1.19 3.07 0 4.39-2.69 5.36-5.25 5.64.41.36.77 1.07.77 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.29-1.72-1.29-1.72-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.47.11-3.07 0 0 .97.31 3.18 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.18-1.17 3.18-1.17.63 1.6.23 2.78.11 3.07.74.8 1.19 1.82 1.19 3.07 0 4.39-2.69 5.36-5.25 5.64.41.36.77 1.07.77 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
                   Source
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 04 -->
-      <article class="project-card" data-card>
-        <div class="project-card-progress"><span class="project-card-progress-fill"></span></div>
-        <div class="project-card-header">
-          <span class="project-card-number" aria-hidden="true">04</span>
-          <div class="project-card-content">
-            <div class="project-card-main">
-              <div class="project-card-text">
-                <h3 class="project-card-title">MedTracker</h3>
-                <p class="project-card-impact">Secure healthcare management platform with AI-powered medical document understanding</p>
-              </div>
-              <div class="project-card-meta">
-                <div class="project-card-badges">
-                  <span class="project-badge">Next.js</span>
-                  <span class="project-badge">Express.js</span>
-                  <span class="project-badge">MongoDB</span>
-                  <span class="project-badge">JWT</span>
-                  <span class="project-badge">LLaMA</span>
-                </div>
-                <button class="project-card-toggle" aria-label="Expand project details" aria-expanded="false">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="project-card-expanded">
-              <div class="project-card-details">
-                <div class="project-detail-block">
-                  <span class="project-detail-label">Overview</span>
-                  <p>Developed a secure healthcare management platform with AI-powered medical document understanding for automated PDF parsing and structured data extraction.</p>
-                </div>
-                <div class="project-detail-block">
-                  <span class="project-detail-label">Key Features</span>
-                  <ul>
-                    <li>JWT-authenticated patient records management</li>
-                    <li>AI-powered medical PDF parsing with LLaMA</li>
-                    <li>Appointment scheduling and prescription management</li>
-                    <li>Structured healthcare data extraction</li>
-                  </ul>
-                </div>
-                <div class="project-detail-block">
-                  <span class="project-detail-label">Architecture</span>
-                  <p>Next.js frontend, Express REST APIs, MongoDB document storage, JWT authentication flow, and LLaMA-based medical entity extraction pipeline.</p>
-                </div>
-                <div class="project-detail-block">
-                  <span class="project-detail-label">Impact</span>
-                  <p class="project-card-metric">Automated extraction of structured information from medical PDFs · Reduced manual document processing effort · Centralized healthcare records management</p>
-                </div>
-              </div>
-              <div class="project-card-actions">
-                <a href="https://github.com/nivijha/medtracker-frontend" target="_blank" class="project-action-link project-action-github">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.29-1.72-1.29-1.72-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.95.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.27-5.23-5.65 0-1.25.45-2.27 1.19-3.07-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.18-1.17 3.18-1.17.63 1.6.23 2.78.11 3.07.74.8 1.19 1.82 1.19 3.07 0 4.39-2.69 5.36-5.25 5.64.41.36.77 1.07.77 2.16v3.2c0 .31.21.68.8.56A11.51 11.51 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
-                  Source
-                </a>
-                <a href="https://medtracker-frontend.vercel.app/" target="_blank" class="project-action-link project-action-demo">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/><path d="M5 5h6v2H7v10h10v-4h2v6H5z"/></svg>
-                  Live Demo
                 </a>
               </div>
             </div>
@@ -283,20 +279,18 @@
                 <h3 class="project-card-title">Linux System Monitor & Automation Suite</h3>
                 <p class="project-card-impact">Lightweight infrastructure monitoring system for automated Linux health tracking</p>
               </div>
-              <div class="project-card-meta">
-                <div class="project-card-badges">
-                  <span class="project-badge">Linux</span>
-                  <span class="project-badge">Bash</span>
-                  <span class="project-badge">Cron</span>
-                  <span class="project-badge">AWK</span>
-                  <span class="project-badge">Grep</span>
-                </div>
-                <button class="project-card-toggle" aria-label="Expand project details" aria-expanded="false">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
+              <button class="project-card-toggle" aria-expanded="false">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="project-card-badges">
+              <span class="project-badge">[ Linux ]</span>
+              <span class="project-badge">[ Bash ]</span>
+              <span class="project-badge">[ Cron ]</span>
+              <span class="project-badge">[ AWK ]</span>
+              <span class="project-badge">[ Grep ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
@@ -322,8 +316,6 @@
                   <p class="project-card-metric">Automated collection of 6+ infrastructure metrics · Eliminated repetitive manual health checks · Automated log maintenance · Configurable resource threshold alerting</p>
                 </div>
               </div>
-              <div class="project-card-actions">
-              </div>
             </div>
           </div>
         </div>
@@ -340,19 +332,17 @@
                 <h3 class="project-card-title">Security Event Collection & Analysis Agent</h3>
                 <p class="project-card-impact">Lightweight Linux security monitoring agent for centralized authentication event collection</p>
               </div>
-              <div class="project-card-meta">
-                <div class="project-card-badges">
-                  <span class="project-badge">Python</span>
-                  <span class="project-badge">Linux</span>
-                  <span class="project-badge">JSON</span>
-                  <span class="project-badge">SSH</span>
-                </div>
-                <button class="project-card-toggle" aria-label="Expand project details" aria-expanded="false">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </button>
-              </div>
+              <button class="project-card-toggle" aria-expanded="false">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <div class="project-card-badges">
+              <span class="project-badge">[ Python ]</span>
+              <span class="project-badge">[ Linux ]</span>
+              <span class="project-badge">[ JSON ]</span>
+              <span class="project-badge">[ SSH ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
@@ -371,14 +361,12 @@
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Architecture</span>
-                  <p>Python-based event processing pipeline parsing Linux authentication and audit logs using regex, structuring security events into JSON for downstream forwarding and analysis.</p>
+                  <p>Python-based event processing pipeline that parses Linux authentication and audit logs using regex and structures security events into JSON for downstream forwarding and analysis.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Impact</span>
                   <p class="project-card-metric">Processed 100+ daily authentication events · Sub-2 second event forwarding latency · Eliminated manual log inspection workflows · Centralized security event visibility</p>
                 </div>
-              </div>
-              <div class="project-card-actions">
               </div>
             </div>
           </div>

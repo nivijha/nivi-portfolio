@@ -3,23 +3,16 @@
   <section id="about" class="about-section reveal">
     <div class="section-inner">
       <div class="about-content">
-
         <h2 class="section-title">About</h2>
 
-        <p class="about-subtitle">
-          I’m a computer science undergraduate focused on backend systems,
-          automation, and what happens after code ships to production.
-        </p>
-
-        <p class="about-text">
-          Work stays close to the problem: designing APIs with clear contracts,
-          tracing data flow across services, and handling edge cases instead of
-          hiding them behind abstractions.
-        </p>
-
-        <p class="about-text">
-          Currently looking for early-career roles involving real systems,
-          correctness, and long-term maintainability.
+        <p class="about-intro">
+          Software engineering, for me, is about understanding systems before changing them.
+          I enjoy exploring how data moves, how services interact, and how thoughtful design
+          decisions shape reliable products. My experience spans backend development,
+          full-stack development, and AI-powered applications, but what motivates me most is
+          the process of solving complex problems with clarity. I'm constantly learning,
+          refining my approach, and building software that's practical, maintainable, and
+          designed to make a real difference.
         </p>
 
         <p class="about-principle">
@@ -28,24 +21,22 @@
 
         <!-- CAREER -->
         <section class="career-wrapper">
-          <h3 class="career-title">Career</h3>
+          <div class="career-divider" role="presentation"></div>
 
-          <div class="career-tabs">
-            <button class="career-tab active" data-tab="education">Education</button>
-            <button class="career-tab" data-tab="experience">Experience</button>
+          <h3 class="career-heading">Career</h3>
+
+          <div class="career-tabs" role="tablist" aria-label="Career">
+            <span class="career-tab-thumb" aria-hidden="true"></span>
+            <button class="career-tab active" data-tab="education" role="tab" aria-selected="true">Education</button>
+            <button class="career-tab" data-tab="experience" role="tab" aria-selected="false">Experience</button>
           </div>
 
           <!-- EDUCATION -->
-          <div class="career-tab-panel active" data-panel="education">
+          <div class="career-tab-panel active" data-panel="education" role="tabpanel">
             <div class="edu-card">
-              <div class="edu-header">
-                <div class="edu-icon-wrap">
-                  <i data-lucide="book-open"></i>
-                </div>
-                <div class="edu-header-text">
-                  <h5 class="edu-degree">B.Tech — Computer Science & Engineering</h5>
-                  <div class="edu-university">Jaypee University of Information Technology</div>
-                </div>
+              <div class="edu-header-text">
+                <h5 class="edu-degree">B.Tech — Computer Science & Engineering</h5>
+                <div class="edu-university">Jaypee University of Information Technology</div>
               </div>
 
               <div class="edu-details">
@@ -57,75 +48,67 @@
                   <span class="edu-detail-label">Duration</span>
                   <span class="edu-detail-value">Jul 2023 – Present</span>
                 </div>
-              </div>
-
-              <div class="edu-cgpa-card">
-                <div class="edu-cgpa-text">
-                  <span class="edu-cgpa-label">Academic Performance</span>
-                  <span class="edu-cgpa-value">CGPA: 8.5/10.0</span>
-                </div>
-                <div class="edu-cgpa-icon">
-                  <i data-lucide="graduation-cap"></i>
-                </div>
-              </div>
-
-              <div class="edu-coursework">
-                <h6 class="edu-coursework-title">Relevant Coursework</h6>
-                <div class="edu-coursework-grid">
-                  <span class="edu-coursework-tag">Data Structures and Algorithms</span>
-                  <span class="edu-coursework-tag">Operating Systems</span>
-                  <span class="edu-coursework-tag">Computer Networks</span>
-                  <span class="edu-coursework-tag">Object Oriented Programming</span>
-                  <span class="edu-coursework-tag">Database Management Systems</span>
-                  <span class="edu-coursework-tag">Machine Learning</span>
-                  <span class="edu-coursework-tag">Web Technology</span>
+                <div class="edu-detail">
+                  <span class="edu-detail-label">CGPA</span>
+                  <span class="edu-detail-value">8.5 / 10.0</span>
                 </div>
               </div>
             </div>
 
-            <div class="edu-achievements">
-              <h6 class="edu-achievements-title">Achievements & Leadership</h6>
-              <div class="edu-achievements-grid">
-                <div class="edu-achievement-card">
-                  <span class="edu-achievement-number">1574</span>
-                  <span class="edu-achievement-label">LEETCODE</span>
-                  <span class="edu-achievement-desc">Contest Rating</span>
+            <div class="term">
+              <div class="term-line" aria-label="Relevant coursework">
+                <span class="term-prompt">$</span>
+                <span class="term-cmd">cat relevant-coursework.txt</span>
+              </div>
+              <div class="term-body">
+                <div class="term-chips">
+                  <span class="term-chip">Data Structures and Algorithms</span>
+                  <span class="term-chip">Operating Systems</span>
+                  <span class="term-chip">Computer Networks</span>
+                  <span class="term-chip">Object Oriented Programming</span>
+                  <span class="term-chip">Database Management Systems</span>
+                  <span class="term-chip">Machine Learning</span>
+                  <span class="term-chip">Web Technology</span>
                 </div>
-                <div class="edu-achievement-card">
-                  <span class="edu-achievement-number">1</span>
-                  <span class="edu-achievement-label">LEADERSHIP</span>
-                  <span class="edu-achievement-desc">Web Development Team Lead</span>
+              </div>
+
+              <div class="term-line" aria-label="Certificates">
+                <span class="term-prompt">$</span>
+                <span class="term-cmd">cat certificates.txt</span>
+              </div>
+              <div class="term-body">
+                <div class="term-chips">
+                  <a class="term-chip" href="https://www.credly.com/badges/90970ecc-98d0-4557-be28-751048e11a60" target="_blank" rel="noopener">AWS Cloud Foundations — AWS Academy</a>
+                </div>
+              </div>
+
+              <div class="term-line" aria-label="Achievements and leadership">
+                <span class="term-prompt">$</span>
+                <span class="term-cmd">cat achievements.txt</span>
+              </div>
+              <div class="term-body">
+                <div class="term-chips">
+                  <span class="term-chip">LeetCode Contest Rating — 1574</span>
+                  <span class="term-chip">Web Development Team Lead</span>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- EXPERIENCE -->
-          <div class="career-tab-panel" data-panel="experience">
-            <div class="career-numbered-list">
-              <div class="career-numbered-item">
-                <span class="career-number">1</span>
-                <div class="timeline-content">
+          <div class="career-tab-panel" data-panel="experience" role="tabpanel">
+            <div class="career-list">
+              <div class="career-item">
+                <div class="career-meta">
                   <span class="timeline-label">Jun 2025 – Jul 2025</span>
-                  <h5 class="career-role">Summer Intern — IIT Delhi</h5>
-                  <div class="career-meta">Delhi, India</div>
-                  <p class="career-desc">
-                    Gained hands-on experience in network automation and Linux system management, working with Python,
-                    REST APIs, Git, and Docker. Developed automation tools including a Linux System Monitor for resource
-                    usage logging and a Security Monitoring Agent to track user and USB activities using multi-threading
-                    and event forwarding.
-                  </p>
                 </div>
-              </div>
-              <div class="career-numbered-item">
-                <span class="career-number">2</span>
-                <div class="timeline-content">
-                  <span class="timeline-label">Jun 2026 – Present</span>
-                  <h5 class="career-role">SDE Intern — Algowire Trading Technologies Pvt. Ltd.</h5>
-                  <div class="career-meta">Remote</div>
-                  <p class="career-desc">
-                    Currently gaining industry experience as a Software Development Intern, working on real-world products and collaborating with engineers to design, build, and improve scalable applications. This role allows me to strengthen my full-stack development skills while contributing to impactful software solutions.
-                  </p>
+                <div class="career-body">
+                  <h5 class="career-role">Summer Intern — IIT Delhi</h5>
+                  <div class="career-org">Delhi, India</div>
+                  <ul class="career-bullets">
+                    <li>Gained hands-on experience in network automation and Linux system management, working with Python, REST APIs, Git, and Docker.</li>
+                    <li>Developed automation tools including a Linux System Monitor for resource usage logging and a Security Monitoring Agent to track user and USB activities using multi-threading and event forwarding.</li>
+                  </ul>
                 </div>
               </div>
             </div>
