@@ -10,18 +10,80 @@
 
     <div class="footer-center">
       <div class="music-wrapper">
-        <button id="music-btn" class="music-btn" aria-label="Toggle music">
-          <span class="eq">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <button id="music-pill" class="music-pill" aria-haspopup="true" aria-expanded="false" aria-controls="music-panel" aria-label="Pick some music">
+          <span class="music-pill-icon" aria-hidden="true">
+            <span class="music-play">&#9654;</span>
+            <span class="music-eq"><span></span><span></span><span></span></span>
           </span>
+          <span class="music-pill-label" id="music-pill-label">music // pick a track</span>
         </button>
 
-        <div id="music-tip" class="music-tip">
-          Play something while you explore?
+        <div id="music-panel" class="music-panel" role="menu" aria-label="Music picker">
+          <button class="music-option" data-track="dancingCat" role="menuitemradio" aria-checked="false">
+            <span class="music-option-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <circle cx="6.5" cy="11" r="1.8" />
+                <circle cx="10" cy="7.5" r="1.8" />
+                <circle cx="14" cy="7.5" r="1.8" />
+                <circle cx="17.5" cy="11" r="1.8" />
+                <path d="M12 11.5c-3.2 0-5.2 2.1-5.2 4.2 0 1.6 1.6 2.1 2.7 1.6.6-.3 1.1-.4 2.5-.4s1.9.1 2.5.4c1.1.5 2.7 0 2.7-1.6 0-2.1-2-4.2-5.2-4.2z" />
+              </svg>
+            </span>
+            <span class="music-option-text">
+              <span class="music-option-name">dancing-cat.mp3</span>
+              <span class="music-option-sub">// boogie o'clock</span>
+            </span>
+          </button>
+
+          <button class="music-option" data-track="gotoAnthem" role="menuitemradio" aria-checked="false">
+            <span class="music-option-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 2.5l2.6 3.4-2.6 2-2.6-2 2.6-3.4zM10.4 8.3L7 11l5 10.5L17 11l-3.4-2.7h-3.2z" />
+              </svg>
+            </span>
+            <span class="music-option-text">
+              <span class="music-option-name">goto-anthem.mp3</span>
+              <span class="music-option-sub">// dress code: tie</span>
+            </span>
+          </button>
+
+          <button class="music-option" data-track="meCurrently" role="menuitemradio" aria-checked="false">
+            <span class="music-option-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+              </svg>
+            </span>
+            <span class="music-option-text">
+              <span class="music-option-name">me-currently.mp3</span>
+              <span class="music-option-sub">// sleepy hours</span>
+            </span>
+          </button>
+
+          <div class="music-divider" role="separator"></div>
+
+          <button class="music-option music-shuffle" id="music-shuffle" role="menuitem">
+            <span class="music-option-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 3h5v5" />
+                <path d="M4 20L21 3" />
+                <path d="M21 16v5h-5" />
+                <path d="M15 15l6 6" />
+                <path d="M4 4l5 5" />
+              </svg>
+            </span>
+            <span class="music-option-text">
+              <span class="music-option-name">Shuffle a playlist</span>
+              <span class="music-option-sub">opens a random mix</span>
+            </span>
+          </button>
+
+          <div class="music-volume">
+            <span class="music-volume-icon" aria-hidden="true">&#128266;</span>
+            <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.4" aria-label="Volume" />
+          </div>
         </div>
+
+        <!-- Audio elements are created globally by /js/site-music.js -->
       </div>
     </div>
 

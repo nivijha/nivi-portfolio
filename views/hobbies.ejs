@@ -1,0 +1,199 @@
+<% layout('layouts/boilerplate') %>
+
+<section id="hobbies" class="hobbies-section">
+  <div class="hobby-bg" id="hobby-bg" aria-hidden="true"></div>
+
+  <div class="section-inner">
+
+    <!-- HEADER -->
+    <header class="hobbies-head reveal">
+      <!-- <div class="term">
+        <div class="term-line" aria-label="Open the off-duty list">
+          <span class="term-prompt">$</span>
+          <span class="term-cmd">cat ../whoami --off-the-clock</span>
+        </div>
+      </div> -->
+      <h1 class="section-title">Off the clock</h1>
+      <p class="about-intro">
+        What I make time for when the terminal closes and the cursor goes
+        quiet. A loose pinboard of habits, sounds, and small obsessions.
+      </p>
+    </header>
+
+    <!-- VIBES TICKER -->
+    <div class="vibes-tape" aria-hidden="true">
+      <div class="vibes-tape-track">
+        <span>47 ROLLS OF GOLDEN HOUR</span><i>·</i>
+        <span>PLAYLIST STREAK: 12 DAYS</span><i>·</i>
+        <span>3AM COMMITS THIS WEEK</span><i>·</i>
+        <span>NEXT STOP: UNLISTED</span><i>·</i>
+        <span>STILL EDITING THE SAME PHOTO FROM MARCH</span><i>·</i>
+      </div>
+    </div>
+
+    <!-- PINBOARD / CANVAS WALL -->
+    <section class="wall-section reveal" aria-label="Gallery of hobbies">
+      <div class="term">
+        <div class="term-line">
+          <span class="term-prompt">$</span>
+          <span class="term-cmd">ls gallery/ --pinned</span>
+        </div>
+      </div>
+
+      <div class="wall" id="polaroid-wall" role="list">
+        <figure class="polaroid" style="--rot:-3deg; --i:0" role="listitem">
+          <div class="polaroid-media">
+            <img src="/images/hobbies/photography.jpeg" alt="Hobby photo 1" loading="lazy" onerror="this.closest('.polaroid').classList.add('no-image')" />
+            <div class="polaroid-fallback"><em>drop a shot here</em></div>
+          </div>
+          <figcaption>
+            <strong>Photography</strong>
+            <span>chasing shadows &amp; golden hour</span>
+          </figcaption>
+        </figure>
+
+        <figure class="polaroid" style="--rot:2.5deg; --i:1" role="listitem">
+          <div class="polaroid-media">
+            <img src="/images/hobbies/mountain.jpeg" alt="Hobby photo 2" loading="lazy" onerror="this.closest('.polaroid').classList.add('no-image')" />
+            <div class="polaroid-fallback"><em>drop a shot here</em></div>
+          </div>
+          <figcaption>
+            <strong>Mountains</strong>
+            <span>trading city noise for peaks</span>
+          </figcaption>
+        </figure>
+
+        <figure class="polaroid" style="--rot:-2deg; --i:2" role="listitem">
+          <div class="polaroid-media">
+            <img src="/images/hobbies/travel.jpeg" alt="Hobby photo 3" loading="lazy" onerror="this.closest('.polaroid').classList.add('no-image')" />
+            <div class="polaroid-fallback"><em>drop a shot here</em></div>
+          </div>
+          <figcaption>
+            <strong>Travel</strong>
+            <span>new streets, same camera</span>
+          </figcaption>
+        </figure>
+
+        <figure class="polaroid" style="--rot:3deg; --i:3" role="listitem">
+          <div class="polaroid-media">
+            <img src="/images/hobbies/coffee.jpeg" alt="Hobby photo 4" loading="lazy" onerror="this.closest('.polaroid').classList.add('no-image')" />
+            <div class="polaroid-fallback"><em>drop a shot here</em></div>
+          </div>
+          <figcaption>
+            <strong>Coffee</strong>
+            <span>fuel for the second commit</span>
+          </figcaption>
+        </figure>
+
+        <figure class="polaroid" style="--rot:-2.8deg; --i:4" role="listitem">
+          <div class="polaroid-media">
+            <img src="/images/hobbies/night.jpeg" alt="Hobby photo 5" loading="lazy" onerror="this.closest('.polaroid').classList.add('no-image')" />
+            <div class="polaroid-fallback"><em>drop a shot here</em></div>
+          </div>
+          <figcaption>
+            <strong>Late night builds</strong>
+            <span>when the code finally flows</span>
+          </figcaption>
+        </figure>
+
+        <figure class="polaroid" style="--rot:2deg; --i:5" role="listitem">
+          <div class="polaroid-media">
+            <img src="/images/hobbies/street.jpeg" alt="Hobby photo 6" loading="lazy" onerror="this.closest('.polaroid').classList.add('no-image')" />
+            <div class="polaroid-fallback"><em>drop a shot here</em></div>
+          </div>
+          <figcaption>
+            <strong>Cats &amp; naps</strong>
+            <span>the art of the afternoon nap</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- MUSIC WALL -->
+    <section class="music-section reveal" aria-label="Music on repeat">
+      <div class="term">
+        <div class="term-line">
+          <span class="term-prompt">$</span>
+          <span class="term-cmd">musmic --on-repeat</span>
+          <span class="music-status" id="music-status" hidden></span>
+        </div>
+      </div>
+
+      <div class="vinyl-grid">
+        <a class="vinyl-card playlist-card" href="https://open.spotify.com/playlist/4B5PuPSkHWXoxh5h5hKtDT" target="_blank" rel="noopener">
+          <span class="spotify-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.81-.87 7.08-.5 9.72 1.1a.62.62 0 0 1 .21.86zm1.23-2.74a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.56 11.24 1.33a.78.78 0 0 1 .25 1.07zm.1-2.85C14.83 8.96 9.4 8.78 6.3 9.72a.93.93 0 1 1-.54-1.78c3.56-1.08 9.56-.87 13.33 1.36a.93.93 0 0 1-.95 1.60z"/></svg>
+          </span>
+          <span class="vinyl-meta">
+            <span class="playlist-name">hooiii🖖🏼</span>
+            <span class="playlist-caption">// getting-ready-music.mp3</span>
+          </span>
+          <span class="playlist-meta">166 songs · let's groove!! 🕺</span>
+          <span class="playlist-preview" aria-hidden="true">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4B5PuPSkHWXoxh5h5hKtDT?utm_source=generator&si=0d97f08ec8c64db7" width="75%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </span>
+        </a>
+
+        <a class="vinyl-card playlist-card" href="https://open.spotify.com/playlist/4E2DUQK2Q9bgJt9kRpbxVL" target="_blank" rel="noopener">
+          <span class="spotify-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.81-.87 7.08-.5 9.72 1.1a.62.62 0 0 1 .21.86zm1.23-2.74a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.56 11.24 1.33a.78.78 0 0 1 .25 1.07zm.1-2.85C14.83 8.96 9.4 8.78 6.3 9.72a.93.93 0 1 1-.54-1.78c3.56-1.08 9.56-.87 13.33 1.36a.93.93 0 0 1-.95 1.60z"/></svg>
+          </span>
+          <span class="vinyl-meta">
+            <span class="playlist-name">Main apni fav hoon💅🏼</span>
+            <span class="playlist-caption">$ whoami --confidence=max</span>
+          </span>
+          <span class="playlist-meta">43 songs · 2 saves</span>
+          <span class="playlist-preview" aria-hidden="true">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4E2DUQK2Q9bgJt9kRpbxVL?utm_source=generator&si=74d6b3074b174a38" width="75%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </span>
+        </a>
+
+        <a class="vinyl-card playlist-card" href="https://open.spotify.com/playlist/6FsScqbSTKOJnfCauIFtxQ" target="_blank" rel="noopener">
+          <span class="spotify-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.81-.87 7.08-.5 9.72 1.1a.62.62 0 0 1 .21.86zm1.23-2.74a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.56 11.24 1.33a.78.78 0 0 1 .25 1.07zm.1-2.85C14.83 8.96 9.4 8.78 6.3 9.72a.93.93 0 1 1-.54-1.78c3.56-1.08 9.56-.87 13.33 1.36a.93.93 0 0 1-.95 1.60z"/></svg>
+          </span>
+          <span class="vinyl-meta">
+            <span class="playlist-name">yeh unn dino ki baat🌙</span>
+            <span class="playlist-caption">// soundtrack of a show I never watched, but the songs found me anyway</span>
+          </span>
+          <span class="playlist-meta">27 songs · 2hr 30min</span>
+          <span class="playlist-preview" aria-hidden="true">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6FsScqbSTKOJnfCauIFtxQ?utm_source=generator&si=8e5025cc1d774a4b" width="75%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </span>
+        </a>
+
+        <a class="vinyl-card playlist-card" href="https://open.spotify.com/playlist/38nsGjIuZgVzxEmf4NpxeN" target="_blank" rel="noopener">
+          <span class="spotify-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.81-.87 7.08-.5 9.72 1.1a.62.62 0 0 1 .21.86zm1.23-2.74a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.56 11.24 1.33a.78.78 0 0 1 .25 1.07zm.1-2.85C14.83 8.96 9.4 8.78 6.3 9.72a.93.93 0 1 1-.54-1.78c3.56-1.08 9.56-.87 13.33 1.36a.93.93 0 0 1-.95 1.60z"/></svg>
+          </span>
+          <span class="vinyl-meta">
+            <span class="playlist-name">♟️</span>
+            <span class="playlist-caption">// unlabeled on purpose</span>
+          </span>
+          <span class="playlist-meta">100 songs</span>
+          <span class="playlist-preview" aria-hidden="true">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/38nsGjIuZgVzxEmf4NpxeN?utm_source=generator&si=8b2dbc5aa388471d" width="75%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- RANDOM FACTS -->
+    <section class="facts-section reveal" aria-label="A few off-duty facts">
+      <div class="term">
+        <div class="term-line">
+          <span class="term-prompt">$</span>
+          <span class="term-cmd">cat random-facts.txt</span>
+        </div>
+      </div>
+      <ul class="hobby-fact-list">
+        <li>I hear a song once and it stays stuck for the whole week.</li>
+        <li>Half the photos I keep are of nothing in particular.</li>
+        <li>I judge a city by how walkable its streets are.</li>
+        <li>The best ideas show up after midnight, mid-shower.</li>
+        <li>Music is rarely ever paused in one of my tabs.</li>
+      </ul>
+    </section>
+
+  </div>
+</section>

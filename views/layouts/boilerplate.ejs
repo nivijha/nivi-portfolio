@@ -164,6 +164,7 @@
       <script src="/js/skills.js"></script>
       <script src="/js/project.js"></script>
       <script src="/js/contactHandler.js"></script>
+      <script src="/js/hobbies.js"></script>
 
       <!-- PAGE INIT -->
       <script>
@@ -188,6 +189,11 @@
           if (document.querySelector(".contact-section") && window.initContactPage) {
             console.log("Init: Contact");
             window.initContactPage();
+          }
+
+          if (document.querySelector(".hobbies-section") && window.initHobbiesPage) {
+            console.log("Init: Hobbies");
+            window.initHobbiesPage();
           }
 
           if (document.querySelector(".hero-section") && window.initHomePage) {
@@ -323,59 +329,7 @@
         })();
       </script>
 
-      <!-- MUSIC BUTTON + EQ SYNC -->
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const btn = document.getElementById("music-btn");
-          if (!btn || !window.globalAudio) return;
-
-          const audio = window.globalAudio;
-
-          function syncUI() {
-            if (!audio.paused) {
-              document.documentElement.classList.add("music-playing");
-            } else {
-              document.documentElement.classList.remove("music-playing");
-            }
-          }
-
-          syncUI();
-
-          btn.addEventListener("click", () => {
-            if (audio.paused) {
-              audio.play();
-              localStorage.setItem("musicPlaying", "true");
-            } else {
-              audio.pause();
-              localStorage.setItem("musicPlaying", "false");
-            }
-            syncUI();
-          });
-
-          audio.addEventListener("play", syncUI);
-          audio.addEventListener("pause", syncUI);
-        });
-      </script>
-
-      <!-- MUSIC TIP POPUP -->
-      <script>
-        window.addEventListener("load", () => {
-          const tip = document.getElementById("music-tip");
-          const btn = document.getElementById("music-btn");
-
-          if (!tip || !btn) return;
-
-          setTimeout(() => {
-            tip.classList.add("show", "bounce");
-            btn.classList.add("pulse");
-          }, 900);
-
-          setTimeout(() => {
-            tip.classList.remove("show", "bounce");
-            btn.classList.remove("pulse");
-          }, 5200);
-        });
-      </script>
+      <!-- FOOTER MUSIC PILL logic now lives in /js/site-music.js -->
 
       <!-- HAMBURGER MOBILE SHEET -->
       <script>
@@ -392,6 +346,7 @@
       <li><a href="/about">About <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
       <li><a href="/skills">Stack <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
       <li><a href="/projects">Projects <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+      <li><a href="/hobbies">Vibes <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
       <li><a href="/contact">Contact <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
     </ul>
     <div class="mobile-sheet-divider"></div>
@@ -532,6 +487,9 @@
           });
         });
       </script>
+    <!-- Reactive oneko cat (sprite-based fork), visible on every page -->
+    <script src="/js/oneko.js" data-cat="/images/oneko.gif"></script>
+    <script src="/js/site-music.js"></script>
 </body>
 
 </html>
