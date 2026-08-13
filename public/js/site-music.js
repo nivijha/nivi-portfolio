@@ -24,6 +24,7 @@
       a.loop = true;
       a.preload = "none";
       a.volume = vol;
+      a.addEventListener("timeupdate", function () { persist(name, a.currentTime); });
       audio[name] = a;
     }
     return audio[name];
@@ -35,15 +36,15 @@
 
   function persist(name, time) {
     try {
-      localStorage.setItem("siteMusicTrack", name || "");
-      localStorage.setItem("siteMusicTime", String(time || 0));
+      sessionStorage.setItem("siteMusicTrack", name || "");
+      sessionStorage.setItem("siteMusicTime", String(time || 0));
     } catch (e) {}
   }
 
   function persistClear() {
     try {
-      localStorage.removeItem("siteMusicTrack");
-      localStorage.removeItem("siteMusicTime");
+      sessionStorage.removeItem("siteMusicTrack");
+      sessionStorage.removeItem("siteMusicTime");
     } catch (e) {}
   }
 
@@ -61,6 +62,8 @@
         panel && panel.classList.contains("open") ? "true" : "false"
       );
     }
+    var navMusicBtn = document.getElementById("nav-music-btn");
+    if (navMusicBtn) navMusicBtn.classList.toggle("playing", playing);
     if (label) label.textContent = playing ? "♪ " + TRACKS[current].label : "music // pick a track";
     if (nowTrack) nowTrack.textContent = playing ? TRACKS[current].label : "nothing yet — pick a track";
 
@@ -192,13 +195,56 @@
   document.addEventListener("DOMContentLoaded", function () {
     initPanel();
     initTiles();
-    // No auto-resume: a page refresh always starts idle (cat calm, no audio).
+
+    // Keep music playing across in-site navigation; stop only on a hard refresh.
+    // (Browsers may still block autoplay without a prior gesture — after the user
+    // has clicked play once, the site's media-engagement usually permits it.)
+    var navType = "navigate";
+    try {
+      var ne = performance.getEntriesByType("navigation")[0];
+      if (ne && ne.type) navType = ne.type;
+    } catch (e) {}
+
+    if (navType === "reload") {
+      persistClear();
+    } else {
+      var saved = null, savedTime = 0;
+      try {
+        saved = sessionStorage.getItem("siteMusicTrack");
+        savedTime = parseFloat(sessionStorage.getItem("siteMusicTime")) || 0;
+      } catch (e) {}
+      if (saved && TRACKS[saved]) {
+        var a = getAudio(saved);
+        try { a.currentTime = savedTime; } catch (e) {}
+        current = saved;
+        a.play().then(function () {
+          setCat(TRACKS[saved].cat);
+        }).catch(function () {
+          current = null;
+          setCat("roam");
+        });
+        setCat(TRACKS[saved].cat);
+        syncUI();
+      }
+    }
   });
+
+  function setVolume(v) {
+    vol = (typeof v === "number" && !isNaN(v)) ? v : 0.4;
+    if (current && audio[current]) audio[current].volume = vol;
+  }
+
+  function shuffle() {
+    var url = PLAYLISTS[Math.floor(Math.random() * PLAYLISTS.length)];
+    window.open(url, "_blank", "noopener");
+  }
 
   window.siteMusic = {
     play: play,
     toggle: play,
     stop: stopAll,
+    shuffle: shuffle,
+    setVolume: setVolume,
     get current() {
       return current;
     },

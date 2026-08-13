@@ -60,7 +60,22 @@
   tear.id = "oneko-tear";
   cat.appendChild(tear);
 
+  // Mount on the body; positioning (incl. pinning beside the brand on mobile)
+  // is handled by CSS + placeNavbarCat().
   document.body.appendChild(cat);
+
+  function placeNavbarCat() {
+    if (!window.matchMedia("(max-width: 768px)").matches) return;
+    var brand = document.querySelector(".nav-brand");
+    if (!brand) return;
+    var r = brand.getBoundingClientRect();
+    cat.style.position = "fixed";
+    cat.style.right = "auto";
+    cat.style.bottom = "auto";
+    cat.style.left = r.right + 12 + "px";
+    cat.style.top = r.top + (r.height - cat.offsetHeight) / 2 + "px";
+    cat.style.zIndex = "1002";
+  }
 
   var state = "roam";
   var tick = 0;        // dance frame counter
@@ -141,6 +156,9 @@
 
   // initial first paint — static (position handled by CSS); start dance loop if allowed
   render(0);
+  placeNavbarCat();
+  window.addEventListener("resize", placeNavbarCat);
+  window.addEventListener("load", placeNavbarCat);
   if (!reduced) requestAnimationFrame(loop);
 
   window.oneko = { setCatState: setCatState };

@@ -128,10 +128,7 @@ window.initHobbiesPage = function () {
     // Live "now looping" status if the site music is playing
     const status = document.getElementById("music-status");
     if (status) {
-      const audio = window.globalAudio;
-      const wasPlaying = localStorage.getItem("musicPlaying") === "true";
-      const isPlaying = (audio && !audio.paused) || (!audio && wasPlaying);
-
+      const isPlaying = !!(window.siteMusic && window.siteMusic.current);
       if (isPlaying) {
         status.textContent = "looping now";
         status.hidden = false;

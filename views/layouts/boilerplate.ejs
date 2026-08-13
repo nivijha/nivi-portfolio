@@ -27,16 +27,6 @@
     })();
   </script>
 
-  <!-- Music state preload -->
-  <script>
-    (function () {
-      const isPlaying = localStorage.getItem("musicPlaying") === "true";
-      if (isPlaying) {
-        document.documentElement.classList.add("music-playing");
-      }
-    })();
-  </script>
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -297,38 +287,6 @@
         });
       </script>
 
-      <!-- GLOBAL MUSIC ENGINE -->
-      <script>
-        (function () {
-          if (!window.globalAudio) {
-            const audio = new Audio("/music.mp3");
-            audio.loop = true;
-            audio.volume = 0.9;
-            audio.preload = "auto";
-            window.globalAudio = audio;
-          }
-
-          const audio = window.globalAudio;
-
-          const isPlaying = localStorage.getItem("musicPlaying") === "true";
-          const savedTime = parseFloat(localStorage.getItem("musicTime") || "0");
-
-          if (!isNaN(savedTime)) {
-            audio.currentTime = savedTime;
-          }
-
-          if (isPlaying) {
-            audio.play().catch(() => { });
-          }
-
-          setInterval(() => {
-            if (!audio.paused) {
-              localStorage.setItem("musicTime", audio.currentTime);
-            }
-          }, 1000);
-        })();
-      </script>
-
       <!-- FOOTER MUSIC PILL logic now lives in /js/site-music.js -->
 
       <!-- HAMBURGER MOBILE SHEET -->
@@ -346,7 +304,7 @@
       <li><a href="/about">About <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
       <li><a href="/skills">Stack <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
       <li><a href="/projects">Projects <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
-      <li><a href="/hobbies">Vibes <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+      <li><a href="/hobbies">Off the Clock <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
       <li><a href="/contact">Contact <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
     </ul>
     <div class="mobile-sheet-divider"></div>
@@ -359,21 +317,6 @@
           Resume
         </span>
       </a>
-
-      <button class="mobile-sheet-action mobile-music-toggle" id="mobile-music-btn">
-        <span class="mobile-sheet-action-label">
-          <span class="mobile-sheet-action-icon theme-icon" id="mobile-music-icon-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" 
-                fill="none" stroke="currentColor" stroke-width="2" 
-                stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18V5l12-2v13"/>
-              <circle cx="6" cy="18" r="3"/>
-              <circle cx="18" cy="16" r="3"/>
-            </svg>
-          </span>
-          <span id="mobile-music-label">Play music</span>
-        </span>
-      </button>
 
       <button class="mobile-sheet-action mobile-theme-toggle">
         <span class="mobile-sheet-action-label">
@@ -405,43 +348,57 @@
 
           updateMobileThemeUI();
 
-          function updateMobileMusicUI() {
-            const label = document.getElementById("mobile-music-label");
-            const audio = window.globalAudio;
-            if (!label || !audio) return;
-            label.textContent = audio.paused ? "Play music" : "Pause music";
-          }
-
-          updateMobileMusicUI();
-
-          document.getElementById("mobile-music-btn")?.addEventListener("click", () => {
-            const audio = window.globalAudio;
-            if (!audio) return;
-
-            if (audio.paused) {
-              audio.play();
-              localStorage.setItem("musicPlaying", "true");
-            } else {
-              audio.pause();
-              localStorage.setItem("musicPlaying", "false");
-            }
-
-            if (!audio.paused) {
-              document.documentElement.classList.add("music-playing");
-            } else {
-              document.documentElement.classList.remove("music-playing");
-            }
-
-            updateMobileMusicUI();
-            closeSheet();
-          });
-
-          window.globalAudio?.addEventListener("play", updateMobileMusicUI);
-          window.globalAudio?.addEventListener("pause", updateMobileMusicUI);
-
           const toggle = document.querySelector(".nav-toggle");
           const sheet = document.querySelector(".mobile-sheet");
           const backdrop = document.querySelector(".mobile-sheet-backdrop");
+
+          // Navbar music popover -> siteMusic API
+          var musicBtn = document.getElementById("nav-music-btn");
+          var musicPop = document.getElementById("nav-music-popover");
+          function openMusicPop() {
+            if (musicPop) musicPop.hidden = false;
+            if (musicBtn) musicBtn.setAttribute("aria-expanded", "true");
+          }
+          function closeMusicPop() {
+            if (musicPop) musicPop.hidden = true;
+            if (musicBtn) musicBtn.setAttribute("aria-expanded", "false");
+          }
+          if (musicBtn) {
+            musicBtn.addEventListener("click", function (e) {
+              e.stopPropagation();
+              if (musicPop && musicPop.hidden) openMusicPop();
+              else closeMusicPop();
+            });
+          }
+          if (musicPop) {
+            musicPop.querySelectorAll(".music-option[data-track]").forEach(function (opt) {
+              opt.addEventListener("click", function () {
+                if (window.siteMusic) window.siteMusic.play(opt.getAttribute("data-track"));
+                closeMusicPop();
+              });
+            });
+            document.addEventListener("click", function (e) {
+              if (!musicPop.hidden && e.target !== musicBtn && !musicBtn.contains(e.target) && !musicPop.contains(e.target)) {
+                closeMusicPop();
+              }
+            });
+          }
+
+          var mobileShuffle = document.getElementById("music-shuffle-mobile");
+          if (mobileShuffle) {
+            mobileShuffle.addEventListener("click", function () {
+              if (window.siteMusic && window.siteMusic.shuffle) window.siteMusic.shuffle();
+            });
+          }
+
+          var mobileVol = document.getElementById("music-volume-mobile");
+          if (mobileVol) {
+            mobileVol.addEventListener("input", function () {
+              if (window.siteMusic && window.siteMusic.setVolume) {
+                window.siteMusic.setVolume(parseFloat(mobileVol.value));
+              }
+            });
+          }
 
           function openSheet() {
             sheet.style.display = "block";

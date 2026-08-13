@@ -645,12 +645,33 @@ button,
 
 @media (max-width: 768px) {
   #oneko {
-    left: auto;
-    right: 120px;
-    top: auto;
-    bottom: calc(var(--footer-height) + 0px);
-    width: 32px;
-    height: 32px;
+    position: fixed;
+    right: auto;
+    bottom: auto;
+    width: 38px;
+    height: 38px;
+    z-index: 1002;
+  }
+
+  /* cloud flips below the cat so it isn't clipped under the navbar */
+  #oneko-purr {
+    left: 0;
+    right: auto;
+    top: calc(100% + 8px);
+    bottom: auto;
+  }
+
+  #oneko-purr::after {
+    top: -6px;
+    bottom: auto;
+    left: 12px;
+    right: auto;
+    border-width: 0 6px 6px 6px;
+    border-color: transparent transparent #20242e transparent;
+  }
+
+  .dark #oneko-purr::after {
+    border-color: transparent transparent #ffffff transparent;
   }
 }
 
@@ -836,6 +857,61 @@ button,
     opacity 0.2s ease;
 }
 
+.nav-music-toggle {
+  display: none; /* hidden on desktop */
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.1s ease;
+}
+.nav-music-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+.nav-music-toggle:hover {
+  color: var(--accent);
+}
+.nav-music-toggle[aria-expanded="true"] {
+  color: var(--accent);
+}
+.nav-music-toggle.playing {
+  color: var(--accent);
+  animation: musicPulse 1.15s ease-in-out infinite;
+}
+@keyframes musicPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.14); }
+}
+
+.nav-music-popover {
+  position: fixed;
+  top: calc(var(--nav-height) + 8px);
+  right: 12px;
+  width: 290px;
+  max-width: calc(100vw - 24px);
+  z-index: 1003;
+  padding: 8px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  background: var(--bg-elevated);
+  box-shadow: 0 18px 44px -16px rgba(0, 0, 0, 0.5);
+  backdrop-filter: saturate(180%) blur(28px);
+}
+.nav-music-popover[hidden] {
+  display: none;
+}
+html.dark .nav-music-popover {
+  background: rgba(28, 28, 30, 0.92);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 44px -16px rgba(0, 0, 0, 0.7);
+}
+
 /* Visibility helpers */
 .desktop-only {
   display: flex;
@@ -1014,11 +1090,12 @@ button,
 .about-intro {
   max-width: 820px;
   margin-top: 36px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.6;
   letter-spacing: -0.01em;
-  color: var(--text-main);
+  color: var(--text-muted);
+  text-align: justify;
 }
 
 .about-text {
@@ -1032,10 +1109,12 @@ button,
 .about-principle {
   max-width: 680px;
   margin-top: 32px;
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: 0.1px;
+  line-height: 1.6;
   color: var(--text-main);
+  text-align: justify;
 }
 
 .career-wrapper {
@@ -2455,7 +2534,10 @@ a.term-chip:hover {
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.12),
       0 2px 8px rgba(0, 0, 0, 0.06);
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: calc(100svh - var(--nav-height) - 32px);
+    -webkit-overflow-scrolling: touch;
     transform: scale(0.96) translateY(-10px);
     opacity: 0;
     transition:
@@ -2567,6 +2649,49 @@ a.term-chip:hover {
     gap: 12px;
   }
 
+  .mobile-music {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: 4px;
+    padding-top: 4px;
+  }
+
+  html.dark .mobile-music {
+    border-top-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .mobile-music-title {
+    margin: 0;
+    padding: 6px 20px 2px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.4px;
+    color: var(--text-muted);
+  }
+
+  .mobile-music .music-option,
+  .nav-music-popover .music-option {
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+  }
+
+  .mobile-music-volume {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px 6px;
+  }
+
+  .mobile-music-volume-icon {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .mobile-music-volume input[type="range"] {
+    flex: 1;
+    accent-color: var(--accent);
+  }
+
   .mobile-sheet-action-icon {
     width: 32px;
     height: 32px;
@@ -2619,6 +2744,10 @@ a.term-chip:hover {
     gap: 0;
     padding: 0;
     flex-direction: column;
+  }
+
+  .nav-music-toggle {
+    display: flex !important;
   }
 
   .nav-toggle span {
@@ -2709,7 +2838,7 @@ a.term-chip:hover {
 
   .about-intro {
     margin-top: 20px;
-    font-size: 1.22rem;
+    font-size: 1rem;
   }
 
   .about-text {
@@ -2960,7 +3089,7 @@ a.term-chip:hover {
   }
 
   .footer-center {
-    display: flex;
+    display: none;
   }
 
   .footer-right {
