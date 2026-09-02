@@ -1106,6 +1106,51 @@ html.dark .nav-music-popover {
   color: var(--text-muted);
 }
 
+.about-hero {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+  margin-top: 28px;
+}
+
+.about-hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-hero-text .about-intro {
+  margin-top: 0;
+}
+
+.about-photo-wrap {
+  flex: 0 0 260px;
+  max-width: 260px;
+}
+
+.about-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  transition: filter 0.35s ease;
+}
+
+html.dark .about-photo {
+  filter: none;
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    flex-direction: column;
+  }
+  .about-photo-wrap {
+    flex: 0 0 auto;
+    max-width: 320px;
+    width: 100%;
+  }
+}
+
 .about-principle {
   max-width: 680px;
   margin-top: 32px;
