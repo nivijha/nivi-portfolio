@@ -155,6 +155,7 @@
       <script src="/js/project.js"></script>
       <script src="/js/contactHandler.js"></script>
       <script src="/js/hobbies.js"></script>
+      <script src="/js/community.js"></script>
 
       <!-- PAGE INIT -->
       <script>
@@ -184,6 +185,11 @@
           if (document.querySelector(".hobbies-section") && window.initHobbiesPage) {
             console.log("Init: Hobbies");
             window.initHobbiesPage();
+          }
+
+          if (document.querySelector(".community-section") && window.initCommunityPage) {
+            console.log("Init: Community");
+            window.initCommunityPage();
           }
 
           if (document.querySelector(".hero-section") && window.initHomePage) {
@@ -304,6 +310,7 @@
       <li><a href="/about">About <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
       <li><a href="/skills">Stack <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
       <li><a href="/projects">Projects <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
+      <li><a href="/community">Community <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
       <li><a href="/hobbies">Off the Clock <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
       <li><a href="/contact">Contact <span class="nav-row-arrow"><i data-lucide="chevron-right"></i></span></a></li>
     </ul>

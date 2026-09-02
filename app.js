@@ -46,6 +46,10 @@ app.get("/hobbies", (req, res) => {
   res.render("hobbies", {page: "hobbies"});
 });
 
+app.get("/community", (req, res) => {
+  res.render("community", {page: "community"});
+});
+
 app.get("/contact", (req, res) => {
   res.render("contact", { page: "contact" });
 });
