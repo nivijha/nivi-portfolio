@@ -241,7 +241,7 @@
         return { html: `<b>${c.title}</b><br>${c.org}<br>${c.detail}<br><span class="nivi-cb-meta">${link("/community", "View \u2192", true)}</span>`, topic: { kind: "com", idx: topic.idx }, emoji: true };
       }
       case "hobby": {
-        return { html: `<b>Off the clock</b><br>${kb.hobbies.polaroids.slice(0, 5).map((p) => "\u2022 " + p).join("<br>")}<br><span class="nivi-cb-meta">${link("/hobbies", "Hobbies \u2192", true)}</span>`, topic: { kind: "hobby" }, emoji: true };
+        return { html: `<b>Off the clock</b><br>\u{1F4F8} She shoots on a budget Android with a bougie eye \u2014 cracked screen, clean shots, no Leica needed.<br>\u{1F3D4} When the city noise gets loud she trades it for peaks and new streets.<br>\u266a And lo-fi keeps her company \u2014 tap the \u266a in the nav.<br><span class="nivi-cb-meta">${link("/hobbies", "Hobbies \u2192", true)}</span>`, topic: { kind: "hobby" }, emoji: true };
       }
       case "music": {
         return { html: `<b>Lo-fi on repeat</b><br>\u2022 ${kb.hobbies.playlists.slice(0, 4).map((p) => "\u266a " + p).join("<br>\u2022 ")}<br><span class="nivi-cb-meta">tap \u266a in the nav to play</span>`, topic: { kind: "music" }, emoji: true };
@@ -261,10 +261,13 @@
     const qn = normalize(query);
     if (!qn) return null;
     if (/^(hi|hello|hey|hai|hii|yo|namaste)\b/.test(qn)) {
-      return { html: `\u{1F63F}\u{25B7}\u{0E07}\u{25B7}\u{1F63F} meow! Ask about Nivi \u2014 skills, projects, hobbies, more.`, emoji: false };
+      return { html: `\u{1F63F}\u{25B7}\u{0E07}\u{25B7}\u{1F63F} Hey! I'm Nivi's cat. Curious about what she's been building? Her skills, projects, hobbies \u2014 I've got stories for all of it. Just ask.`, emoji: false };
+    }
+    if (/^(yes|yeah|yep|yup|sure|ok|okay|alright|do tell)\b/.test(qn) && lastTopic?.followUp === "hobbies") {
+      return expandTopic({ kind: "hobby" });
     }
     if (/what can.*(nivi|she)\b.*(do|offer)|hire.*nivi|work with nivi|why.*(hire|nivi)|elevator|pitch me|sell me/.test(qn)) {
-      return { html: `<b>What Nivi can do for you</b><br>\u2022 Full-stack \u2014 React/Node/Mongo, 36 REST endpoints in MedTracker<br>\u2022 AI \u2014 YOLOv8 94.4% mAP, FastAPI, LLaMA\u2192Gemini fallback<br>\u2022 Cloud \u2014 Lambda/DynamoDB + Linux automation<br><span class="nivi-cb-meta">Open to internships &amp; projects \u2014 ${link("/contact", "Contact \u2192", true)} \u00b7 ${link("/projects", "Projects \u2192", true)}</span>`, tech: true };
+      return { html: `<b>What Nivi can do for you</b><br>She builds end-to-end \u2014 full-stack (React/Node/Mongo, 36 REST endpoints), AI (YOLOv8 94.4% mAP, FastAPI), and cloud (Lambda/DynamoDB + Linux automation).<br><span class="nivi-cb-meta">Open to internships &amp; projects \u2014 ${link("/contact", "Contact \u2192", true)} \u00b7 ${link("/projects", "Projects \u2192", true)}</span>`, tech: true };
     }
     if (isMoreQuery(qn)) {
       const ex = expandTopic(lastTopic);
@@ -278,30 +281,30 @@
     }
     if (/soft skill|non.?technical|apart from technical|what else.*(bring|nivi)|beyond tech|human skill|strengths/.test(qn)) {
       const s = kb.softSkills.slice(0, 3).map((x) => x.name).join(" \u00b7 ");
-      return { html: `<b>Beyond tech</b><br>${s} \u2014 Leadership (JYC/IEEE), Teamwork (SIH/Murious), Ownership (6 projects)<br><span class="nivi-cb-meta">+ budget Android eye \u2014 ${link("/community", "Community \u2192", true)} \u00b7 ${link("/hobbies", "Hobbies \u2192", true)}</span>`, topic: { kind: "soft" }, emoji: true };
+      return { html: `<b>Beyond tech</b><br>${s} \u2014 she leads teams (JYC/IEEE), ships with others (SIH/Murious), and owns her work (6 projects).<br><span class="nivi-cb-meta">She also loves photography + lo-fi \u2014 want to hear that story?</span>`, topic: { kind: "soft", followUp: "hobbies" }, emoji: true };
     }
     if (/hard skill|tech stack|stack|technolog|programming language|which (tech|language|tools)/.test(qn)) {
       const h = kb.hardSkills;
-      return { html: `<b>Hard skills</b><br>\u2022 ${h.coreStack.join(", ")}<br>\u2022 ${h.programming.slice(0, 3).join(", ")} \u00b7 ${h.webBackend.slice(0, 2).join(", ")}<br>${h.cloud.join(", ")}<br><span class="nivi-cb-meta">${link("/skills", "View stack \u2192", true)}</span>`, topic: { kind: "hard" }, tech: true };
+      return { html: `<b>Hard skills</b><br>She speaks ${h.coreStack.slice(0, 4).join(", ")} like a second language \u2014 plus Python and AWS.<br>\u2022 ${h.programming.slice(0, 3).join(", ")}<br>\u2022 ${h.webBackend.slice(0, 2).join(", ")} \u00b7 ${h.cloud.join(", ")}<br><span class="nivi-cb-meta">${link("/skills", "View stack \u2192", true)}</span>`, topic: { kind: "hard" }, tech: true };
     }
     if (/project|medtracker|cardiovision|chat constellation|review analyzer|linux monitor|security agent|what (has|did) she build|built anything/.test(qn)) {
       const m = kb.projects.find((p) => qn.includes(normalize(p.name)));
       if (m) {
         const i = kb.projects.indexOf(m);
-        return { html: `<b>${m.name}</b> \u2014 ${m.impact}<br><span class="nivi-cb-meta">[${m.stack.slice(0, 3).join(", ")}]</span><br>${m.links?.github ? link(m.links.github, "GitHub \u2197") + " \u00b7 " : ""}${link("/projects", "All \u2192", true)}`, topic: { kind: "proj", idx: i }, tech: true };
+        return { html: `<b>${m.name}</b><br>${m.impact} \u2014 and it actually runs. ${m.stack.slice(0, 3).join(", ")} under the hood.<br><span class="nivi-cb-meta">${m.links?.github ? link(m.links.github, "GitHub \u2197") + " \u00b7 " : ""}${link("/projects", "All \u2192", true)}</span>`, topic: { kind: "proj", idx: i }, tech: true };
       }
-      return { html: `<b>6 projects</b><br>${kb.projects.map((p) => `\u2022 ${p.name}`).join("<br>")}<br><span class="nivi-cb-meta">${link("/projects", "Open projects \u2192", true)}</span>`, topic: { kind: "projs" }, tech: true };
+      return { html: `<b>6 projects, all end-to-end</b><br>${kb.projects.map((p) => `\u2022 ${p.name}`).join("<br>")}<br><span class="nivi-cb-meta">${link("/projects", "Open projects \u2192", true)}</span>`, topic: { kind: "projs" }, tech: true };
     }
     if (/education|b\.?tech|cgpa|gpa|school|juit|university|college|coursework|certificate|study/.test(qn)) {
       const b = kb.education[0];
-      return { html: `<b>${b.degree}</b><br>${b.school}<br><span class="nivi-cb-meta">${b.duration} \u00b7 ${b.score}</span>`, topic: { kind: "edu", idx: 0 }, tech: true };
+      return { html: `<b>Her academic story</b><br>${b.degree} at ${b.school.split(",")[0]} \u2014 in the game since 2023.<br><span class="nivi-cb-meta">${b.duration} \u00b7 ${b.score}</span>`, topic: { kind: "edu", idx: 0 }, tech: true };
     }
     if (/experience|intern|iit delhi|work experience|what.*(done|worked|internship)/.test(qn)) {
       const e = kb.experience[0];
-      return { html: `<b>${e.role}</b><br>${e.org} \u00b7 ${e.duration}<br><span class="nivi-cb-meta">Python/REST/Docker \u00b7 ${link("/about", "About \u2192", true)}</span>`, topic: { kind: "exp", idx: 0 }, tech: true };
+      return { html: `<b>${e.role}</b><br>${e.org.split(",")[0]} \u2014 ${e.duration}. Hands-on network automation, Linux, and Docker.<br><span class="nivi-cb-meta">${link("/about", "About \u2192", true)}</span>`, topic: { kind: "exp", idx: 0 }, tech: true };
     }
     if (/community|hackathon|sih|murious|gdg|azure|ieee|jyc|event|team lead|conduct/.test(qn)) {
-      return { html: `<b>Community</b><br>JYC &amp; IEEE lead \u00b7 SIH 2024/25 &amp; Murious organiser \u00b7 GDG Cloud + Azure Ignite attendee<br><span class="nivi-cb-meta">${link("/community", "View \u2192", true)}</span>`, topic: { kind: "com", idx: 0 }, emoji: true };
+      return { html: `<b>Community</b><br>She's been deep in the campus circuit \u2014 JYC &amp; IEEE lead, SIH + Murious organiser, GDG Cloud &amp; Azure Ignite attendee.<br><span class="nivi-cb-meta">${link("/community", "View \u2192", true)}</span>`, topic: { kind: "com", idx: 0 }, emoji: true };
     }
     if (/music|track|song|audio|spotify|playlist/.test(qn)) {
       return { html: `<b>\u266a 3 tracks</b> \u2014 tap \u266a in the nav<br>dancingCat \u00b7 goto-anthem \u00b7 me-currently<br><span class="nivi-cb-meta">lo-fi while you scroll</span>`, topic: { kind: "music" }, emoji: true };
@@ -313,7 +316,7 @@
       return { html: `<b>Contact</b><br>${link("mailto:" + kb.contact.email, kb.contact.email)}<br><span class="nivi-cb-meta">${kb.availability}</span>`, topic: { kind: "contact" }, emoji: true };
     }
     if (/about nivi|who is nivi|bio|principle|about herself|(tell me|tell) about nivi/.test(qn)) {
-      return { html: `<b>Nivi Jha</b> \u2014 ${kb.profile.title}<br><span class="nivi-cb-meta">correctness &gt; clarity &gt; scale</span>`, topic: { kind: "about" }, emoji: true };
+      return { html: `<b>Nivi Jha</b><br>${kb.profile.title} \u2014 she believes correctness first, clarity second, scale when it matters.<br><span class="nivi-cb-meta">${link("/about", "About \u2192", true)}</span>`, topic: { kind: "about" }, emoji: true };
     }
     let best = null, scv = -1;
     const qt = tokens(qn);
@@ -416,7 +419,7 @@
   }
   function initState() {
     if (restoreState()) return;
-    renderBot(`\u{1F63F}\u{25B7}\u{0E07}\u{25B7}\u{1F63F} meow! Ask about Nivi \u2014 skills, projects, hobbies, more.`);
+    renderBot(`\u{1F63F}\u{25B7}\u{0E07}\u{25B7}\u{1F63F} Hey! I'm Nivi's cat. Curious about what she's been building? Her skills, projects, hobbies \u2014 I've got stories for all of it. Just ask.`);
     saveState();
   }
 
