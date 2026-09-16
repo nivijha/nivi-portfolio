@@ -8,11 +8,11 @@
   let turnLog = [];
   const els = {};
   const quickChips = ["hard skills", "soft skills", "projects", "hobbies", "contact"];
-  const CAT_POOL = ["\u{1F638} ", "\u{1F431} ", "\u{1F43E} ", "*purr* ", "*kneads* "];
+  const CAT_POOL = ["*purr* ", "*kneads* "];
 
   function q(id) { return document.getElementById(id); }
   function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
-  function catFlavor() { return Math.random() < 0.5 ? CAT_POOL[Math.floor(Math.random() * 5)] : ""; }
+  function catFlavor() { return Math.random() < 0.5 ? CAT_POOL[Math.floor(Math.random() * CAT_POOL.length)] : ""; }
   function normalize(s) { return s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim(); }
   function tokens(s) { return normalize(s).split(" ").filter(Boolean); }
   function scoreDoc(qt, dt) { let sc = 0; for (const t of qt) { if (dt.includes(t)) sc += 2; else if (dt.some((d) => d.startsWith(t) || t.startsWith(d))) sc += 1; } return sc; }
@@ -241,7 +241,7 @@
         return { html: `<b>${c.title}</b><br>${c.org}<br>${c.detail}<br><span class="nivi-cb-meta">${link("/community", "View \u2192", true)}</span>`, topic: { kind: "com", idx: topic.idx }, emoji: true };
       }
       case "hobby": {
-        return { html: `<b>Off the clock</b><br>\u{1F4F8} She shoots on a budget Android with a bougie eye \u2014 cracked screen, clean shots, no Leica needed.<br>\u{1F3D4} When the city noise gets loud she trades it for peaks and new streets.<br>\u266a And lo-fi keeps her company \u2014 tap the \u266a in the nav.<br><span class="nivi-cb-meta">${link("/hobbies", "Hobbies \u2192", true)}</span>`, topic: { kind: "hobby" }, emoji: true };
+        return { html: `<b>Off the clock</b><br>She shoots on a budget Android with a bougie eye \u2014 cracked screen, clean shots, no Leica needed.<br>When the city noise gets loud she trades it for peaks and new streets.<br>And lo-fi keeps her company \u2014 tap the \u266a in the nav.<br><span class="nivi-cb-meta">${link("/hobbies", "Hobbies \u2192", true)}</span>`, topic: { kind: "hobby" }, emoji: true };
       }
       case "music": {
         return { html: `<b>Lo-fi on repeat</b><br>\u2022 ${kb.hobbies.playlists.slice(0, 4).map((p) => "\u266a " + p).join("<br>\u2022 ")}<br><span class="nivi-cb-meta">tap \u266a in the nav to play</span>`, topic: { kind: "music" }, emoji: true };
@@ -261,7 +261,7 @@
     const qn = normalize(query);
     if (!qn) return null;
     if (/^(hi|hello|hey|hai|hii|yo|namaste)\b/.test(qn)) {
-      return { html: `\u{1F63F}\u{25B7}\u{0E07}\u{25B7}\u{1F63F} Hey! I'm Nivi's cat. Curious about what she's been building? Her skills, projects, hobbies \u2014 I've got stories for all of it. Just ask.`, emoji: false };
+      return { html: `Hey! I'm Nivi's cat. Curious about what she's been building? Her skills, projects, hobbies \u2014 I've got stories for all of it. Just ask.`, emoji: false };
     }
     if (/^(yes|yeah|yep|yup|sure|ok|okay|alright|do tell)\b/.test(qn) && lastTopic?.followUp === "hobbies") {
       return expandTopic({ kind: "hobby" });
@@ -274,7 +274,7 @@
       if (ex) return ex;
     }
     if (isAboutCat(qn)) {
-      return { html: `I'm Nivi's cat \u{1F43E} \u2014 I only know her portfolio. Ask me: skills, projects, hobbies.`, emoji: true };
+      return { html: `I'm Nivi's cat \u2014 I only know her portfolio. Ask me: skills, projects, hobbies.`, emoji: true };
     }
     if (/help|what can i (ask|type|say)|ideas|something to ask/.test(qn)) {
       return { html: `I can help with \u2014 skills, projects, hobbies, contact\u2026 try one below.`, chips: true, emoji: true };
@@ -310,13 +310,13 @@
       return { html: `<b>\u266a 3 tracks</b> \u2014 tap \u266a in the nav<br>dancingCat \u00b7 goto-anthem \u00b7 me-currently<br><span class="nivi-cb-meta">lo-fi while you scroll</span>`, topic: { kind: "music" }, emoji: true };
     }
     if (/hobb|off the clock|photography|photo|android|travel|mountain|camera/.test(qn)) {
-      return { html: `<b>Off the clock</b><br>\u{1F4F8} Budget Android, bougie eye \u2014 cracked screen, clean shots.<br><span class="nivi-cb-meta">${link("/hobbies", "Hobbies \u2192", true)} \u00b7 \u266a 3 tracks</span>`, topic: { kind: "hobby" }, emoji: true };
+      return { html: `<b>Off the clock</b><br>Budget Android, bougie eye \u2014 cracked screen, clean shots.<br><span class="nivi-cb-meta">${link("/hobbies", "Hobbies \u2192", true)} \u00b7 \u266a 3 tracks</span>`, topic: { kind: "hobby" }, emoji: true };
     }
     if (/contact|email|linkedin|github|resume|reach|available|hire|talk to/.test(qn)) {
       return { html: `<b>Contact</b><br>${link("mailto:" + kb.contact.email, kb.contact.email)}<br><span class="nivi-cb-meta">${kb.availability}</span>`, topic: { kind: "contact" }, emoji: true };
     }
-    if (/about nivi|who is nivi|bio|principle|about herself|(tell me|tell) about nivi/.test(qn)) {
-      return { html: `<b>Nivi Jha</b><br>${kb.profile.title} \u2014 she believes correctness first, clarity second, scale when it matters.<br><span class="nivi-cb-meta">${link("/about", "About \u2192", true)}</span>`, topic: { kind: "about" }, emoji: true };
+    if (/about nivi|who is nivi|about herself|about her\b|about yourself|tell me about (herself|her|yourself)|(tell me|tell) about (nivi|her|yourself)/.test(qn)) {
+      return { html: `<b>Nivi Jha</b><br>She's a B.Tech CSE student at JUIT Solan, in the game since 2023 \u2014 8.5 CGPA and six full-stack builds to her name.<br>Full-stack builder, AI tinkerer, campus community lead (JYC &amp; IEEE), budget-photographer-by-night with a cracked Android and an eye for clean frames.<br><span class="nivi-cb-meta">${link("/about", "About \u2192", true)}</span>`, topic: { kind: "about" }, emoji: true };
     }
     let best = null, scv = -1;
     const qt = tokens(qn);
@@ -419,7 +419,7 @@
   }
   function initState() {
     if (restoreState()) return;
-    renderBot(`\u{1F63F}\u{25B7}\u{0E07}\u{25B7}\u{1F63F} Hey! I'm Nivi's cat. Curious about what she's been building? Her skills, projects, hobbies \u2014 I've got stories for all of it. Just ask.`);
+    renderBot(`Hey! I'm Nivi's cat. Curious about what she's been building? Her skills, projects, hobbies \u2014 I've got stories for all of it. Just ask.`);
     saveState();
   }
 

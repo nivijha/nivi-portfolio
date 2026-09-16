@@ -18,7 +18,7 @@
 .nivi-cb-body::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:999px}
 .nivi-cb-msg{max-width:88%;padding:10px 12px;border:1px solid var(--border-strong);font-size:.84rem;line-height:1.65;word-break:break-word;white-space:pre-wrap;box-shadow:2px 2px 0 rgba(0,0,0,.06)}
 .nivi-cb-msg.bot{background:var(--card-bg);color:var(--text-main);border-radius:16px 16px 16px 4px;align-self:flex-start;position:relative}
-.nivi-cb-msg.bot::before{content:"🐾";position:absolute;left:-2px;top:-9px;font-size:11px;background:var(--bg-elevated);border:1px solid var(--border-strong);border-radius:999px;padding:1px 5px;line-height:1}
+.nivi-cb-msg.bot::before{content:"~";position:absolute;left:-2px;top:-9px;font-size:11px;background:var(--bg-elevated);border:1px solid var(--border-strong);border-radius:999px;padding:1px 5px;line-height:1}
 .nivi-cb-msg.user{background:var(--text-main);color:var(--bg-body);border-radius:16px 16px 4px 16px;align-self:flex-end;border-color:var(--text-main)}
 .nivi-cb-msg a{color:inherit;text-decoration:underline;text-underline-offset:2px;font-weight:700}
 .nivi-cb-msg b{color:inherit}
