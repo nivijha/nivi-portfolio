@@ -1,0 +1,165 @@
+{
+  "profile": {
+    "name": "Nivi Jha",
+    "title": "B.Tech Computer Science & Engineering — JUIT Solan (2023–2027)",
+    "tagline": "Software engineering is about understanding systems before changing them. Cares about correctness first, clarity second, scale when it matters.",
+    "location": "Solan / Ghaziabad, India",
+    "bio": "Software engineering, for me, is about understanding systems before changing them. I enjoy exploring how data moves, how services interact, and how thoughtful design decisions shape reliable products. Experience spans backend, full-stack, and AI-powered applications. Constantly learning, refining approach, building practical maintainable software."
+  },
+  "availability": "Open to internships | Available for projects",
+  "contact": {
+    "email": "nivijha04@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/nivi-jha/",
+    "github": "https://github.com/nivijha",
+    "codolio": "https://codolio.com/profile/CRPSfhtT",
+    "resume": "/resume"
+  },
+  "education": [
+    {
+      "degree": "B.Tech — Computer Science & Engineering",
+      "school": "Jaypee University of Information Technology",
+      "location": "Solan, IN",
+      "duration": "Jul 2023 – May 2027",
+      "score": "CGPA 8.5 / 10.0",
+      "coursework": ["Data Structures and Algorithms","Operating Systems","Computer Networks","Object Oriented Programming","Database Management Systems","Machine Learning","Web Technology"],
+      "certificates": [{"name":"AWS Cloud Foundations — AWS Academy","url":"https://www.credly.com/badges/90970ecc-98d0-4557-be28-751048e11a60"}],
+      "achievements": ["LeetCode Contest Rating — 1574","Web Development Team Lead","Codolio — Coding Profile https://codolio.com/profile/CRPSfhtT"]
+    },
+    {
+      "degree": "Class 12 — Science (PCM)",
+      "school": "Maharaja Agarsain Public School, Ghaziabad",
+      "board": "CBSE",
+      "year": "2022",
+      "score": "86.8%"
+    },
+    {
+      "degree": "Class 10",
+      "school": "Maharaja Agarsain Public School, Ghaziabad",
+      "board": "CBSE",
+      "year": "2020",
+      "score": "92.8%"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Summer Intern — IIT Delhi",
+      "org": "IIT Delhi, Delhi, India",
+      "duration": "Jun 2025 – Jul 2025",
+      "bullets": [
+        "Hands-on network automation and Linux system management with Python, REST APIs, Git, Docker",
+        "Built Linux System Monitor for resource usage logging and Security Monitoring Agent to track user/USB activities using multi-threading and event forwarding"
+      ]
+    }
+  ],
+  "hardSkills": {
+    "coreStack": ["React","Node.js","Python","MongoDB","AWS","Docker"],
+    "programming": ["Core Java (strong)","Python (strong)","JavaScript","C","C++"],
+    "webBackend": ["Node.js (strong)","React.js (strong)","Express.js","REST APIs"],
+    "databases": ["MongoDB (strong)","MySQL","DynamoDB","Redis"],
+    "systemsTools": ["Docker (strong)","Linux (strong)","Git","GitHub"],
+    "mlAi": ["NumPy","Pandas","FastAPI (strong)"],
+    "cloud": ["AWS Lambda (strong)","AWS Comprehend"]
+  },
+  "softSkills": [
+    {"name":"Leadership","evidence":"Web Developer Team Lead — JYC and IEEE JUIT; Enigma / R&D contributor"},
+    {"name":"Teamwork & Collaboration","evidence":"Delivered tech fest & cultural fest websites (jyc.co.in), SIH 2025 Organising Team, Murious 2025 Organising Team"},
+    {"name":"Communication","evidence":"Designed posters/sessions for IEEE; attended/hosted community events (GDG Cloud, Azure Ignite)"},
+    {"name":"Problem Solving","evidence":"LeetCode 1574, SIH 2024 participant, Sustainathon 2024"},
+    {"name":"Ownership & Reliability","evidence":"Shipped 6 end-to-end projects with tests, fallback, monitoring; SIH / Murious organising responsibilities"},
+    {"name":"Continuous Learning","evidence":"AWS Academy, ML/B.Tech coursework, 161+ community/hackathon participation"}
+  ],
+  "projects": [
+    {
+      "id": "01",
+      "name": "MedTracker",
+      "impact": "Intelligent healthcare record management system",
+      "stack": ["Next.js","Express.js","MongoDB","Redis","JWT","OAuth 2.0","Gemini API","LLaMA"],
+      "overview": "Secure healthcare platform with AI-powered medical document understanding for automated PDF parsing and structured extraction.",
+      "features": ["Express + MongoDB REST API (36 endpoints, 7 models) with dual JWT / Google OAuth","Cache-aside Redis hot cache, MongoDB source of truth, 30-day TTL, AI analysis once per record","Automatic LLaMA → Gemini fallback with fail-open","Cloudinary + Multer uploads","21 automated tests (Vitest, Supertest, in-memory MongoDB)"],
+      "architecture": "Next.js frontend, Express REST APIs, MongoDB, JWT+OAuth 2.0, Redis cache-aside, LLaMA/Gemini extraction pipeline.",
+      "links": {"github":"https://github.com/nivijha/medtracker-frontend","demo":"https://medtracker-frontend.vercel.app/"}
+    },
+    {
+      "id": "02",
+      "name": "CardioVision",
+      "impact": "End-to-end clinical AI pipeline for coronary artery stenosis detection",
+      "stack": ["Python","FastAPI","YOLOv8","OpenCV","Grad-CAM"],
+      "overview": "Clinical AI pipeline for stenosis detection/segmentation using YOLOv8 trained on 1,500 ARCADE angiography images.",
+      "features": ["Benchmarked YOLOv8n/s/m","Detection + instance segmentation","Grad-CAM explainability","FastAPI inference server","COCO-to-YOLO conversion pipeline"],
+      "architecture": "Dual YOLOv8 models wrapped in FastAPI, OpenCV preprocessing, Grad-CAM heatmaps, JSON responses.",
+      "metrics": "94.4% mAP@0.5 · 0.91 F1 · Sub-200ms latency · Saved 7+ hrs dataset prep",
+      "links": {"github":"https://github.com/nivijha/CardioVision","demo":"https://cardio-vision-murex.vercel.app/"}
+    },
+    {
+      "id": "03",
+      "name": "Chat Constellation",
+      "impact": "Graph-native AI chat platform replacing linear history with conversational graphs",
+      "stack": ["React.js","Node.js","Express.js","MongoDB","OpenAI","React Flow"],
+      "overview": "Graph-native AI chat platform replacing linear history with interactive conversational graphs.",
+      "features": ["React Flow graph visualization","Real-time thread persistence (MongoDB)","JWT + Google OAuth","Account deletion with cascading cleanup","Context-aware OpenAI interactions"],
+      "architecture": "React + React Flow, Express API, MongoDB, OpenAI API, JWT, Dockerized.",
+      "links": {"github":"https://github.com/nivijha/chat-constellation","demo":"https://chat-constellation.vercel.app/"}
+    },
+    {
+      "id": "04",
+      "name": "AI Product Review Analyzer",
+      "impact": "Fully serverless NLP analytics pipeline for review understanding",
+      "stack": ["React.js","DynamoDB","AWS Lambda","API Gateway","AWS Comprehend"],
+      "overview": "Serverless NLP analytics pipeline for large-scale review sentiment + key-phrase extraction.",
+      "features": ["4-class sentiment classification","Key phrase extraction (Comprehend)","Real-time processing","Event-driven + CloudWatch"],
+      "architecture": "API Gateway → Lambda → Comprehend → DynamoDB → CloudWatch. Serverless, IAM-controlled.",
+      "links": {"github":"https://github.com/nivijha/aws-product-review-analyzer"}
+    },
+    {
+      "id": "05",
+      "name": "Linux System Monitor & Automation Suite",
+      "impact": "Lightweight infra monitoring for automated Linux health tracking",
+      "stack": ["Linux","Bash","Cron","AWK","Grep"],
+      "overview": "Lightweight infra monitoring for automated health tracking via Bash + Cron.",
+      "features": ["CPU/mem/disk/network monitoring","Cron scheduled","Threshold alerts","Log compression & cleanup"],
+      "architecture": "Bash scripts via Cron, AWK/Grep parsing, timestamped logs.",
+      "metrics": "6+ metrics automated · eliminated manual checks"
+    },
+    {
+      "id": "06",
+      "name": "Security Event Collection & Analysis Agent",
+      "impact": "Linux security agent for centralized auth event collection",
+      "stack": ["Python","Linux","JSON","SSH"],
+      "overview": "Lightweight security agent for auth/audit event collection with SIEM-ready JSON.",
+      "features": ["SSH login & failed auth detection","Priv-esc & session tracking","SIEM-ready JSON","Sub-2s forwarding"],
+      "architecture": "Python pipeline parsing auth/audit logs via regex → JSON forwarding.",
+      "metrics": "100+ daily auth events · Sub-2s latency"
+    }
+  ],
+  "community": [
+    {"title":"Web Developer Team Lead — JYC","org":"Technical Sciences, Movies & Photography Club (JYC) — JUIT","kicker":"Team Work · 2024-2025","location":"JUIT, Solan","detail":"Contributor to jyc.co.in; delivered tech/cultural fest websites"},
+    {"title":"Web Developer Team Lead — IEEE","org":"IEEE Student Branch — JUIT","kicker":"Team Work · 2024-2025","location":"IEEE JUIT","detail":"Contributor to R&D website — IEEE JUIT-SB"},
+    {"title":"Design Member — IEEE","org":"IEEE Student Branch — JUIT","kicker":"Team Work · 2024-2025","location":"IEEE JUIT","detail":"Designed festival/session posters"},
+    {"title":"Smart India Hackathon — Organising Team","org":"SIH 2025","kicker":"Hackathon · 2025","location":"SIH","detail":"Organising team SIH 2025"},
+    {"title":"Smart India Hackathon — Participant","org":"SIH 2024","kicker":"Hackathon · 2024","location":"SIH","detail":"Participated SIH 2024"},
+    {"title":"Cloud Community Day 2025 — GDG Cloud Noida","org":"GDG Cloud Noida","kicker":"Event · 2025","location":"GDG Cloud Noida","detail":"Keynotes: AI as OS, MCP, AI agents, CI, panel on real hustle"},
+    {"title":"Microsoft Azure Ignite 2.0","org":"Microsoft Gurugram · Reskilll","kicker":"Event · 2025","location":"Microsoft Gurugram","detail":"LLMs & RAG, ATS/resume strategy, SaaS & Product Hunt"},
+    {"title":"Azure Learning Academy — AI & Tech Quiz","org":"Microsoft Gurugram · Reskilll","kicker":"Event · 2025","location":"Microsoft Gurugram","detail":"AI & Tech Quiz participation"},
+    {"title":"Murious Tech Fest — Organising Team","org":"Murious — College Tech Fest","kicker":"Hackathon · 2025","location":"JUIT","detail":"Organising team Murious 2025"},
+    {"title":"Sustainathon — Participant","org":"Bharat Petroleum","kicker":"Hackathon · 2024","location":"Bharat Petroleum","detail":"Mar–Apr 2024 Sustainathon"},
+    {"title":"Murious Tech Fest — Hackathon Participant","org":"Murious — College Tech Fest","kicker":"Hackathon · 2024","location":"JUIT","detail":"Participated Murious 2024"},
+    {"title":"Member — IEEE JUIT-SB","org":"IEEE Student Branch — JUIT","kicker":"Team Work · 2023-2025","location":"IEEE JUIT-SB","detail":"Sessions: Cpp, Git & GitHub, robotics, Enigma & R&D"}
+  ],
+  "hobbies": {
+    "tagline": "What I make time for when the terminal closes.",
+    "polaroids": ["Cats & naps","Photography — chasing shadows & golden hour","Mountains — trading city noise for peaks","Travel — new streets, same camera","Coffee — fuel for the second commit","Late night builds — when the code finally flows"],
+    "playlists": ["hooiii — 166 songs","Main apni fav hoon — 43 songs","yeh unn dino ki baat — 27 songs","♟️ — 100 songs"],
+    "photographer": "Part-time photographer — shoots on a minimal-budget Android. No Sony, no Leica, just eyes + light. Punchline: \"it's the eye, not the gear — my phone is cracked, my photos aren't.\"",
+    "music": "3 lo-fi tracks while you scroll: dancingCat.mp3 (boogie o'clock), goto-anthem.mp3 (dress code: tie), me-currently.mp3 (sleepy hours) — tap ♪ in the nav to play.",
+    "facts": ["Hear a song once and it stays stuck for the whole week","Half the photos are of nothing in particular","Judge a city by how walkable its streets are","Best ideas show up after midnight, mid-shower","Music is rarely ever paused in one of my tabs","Budget Android, rich frames — photographer on a student wallet: proof you don't need gear to see"]
+  },
+  "pages": {
+    "home": "/",
+    "about": "/about",
+    "skills": "/skills",
+    "projects": "/projects",
+    "community": "/community",
+    "hobbies": "/hobbies",
+    "contact": "/contact"
+  }
+}

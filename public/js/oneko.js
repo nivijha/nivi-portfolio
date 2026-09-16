@@ -52,7 +52,7 @@
   // "purr" thought bubble, revealed on hover or via .cloud-show (state bubble)
   var purr = document.createElement("div");
   purr.id = "oneko-purr";
-  purr.textContent = "purr ♡";
+  purr.textContent = "purr <3, Let's talk about nivi";
   cat.appendChild(purr);
 
   // weeping tear, shown only while sleeping (.sleeping)
@@ -134,7 +134,7 @@
       cat.classList.add("cloud-show");
       cloudTimer = setTimeout(function () { cat.classList.remove("cloud-show"); }, 4000);
     } else {
-      purr.textContent = "purr ♡";
+      purr.textContent = "purr <3, Let's talk about nivi";
     }
     render(0);
   }
@@ -162,4 +162,17 @@
   if (!reduced) requestAnimationFrame(loop);
 
   window.oneko = { setCatState: setCatState };
+
+  (function landingMsg(){
+    if (reduced) return;
+    function show(){
+      purr.textContent = "purr <3, Let's talk about nivi";
+      cat.classList.add("cloud-show");
+      cat.classList.add("nudge");
+      setTimeout(function(){ cat.classList.remove("nudge"); }, 3200);
+      setTimeout(function(){ cat.classList.remove("cloud-show"); }, 4000);
+    }
+    if (document.readyState === "complete") setTimeout(show, 900);
+    else window.addEventListener("load", function(){ setTimeout(show, 900); });
+  })();
 })();
