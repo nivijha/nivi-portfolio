@@ -39,6 +39,9 @@
 .nivi-cb-typing i:nth-child(2){animation-delay:.15s}
 .nivi-cb-typing i:nth-child(3){animation-delay:.3s}
 @keyframes cbBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.nivi-cb-msg.streaming::after{content:"▌";animation:cbBlink .7s cubic-bezier(.4,0,.6,1) infinite;color:var(--text-muted);white-space:pre;margin-left:1px}
+@keyframes cbBlink{0%,100%{opacity:1}50%{opacity:.2}}
+.nivi-cb-inputbar.busy{opacity:.6;pointer-events:none}
 #oneko[data-cb-bound]{outline-offset:2px;cursor:pointer}
 #oneko[data-cb-bound]:focus-visible{outline:2px solid var(--border-strong)}
 #oneko #oneko-purr{max-width:210px;min-width:140px;white-space:normal;text-align:center;line-height:1.35;word-break:break-word;background:var(--card-bg) !important;color:var(--text-main) !important;border:1px solid var(--border-strong) !important;border-radius:14px !important;padding:7px 12px !important;font-family:"Nunito",sans-serif !important;font-size:11.5px !important;font-weight:800 !important;box-shadow:2px 2px 0 rgba(0,0,0,.08) !important;right:50% !important;transform:translateX(50%);bottom:calc(100% + 10px) !important}
@@ -47,6 +50,5 @@
 @keyframes catNudge{0%,100%{transform:translateY(0)}25%{transform:translateY(-5px)}50%{transform:translateY(0)}75%{transform:translateY(-3px)}}
 @media(max-width:768px){#oneko #oneko-purr{left:50% !important;right:auto !important;transform:translateX(-50%) !important;top:calc(100% + 10px) !important;bottom:auto !important}
 #oneko #oneko-purr::after{left:50% !important;right:auto !important;transform:translateX(-50%) !important;top:-6px !important;bottom:auto !important;border-width:0 6px 6px 6px !important;border-color:transparent transparent var(--card-bg) transparent !important}}
-
 @media(max-width:768px){#nivi-chatbot{right:12px;bottom:12px}.nivi-cb-panel{width:90vw;right:0;bottom:72px;height:55vh;max-height:55vh;border-radius:18px}}
-@media(prefers-reduced-motion:reduce){.nivi-cb-typing i{animation:none}}
+@media(prefers-reduced-motion:reduce){.nivi-cb-typing i{animation:none}.nivi-cb-msg.streaming::after{animation:none}}
