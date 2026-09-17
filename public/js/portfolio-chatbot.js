@@ -13,7 +13,7 @@
   function q(id) { return document.getElementById(id); }
   function sleep(ms) { return new Promise((r) => setTimeout(r, ms)); }
   function catFlavor() { return Math.random() < 0.5 ? CAT_POOL[Math.floor(Math.random() * CAT_POOL.length)] : ""; }
-  function normalize(s) { return s.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim(); }
+  function normalize(s) { return s.toLowerCase().replace(/\bbout\b/g, " about ").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim(); }
   function tokens(s) { return normalize(s).split(" ").filter(Boolean); }
   function scoreDoc(qt, dt) { let sc = 0; for (const t of qt) { if (dt.includes(t)) sc += 2; else if (dt.some((d) => d.startsWith(t) || t.startsWith(d))) sc += 1; } return sc; }
   function link(href, label, internal) { return `<a href="${href}"${internal ? "" : ' target="_blank" rel="noopener"'}>${label}</a>`; }
@@ -268,6 +268,9 @@
     }
     if (/what can.*(nivi|she)\b.*(do|offer)|hire.*nivi|work with nivi|why.*(hire|nivi)|elevator|pitch me|sell me/.test(qn)) {
       return { html: `<b>What Nivi can do for you</b><br>She builds end-to-end \u2014 full-stack (React/Node/Mongo, 36 REST endpoints), AI (YOLOv8 94.4% mAP, FastAPI), and cloud (Lambda/DynamoDB + Linux automation).<br><span class="nivi-cb-meta">Open to internships &amp; projects \u2014 ${link("/contact", "Contact \u2192", true)} \u00b7 ${link("/projects", "Projects \u2192", true)}</span>`, tech: true };
+    }
+    if (/^whats? (she|nivi) (does|do|build|building|work|working|make|making|doing|up to)\b|^what (does|do|is|are) (she|nivi).{0,16}(do|doing|build|building|work|working|make|making|up to)\b/.test(qn)) {
+      return { html: `<b>What she does</b><br>She builds end-to-end \u2014 React/Node/Mongo UIs, YOLOv8 vision models, Lambda &amp; Linux automation \u2014 six projects shipped from idea to deployment.<br>Off the clock she leads campus communities (JYC &amp; IEEE) and chases light with a cracked Android and a good eye.<br><span class="nivi-cb-meta">${link("/projects", "Projects \u2192", true)} \u00b7 ${link("/about", "About \u2192", true)}</span>`, topic: { kind: "about" }, emoji: true };
     }
     if (isMoreQuery(qn)) {
       const ex = expandTopic(lastTopic);
