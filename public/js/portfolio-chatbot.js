@@ -6,6 +6,7 @@
   let lastTopic = null;
   let stuckCount = 0;
   let turnLog = [];
+  let cbState = window.NiviCB ? window.NiviCB.createState() : null;
   const els = {};
   const quickChips = ["hard skills", "soft skills", "projects", "hobbies", "contact"];
   const CAT_POOL = ["*purr* ", "*kneads* "];
@@ -177,11 +178,11 @@
     el.classList.remove("streaming");
     return { ok: hadText && !errored, hadText };
   }
-  async function apiStream(msg) {
+  async function apiStream(msg, grounded) {
     const res = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: msg, history: turnLog.slice(-6) })
+      body: JSON.stringify({ message: msg, history: turnLog.slice(-6), grounded: grounded || null })
     });
     const ct = res.headers.get("content-type") || "";
     if (ct.includes("text/event-stream")) {
@@ -337,12 +338,16 @@
     }
     return null;
   }
+  function offlinePacket(packet) {
+    const dec = window.NiviCB.decorate(packet);
+    return { html: dec.html, chips: dec.chips, emoji: false, stuck: packet.isUnknown ? true : undefined };
+  }
   function friendlyRefusal() { return `Only Nivi stuff, meow \u2014 I only know her portfolio. <span class="nivi-cb-meta">try: hard skills / projects / hobbies</span>`; }
 
   // ---------- chips policy ----------
   function maybeChips(a, query) {
     if (a.chips || /help|what can i (ask|type|say)/.test(normalize(query))) {
-      renderChips(quickChips);
+      renderChips(Array.isArray(a.chips) ? a.chips : quickChips);
       return;
     }
     if (stuckCount >= 2) {
@@ -360,8 +365,13 @@
     if (viaChip) els.body.querySelectorAll(".nivi-cb-chips").forEach((n) => n.remove());
     lockUI(true);
     typing(true);
+    const packet = window.NiviCB && kb ? window.NiviCB.run({ input: t, kb: kb, state: cbState }) : null;
     let finalText = null;
-    try { finalText = await apiStream(t); } catch (e) {}
+    if (packet && packet.ambiguous) {
+      finalText = null;
+    } else {
+      try { finalText = await apiStream(t, packet ? packet.grounded : null); } catch (e) {}
+    }
     typing(false);
     if (finalText) {
       stuckCount = 0;
@@ -370,7 +380,11 @@
       lockUI(false);
       return;
     }
-    let a = answerFor(t);
+    let a = null;
+    if (!packet && isMoreQuery(t)) { const ex = expandTopic(lastTopic); if (ex) a = ex; }
+    if (!a && packet && !packet.isUnknown) a = offlinePacket(packet);
+    if (!a) a = answerFor(t);
+    if (!a && packet) a = offlinePacket(packet);
     if (!a) { a = { html: friendlyRefusal(), stuck: true }; }
     if (a.stuck) stuckCount = Math.min(stuckCount + 1, 9); else stuckCount = 0;
     if (a.topic) lastTopic = a.topic;
