@@ -166,7 +166,7 @@
   (function landingMsg(){
     if (reduced) return;
     function show(){
-      purr.textContent = "purr <3, Let's talk about nivi";
+      purr.textContent = "purr <3, Let's talk about nivi. Click me!";
       cat.classList.add("cloud-show");
       cat.classList.add("nudge");
       setTimeout(function(){ cat.classList.remove("nudge"); }, 3200);
