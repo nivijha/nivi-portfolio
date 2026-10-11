@@ -37,32 +37,35 @@
               <span class="project-badge">[ Redis ]</span>
               <span class="project-badge">[ JWT ]</span>
               <span class="project-badge">[ OAuth 2.0 ]</span>
-              <span class="project-badge">[ Gemini API ]</span>
-              <span class="project-badge">[ LLaMA ]</span>
+              <span class="project-badge">[ Cloudinary ]</span>
+              <span class="project-badge">[ Multer ]</span>
+              <span class="project-badge">[ Vitest ]</span>
+              <span class="project-badge">[ Supertest ]</span>
+              <span class="project-badge">[ CI/CD ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
                 <div class="project-detail-block">
                   <span class="project-detail-label">Overview</span>
-                  <p>Developed a secure healthcare management platform with AI-powered medical document understanding for automated PDF parsing and structured data extraction.</p>
+                  <p>Engineered a multi-tier healthcare records platform with a Next.js client, Express REST API (36 endpoints, 7 MongoDB models), and dual JWT + Google OAuth 2.0 authentication for secure patient data management.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Key Features</span>
                   <ul>
-                    <li>Express + MongoDB REST API (36 endpoints, 7 models) with dual JWT / Google OAuth authentication</li>
-                    <li>Cache-aside pipeline (Redis hot cache, MongoDB source of truth, 30-day TTL) with AI report analysis executed exactly once per record</li>
-                    <li>Automatic LLaMA → Gemini model fallback with fail-open behavior</li>
-                    <li>Cloudinary media storage and Multer upload handling</li>
-                    <li>21 automated tests (Vitest, Supertest, in-memory MongoDB)</li>
+                    <li>Cache-aside layer with Redis (30-day TTL) in front of MongoDB as source of truth — AI report analysis runs exactly once per record</li>
+                    <li>Automatic failover from LLaMA to Gemini with fail-open behavior for uninterrupted document processing</li>
+                    <li>Cloudinary media storage with Multer upload handling for medical documents and images</li>
+                    <li>21 automated tests (Vitest, Supertest, in-memory MongoDB) integrated into GitHub Actions CI/CD pipeline gating releases</li>
+                    <li>JWT + Google OAuth 2.0 dual authentication with secure session management</li>
                   </ul>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Architecture</span>
-                  <p>Next.js frontend with Express REST APIs and MongoDB document storage. JWT + OAuth 2.0 authentication flow, Redis-based cache-aside layer, and a LLaMA / Gemini medical entity extraction pipeline with reliable fallback.</p>
+                  <p>Next.js frontend communicating with Express REST APIs backed by MongoDB. Redis cache-aside pattern (30-day TTL) reduces redundant AI inference. Dual-model extraction pipeline (LLaMA primary, Gemini fallback) with structured JSON output. CI/CD enforces test coverage on every push.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Impact</span>
-                  <p class="project-card-metric">36 REST endpoints · Redis cache-aside with 30-day TTL · 21 automated tests · Dual JWT/OAuth auth · Redundant de-risked document processing</p>
+                  <p class="project-card-metric">36 REST endpoints · 7 MongoDB models · Redis cache-aside (30-day TTL) · 21 automated tests · GitHub Actions CI/CD · Dual JWT/OAuth 2.0 auth · Redundant AI document processing</p>
                 </div>
               </div>
               <div class="project-card-actions">
@@ -98,35 +101,37 @@
               </button>
             </div>
             <div class="project-card-badges">
+              <span class="project-badge">[ React.js ]</span>
               <span class="project-badge">[ Python ]</span>
               <span class="project-badge">[ FastAPI ]</span>
               <span class="project-badge">[ YOLOv8 ]</span>
+              <span class="project-badge">[ NumPy ]</span>
+              <span class="project-badge">[ Gemini AI ]</span>
               <span class="project-badge">[ OpenCV ]</span>
-              <span class="project-badge">[ Grad-CAM ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
                 <div class="project-detail-block">
                   <span class="project-detail-label">Overview</span>
-                  <p>Built an end-to-end clinical AI pipeline for coronary artery stenosis detection and segmentation using YOLOv8 models trained on 1,500 labeled coronary angiography images from the ARCADE dataset.</p>
+                  <p>Built and deployed a full-stack medical-imaging application (React client, FastAPI backend) that runs YOLOv8 inference to detect and segment coronary stenosis in angiograms, with a geometry-based severity classifier.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Key Features</span>
                   <ul>
-                    <li>Benchmarked YOLOv8n, YOLOv8s, and YOLOv8m variants</li>
-                    <li>Automated stenosis detection and instance segmentation</li>
-                    <li>Grad-CAM explainability for model interpretability</li>
-                    <li>FastAPI inference server exposing structured prediction APIs</li>
-                    <li>Automated COCO-to-YOLO annotation conversion pipeline</li>
+                    <li>Benchmarked 3 YOLOv8 variants (n, s, m) for detection and instance segmentation on coronary angiography images</li>
+                    <li>5-endpoint FastAPI API serving detection, segmentation, and heatmap overlays with structured JSON responses</li>
+                    <li>Geometry-based classifier calculating percentage stenosis from reference and minimum lumen diameters, mapped to 5 severity levels</li>
+                    <li>React frontend with interactive visualization of detection results and stenosis measurements</li>
+                    <li>Automated preprocessing pipeline with OpenCV for image normalization and augmentation</li>
                   </ul>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Architecture</span>
-                  <p>Dual YOLOv8 detection and segmentation models wrapped inside a FastAPI inference layer. OpenCV preprocessing pipeline with Grad-CAM heatmap generation for explainability and structured JSON response generation.</p>
+                  <p>React.js frontend consuming a FastAPI backend that hosts multiple YOLOv8 model variants. NumPy-powered geometric analysis computes stenosis percentage from lumen diameters. Model outputs include bounding boxes, segmentation masks, and Grad-CAM heatmaps for clinical interpretability.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Impact</span>
-                  <p class="project-card-metric">94.4% mAP@0.5 · 0.91 F1-score · Sub-200ms inference latency · Automated COCO-to-YOLO conversion saving 7+ hours of dataset preparation</p>
+                  <p class="project-card-metric">3 YOLOv8 variants benchmarked · 5 REST endpoints · 5-level severity classification · Sub-200ms inference · React + FastAPI full-stack deployment</p>
                 </div>
               </div>
               <div class="project-card-actions">
@@ -166,32 +171,35 @@
               <span class="project-badge">[ Node.js ]</span>
               <span class="project-badge">[ Express.js ]</span>
               <span class="project-badge">[ MongoDB ]</span>
-              <span class="project-badge">[ OpenAI ]</span>
+              <span class="project-badge">[ NVIDIA LLM API ]</span>
               <span class="project-badge">[ React Flow ]</span>
+              <span class="project-badge">[ JWT ]</span>
+              <span class="project-badge">[ Google OAuth 2.0 ]</span>
+              <span class="project-badge">[ Docker ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
                 <div class="project-detail-block">
                   <span class="project-detail-label">Overview</span>
-                  <p>Built a graph-native AI chat platform replacing traditional linear conversation history with interactive conversational graphs for non-linear thread exploration.</p>
+                  <p>Designed a full-stack conversation-visualization app with React client (3 views: chat, constellation graph, galaxy), Express REST API (10 endpoints), MongoDB data model, and NVIDIA LLM API integration for bilingual responses.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Key Features</span>
                   <ul>
-                    <li>Graph-based conversation visualization using React Flow</li>
-                    <li>Real-time thread persistence with MongoDB</li>
-                    <li>JWT authentication with Google OAuth 2.0 login</li>
-                    <li>Account deletion with cascading cleanup</li>
-                    <li>Context-aware AI interactions via OpenAI API</li>
+                    <li>Graph-based conversation visualization using React Flow with 3 interactive views (chat, constellation, galaxy)</li>
+                    <li>JWT authentication (7-day expiry) with bcrypt password hashing and Google OAuth 2.0 login</li>
+                    <li>NVIDIA LLM API integration generating bilingual English/Hindi responses</li>
+                    <li>Account deletion with cascading data cleanup across MongoDB collections</li>
+                    <li>Docker Compose orchestration of 3 services: MongoDB, Express API, and Nginx reverse proxy</li>
                   </ul>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Architecture</span>
-                  <p>React frontend with React Flow graph rendering, Express API layer, MongoDB persistence, OpenAI API integration, JWT session management, and Dockerized deployment workflow.</p>
+                  <p>React frontend with React Flow for graph rendering, Express.js REST API (10 endpoints) for conversation persistence, MongoDB for document storage, NVIDIA LLM API for bilingual generation. JWT sessions (7-day TTL) with bcrypt hashing. Containerized via Docker Compose (MongoDB, Express, Nginx).</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Impact</span>
-                  <p class="project-card-metric">Supports 10+ concurrent users · Non-linear conversation exploration · Automated NoSQL query sanitization · Improved context retention through graph navigation</p>
+                  <p class="project-card-metric">3 graph views · 10 REST endpoints · JWT (7-day) + bcrypt + Google OAuth · Bilingual EN/HI LLM · Docker Compose (3 services) · Non-linear conversation exploration</p>
                 </div>
               </div>
               <div class="project-card-actions">
@@ -232,29 +240,32 @@
               <span class="project-badge">[ AWS Lambda ]</span>
               <span class="project-badge">[ API Gateway ]</span>
               <span class="project-badge">[ AWS Comprehend ]</span>
+              <span class="project-badge">[ CloudWatch ]</span>
+              <span class="project-badge">[ Serverless ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
                 <div class="project-detail-block">
                   <span class="project-detail-label">Overview</span>
-                  <p>Designed a fully serverless NLP analytics pipeline for large-scale review understanding and sentiment analysis using event-driven architecture.</p>
+                  <p>Designed a fully serverless NLP analytics pipeline for large-scale review understanding using event-driven architecture on AWS, processing sentiment and key phrases at zero idle cost.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Key Features</span>
                   <ul>
-                    <li>4-class sentiment classification</li>
-                    <li>Key phrase extraction via AWS Comprehend</li>
-                    <li>Real-time review processing</li>
-                    <li>Event-driven architecture with CloudWatch monitoring</li>
+                    <li>4-class sentiment classification (positive, negative, neutral, mixed) via AWS Comprehend</li>
+                    <li>Key phrase extraction for product insight mining at scale</li>
+                    <li>Event-driven architecture: API Gateway → Lambda → Comprehend → DynamoDB with CloudWatch monitoring</li>
+                    <li>Independent service scaling with IAM-based access control and zero idle infrastructure</li>
+                    <li>Real-time review ingestion and processing with structured JSON output</li>
                   </ul>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Architecture</span>
-                  <p>API Gateway → AWS Lambda → AWS Comprehend → DynamoDB → CloudWatch monitoring. Fully managed serverless architecture with independent service scaling and IAM-based access control.</p>
+                  <p>Fully managed serverless stack: API Gateway triggers Lambda functions that invoke AWS Comprehend for sentiment and key phrase analysis, results stored in DynamoDB with CloudWatch monitoring and alerting. Each component scales independently with pay-per-use pricing.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Impact</span>
-                  <p class="project-card-metric">Zero idle infrastructure cost · Fully serverless deployment · Independent component scaling · Automated review classification and insights extraction</p>
+                  <p class="project-card-metric">Zero idle infrastructure cost · 4-class sentiment + key phrase extraction · Fully serverless (Lambda, Comprehend, DynamoDB) · Independent component scaling · Event-driven with CloudWatch observability</p>
                 </div>
               </div>
               <div class="project-card-actions">
@@ -291,29 +302,31 @@
               <span class="project-badge">[ Cron ]</span>
               <span class="project-badge">[ AWK ]</span>
               <span class="project-badge">[ Grep ]</span>
+              <span class="project-badge">[ System Monitoring ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
                 <div class="project-detail-block">
                   <span class="project-detail-label">Overview</span>
-                  <p>Built a lightweight infrastructure monitoring system for automated Linux health tracking and maintenance using Bash scripting and Cron scheduling.</p>
+                  <p>Automated Linux system monitoring with cron-scheduled Bash scripts using AWK and grep to collect CPU, memory, disk, and network metrics every 60 seconds, trigger threshold-based alerts, and compress logs automatically.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Key Features</span>
                   <ul>
-                    <li>CPU, memory, disk, and network monitoring</li>
-                    <li>Automated scheduled execution via Cron</li>
-                    <li>Threshold-based alerts for resource utilization</li>
-                    <li>Log compression and automated cleanup</li>
+                    <li>Cron-scheduled collection of CPU, memory, disk I/O, and network metrics at 60-second intervals</li>
+                    <li>AWK/grep-based parsing of /proc and system utilities for lightweight metric extraction</li>
+                    <li>Configurable threshold-based alerting for resource utilization spikes</li>
+                    <li>Automated log rotation, compression (gzip), and cleanup with retention policies</li>
+                    <li>Zero-dependency Bash implementation — runs on any standard Linux system</li>
                   </ul>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Architecture</span>
-                  <p>Bash scripts orchestrated through Cron jobs. AWK and Grep used for metric extraction and parsing. Structured timestamped logging with automated maintenance workflows.</p>
+                  <p>Cron daemon triggers Bash scripts every minute. AWK processes /proc/stat, /proc/meminfo, df, and /proc/net/dev for metric extraction. Grep filters for alert conditions. Structured JSON/CSV logging with automated gzip compression and age-based cleanup. Designed for production reliability with minimal overhead.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Impact</span>
-                  <p class="project-card-metric">Automated collection of 6+ infrastructure metrics · Eliminated repetitive manual health checks · Automated log maintenance · Configurable resource threshold alerting</p>
+                  <p class="project-card-metric">60-second metric collection · 4 core resource types (CPU, memory, disk, network) · Threshold-based alerting · Automated log compression & cleanup · Zero external dependencies</p>
                 </div>
               </div>
             </div>
@@ -343,29 +356,32 @@
               <span class="project-badge">[ Linux ]</span>
               <span class="project-badge">[ JSON ]</span>
               <span class="project-badge">[ SSH ]</span>
+              <span class="project-badge">[ Security Monitoring ]</span>
+              <span class="project-badge">[ SIEM ]</span>
             </div>
             <div class="project-card-expanded">
               <div class="project-card-details">
                 <div class="project-detail-block">
                   <span class="project-detail-label">Overview</span>
-                  <p>Developed a lightweight Linux security monitoring agent for centralized authentication and audit event collection with SIEM-ready output.</p>
+                  <p>Built a Python security-monitoring agent that parses Linux auth/audit logs via regex, forwarding structured JSON audit logs for 100+ daily SSH login events with sub-2-second latency.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Key Features</span>
                   <ul>
-                    <li>SSH login monitoring and failed authentication detection</li>
-                    <li>Privilege escalation and session activity tracking</li>
-                    <li>SIEM-ready JSON event generation</li>
-                    <li>Sub-2 second event forwarding latency</li>
+                    <li>Real-time SSH login monitoring — captures successful/failed authentication events</li>
+                    <li>Privilege escalation detection (sudo, su) and session activity tracking</li>
+                    <li>Regex-based parsing of /var/log/auth.log and auditd logs into structured JSON</li>
+                    <li>Sub-2-second event forwarding latency for SIEM integration</li>
+                    <li>Multi-threaded event processing for high-throughput log ingestion</li>
                   </ul>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Architecture</span>
-                  <p>Python-based event processing pipeline that parses Linux authentication and audit logs using regex and structures security events into JSON for downstream forwarding and analysis.</p>
+                  <p>Python daemon tails authentication and audit logs in real-time. Regex patterns extract structured fields (user, IP, timestamp, event type, success/failure). Events serialized to JSON with standardized schema for SIEM ingestion. Multi-threaded pipeline ensures sub-2s latency under load.</p>
                 </div>
                 <div class="project-detail-block">
                   <span class="project-detail-label">Impact</span>
-                  <p class="project-card-metric">Processed 100+ daily authentication events · Sub-2 second event forwarding latency · Eliminated manual log inspection workflows · Centralized security event visibility</p>
+                  <p class="project-card-metric">100+ daily SSH events processed · Sub-2s forwarding latency · SIEM-ready JSON schema · Failed auth & privilege escalation detection · Multi-threaded processing · Eliminated manual log inspection</p>
                 </div>
               </div>
             </div>
