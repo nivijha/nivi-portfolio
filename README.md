@@ -1,85 +1,49 @@
-# Nivi Jha – Portfolio 🌐
+# Nivi Jha | Developer Portfolio
 
-This repository contains the source code for my **personal portfolio website**, built to showcase my projects, skills, and journey as a software developer.
+A personal portfolio website showcasing my work, technical interests, projects, and journey as a developer.
 
-🔗 **Live Website:** https://nivijha-portfolio.vercel.app/
+🌐 **Live Portfolio:** [Visit Website](https://nivijha-portfolio.vercel.app/)
 
----
+## Overview
 
-## About Me
+This repository contains the source code for my personal portfolio, designed to present my technical background, selected projects, skills, and other experiences in one place.
 
-Hi! I’m **Nivi Jha**, a passionate developer interested in **Web Development, AI/ML, and problem-solving**.  
-This portfolio represents my work, ideas, and the projects I’ve built while learning and growing as an engineer.
-
----
-
-## Features
-
-- Clean and modern UI
-- Fully responsive design
-- Project showcase section
-- Skills and tech stack overview
-- Contact section for easy reach
-- Smooth animations and interactions
-- Deployed live using **Vercel**
-
----
+For detailed information about my projects, their features, implementation, and technology choices, please visit my portfolio.
 
 ## Tech Stack
 
-- HTML5  
-- CSS3  
-- JavaScript  
-- EJS  
-- Node.js / Express  
-- Vercel  
+- **Frontend:** HTML, CSS, JavaScript, EJS
+- **Backend:** Node.js, Express.js
+- **Deployment:** Vercel
 
----
+## Getting Started
 
-## Project Structure
-
-```
-nivi-portfolio/
-│
-├── api/
-├── data/
-├── public/
-├── views/
-├── app.js
-├── package.json
-├── vercel.json
-└── README.md
-```
-
----
-
-## Projects Highlighted
-
-- this section is under development will be updated soon.
----
-
-## Run Locally
+Clone the repository:
 
 ```bash
 git clone https://github.com/nivijha/nivi-portfolio.git
-npm install
-npm start
+cd nivi-portfolio
 ```
 
-Visit: http://localhost:3000
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the application:
+
+```bash
+node app.js
+```
+
+Open `http://localhost:3001` in your browser.
+
+## Connect
+
+- **Portfolio:** [nivijha-portfolio.vercel.app](https://nivijha-portfolio.vercel.app/)
+- **GitHub:** [@nivijha](https://github.com/nivijha)
 
 ---
 
-## Contact
-
-- GitHub: https://github.com/nivijha  
-- Portfolio: https://nivi-portfolio-lovat.vercel.app  
-- Email: nivijha@gmail.com  
-
----
-
-## License
-
-Licensed under the MIT License.
-
-Thank you for visiting my portfolio! :)
+*Thanks for stopping by!*
